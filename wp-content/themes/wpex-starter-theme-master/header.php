@@ -17,7 +17,11 @@
 			<!-- menu -->
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<a href="<?php echo esc_url( home_url( '/category/mens-wear,womens-wear,bags,accessories,shoes/' ) ); ?>" rel="home"><img src="/okaporter_v2/wp-content/uploads/2016/11/OK-À-PORTER-WHITE.svg"></a>
+				<a href="<?php echo esc_url( home_url( '/category/mens-wear,womens-wear,bags,accessories,shoes/' ) ); ?>" rel="home">
+
+					<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/OK-À-PORTER-WHITE.svg">
+
+				</a>
 				<?php wp_nav_menu( array(
 					'theme_location' => 'primary',
 					'menu_id'        => 'primary-menu',
@@ -31,7 +35,7 @@
 
 			<div class="site-title">
 				<div class="site-title-logo">
-					<a href="<?php echo esc_url( home_url( '/category/mens-wear,womens-wear,bags,accessories,shoes/' ) ); ?>" rel="home"><img src="/okaporter_v2/wp-content/uploads/2016/11/ok-à-porter-small.png"></a>
+					<a href="<?php echo esc_url( home_url( '/category/mens-wear,womens-wear,bags,accessories,shoes/' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/ok-à-porter-small.png"></a>
 				</div>
 				<div class="site-title-description">
 				 <?php bloginfo( 'description' ); ?>
