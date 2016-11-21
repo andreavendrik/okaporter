@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'HK Grotesk';
+  src: url("fonts/hkgrotesk-regular-webfont.woff") format('woff'), url("fonts/HKGrotesk-Regular.ttf") format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: 'HK Grotesk';
+  src: url("fonts/hkgrotesk-bold-webfont.woff") format('woff'), url("fonts/HKGrotesk-Bold.ttf") format('truetype');
+  font-style: bold;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
 * {
   padding: 0;
   margin: 0;
