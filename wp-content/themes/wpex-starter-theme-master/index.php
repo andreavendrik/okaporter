@@ -47,28 +47,28 @@
 							$thumbnail_labels = get_field('thumbnail_labels');
 							if( $thumbnail_labels && in_array('organic_cotton_label', $thumbnail_labels) ): ?>
 							<div class="thumbnail_label" id="label_organic">
-								<img src="/okaporter_v2/wp-content/uploads/2016/11/organic-icon2.svg">
+								<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/organic-icon2.svg">
 							</div>
 						<?php endif; ?>
 						<?php
 							$thumbnail_labels = get_field('thumbnail_labels');
 							if( $thumbnail_labels && in_array('fair_labour_label', $thumbnail_labels) ): ?>
 							<div class="thumbnail_label" id="label_labour">
-								<img src="/okaporter_v2/wp-content/uploads/2016/11/fairlabour-icon2.svg">
+                <img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/fairlabour-icon2.svg">
 							</div>
 						<?php endif; ?>
 						<?php
 							$thumbnail_labels = get_field('thumbnail_labels');
 							if( $thumbnail_labels && in_array('recycling_label', $thumbnail_labels) ): ?>
 							<div class="thumbnail_label" id="label_recycling">
-								<img src="/okaporter_v2/wp-content/uploads/2016/11/recycling-icon2.svg">
+                <img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/recycling-icon2.svg">
 							</div>
 						<?php endif; ?>
 						<?php
 							$thumbnail_labels = get_field('thumbnail_labels');
 							if( $thumbnail_labels && in_array('vegan_label', $thumbnail_labels) ): ?>
 							<div class="thumbnail_label" id="label_vegan">
-								<img src="/okaporter_v2/wp-content/uploads/2016/11/vegan-icon2.svg">
+                <img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/vegan-icon2.svg">
 							</div>
 						<?php endif; ?>
 					</div>
@@ -100,10 +100,11 @@
 <!-- Popup with label information  -->
 <div id="label_information">
 	<p>LABELS</p>
-	<p><img src="/okaporter_v2/wp-content/uploads/2016/11/organic-icon2.svg">organic materials</p>
-	<p><img src="/okaporter_v2/wp-content/uploads/2016/11/fairlabour-icon2.svg">fair labour</p>
-	<p><img src="/okaporter_v2/wp-content/uploads/2016/11/recycling-icon2.svg">recycling</p>
-	<p><img src="/okaporter_v2/wp-content/uploads/2016/11/vegan-icon2.svg">vegan production</p>
+	<p><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/organic-icon2.svg">
+organic materials</p>
+	<p><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/fairlabour-icon2.svg">fair labour</p>
+	<p><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/recycling-icon2.svg">recycling</p>
+	<p><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/vegan-icon2.svg">vegan production</p>
 </div>
 
 <div class="warning">
