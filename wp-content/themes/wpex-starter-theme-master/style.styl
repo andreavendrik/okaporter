@@ -4,7 +4,8 @@ breakpoint3 = 700px
 breakpoint2 = 870px
 breakpoint1 = 1100px
 blue = #363ED3
-pink = #FFB6C9
+lightblue = #EAEBFF
+pink = #FFEAEF
 grey = #E6E6E6
 
 @font-face
@@ -28,14 +29,14 @@ titletext(font-size=50px,line-height=45px,text-transform=uppercase)
   font-size font-size
   line-height line-height
 
-
-bodytext()
+bodytext(font-size=18px,line-height=28px,font-weight=normal)
   font-family 'HK Grotesk'
-  font-size 18px
-  line-height 28px
+  font-size font-size
+  line-height line-height
+  font-weight font-weight
 
-tagtext(font-size=12px,font-weight=bold,line-height=14px)
-  text-transform uppercase
+tagtext(font-size=12px,font-weight=bold,line-height=14px,text-transform=uppercase)
+  text-transform text-transform
   font-size font-size
   line-height line-height
   letter-spacing 0.5px
@@ -56,7 +57,7 @@ h1
   titletext()
 
 h2
-  titletext(35px,35px)
+  titletext(40px,35px)
   &.post-title
     a
       color black
@@ -103,22 +104,32 @@ h4
   margin 5px 10px
 
 .main-navigation
-  background-color blue
+  background-color white
   justify-content center
   align-items center
   padding 5px 20px
   display flex
+  height 60px
+  box-sizing border-box
+  position fixed
+  z-index 100
+  box-shadow 0px 0px 5px 0px rgba(0,0,0,0.5)
+  width 100%
+  top 0
+  left 0
   a
-    color white
+    color black
     text-decoration none
-    tagtext(14px)
+    tagtext(12px,bold,,capitalize)
     flex 1
     img
-      width 125px
+      height 40px
       margin-right auto
 
 .site-title
     text-align center
+    img
+      margin 80px auto 20px 
 
 .site-title-description
   display block
@@ -129,8 +140,9 @@ h4
 .site-title-logo
   margin-top 50px
   display block
+  margin-bottom 10px
   img
-    width 200px
+    width 320px
 
 .brand-header
   position relative
@@ -287,85 +299,45 @@ h4
   margin-right 20px
   text-align center
 
-.filter_function
-  text-align center
+.filter
   tagtext()
-  margin-bottom -20px
-  margin-top 75px
-  margin-left auto
-  margin-right auto
-  display flex
-  align-items center
-  justify-content space-between
-  max-width 100%
-  width 1055px
-  flex-wrap wrap
-  span
-    flex 1
-    -webkit-flex 1
-    -ms-flex 1
-    text-align left
-    min-width 200px
-  form
-    flex 3
-    -webkit-flex 3
-    -ms-flex 3
-    text-align right
-    min-width 710px
+  margin-left 15px
+  position relative
 
-@media only screen and (max-width:breakpoint1)
-  .filter_function
-    width 710px
-    text-align left
-    form
-      text-align left
-
-@media only screen and (max-width:breakpoint3)
-  .filter_function
-    display none
-
-.filter_function_mobile
-  display flex
-  display none
-  tagtext()
+.filter-section
   width 100%
+  display flex
+  justify-content flex-end
+  margin-top 40px
 
-@media only screen and (max-width:breakpoint3)
-  .filter_function_mobile
-    display block
-    text-align left
-    margin-bottom 20px
-    span
-      padding 20px
-      cursor pointer
-      color blue
-      text-decoration underline
-
-  #searchandfilter_mobile
-    display none
-    background-color grey
-    padding 10px 20px 20px 20px
-    margin-top 10px
-
-  .searchandfilter
-    li
-      display inline
-      input[type=submit]
-        margin-top 10px
-    ul
-      display inline
-
-.searchandfilter
+.filter-toggle
+  width 200px
+  padding 15px
+  background-color grey
+  cursor pointer
+  position relative
+  box-sizing border-box
+  display flex
+  justify-content space-between
+  tagtext(13px,,,capitalize)
+  svg
+    g
+      g
+        fill rgba(0,0,0,1)
+ 
+.filter-dropdown
+  box-sizing border-box
+  background-color white
+  display none
+  position absolute
+  z-index 100
+  width 200px
   li
-    margin-right 20px
-    &:last-of-type
-      margin-right 0px
-      padding-right 0px
-  label
-    border 0px
-    display flex
-    align-items center
-    cursor pointer
+    display inline 
+    ul
+      padding 0px 15px
+      &:last-of-type
+        padding-bottom 15px
   input[type=checkbox]
     width 12px
     height 12px
@@ -378,6 +350,9 @@ h4
     background-color white
     border 1px solid blue
     position relative
+  input[type=submit]
+    justify-content center
+    align-items center
   input[type=checkbox]:checked
     &:after
       position absolute
@@ -390,38 +365,26 @@ h4
       background-size cover
       color red
   input
-    width 100px
+    width 200px
     height 40px
     border 0px
     background-color blue
     color white
     text-align center
-    tagtext(,normal)
+    tagtext(13px,normal)
 
-@media only screen and (max-width:breakpoint3)
-  .searchandfilter
-    input[type=checkbox]
-      width 20px
-      height 20px
-      margin-right 20px
-    input[type=checkbox]:checked
-      &:after
-        top 5px
-        left 5px
-        right 5px
-        bottom 5px
 
 #main-index
   display flex
   flex-wrap wrap
-  justify-content center
+  justify-content space-between
   margin auto
   max-width 1200px
 
 .post
-    max-width 325px
+    width calc(32.5%)
     position relative
-    margin 40px 20px
+    margin 20px 0
 
 @media only screen and (max-width:breakpoint4)
   .post
@@ -430,11 +393,28 @@ h4
 
 .post-thumbnail
   width 100%
-  max-height 440px
+  max-height 480px
   margin 0
   position relative
   overflow hidden
   background-color grey
+  cursor pointer
+  img
+    width 102%
+    height 100%
+  &:hover
+    background-color lightblue    
+    .post-tag
+      background-color white
+    img
+      opacity 0.8
+      mix-blend-mode overlay    
+      filter grayscale(100%)
+    .thumbnail_labels_wrapper
+      display flex
+      img
+        opacity 1
+        mix-blend-mode normal
 
 @media only screen and (max-width:breakpoint4)
   .post-thumbnail
@@ -445,7 +425,7 @@ h4
 
 .post-tag
   tagtext()
-  background-color pink
+  background-color white
   padding 7px
   position absolute
   bottom 0px
@@ -456,34 +436,36 @@ h4
 
 .post-header
   h2
-    padding 15px
+    padding 15px 15px 20px
     background-color grey
     white-space nowrap
     text-overflow ellipsis
     overflow hidden
 
 .thumbnail_labels_wrapper
-  display flex
+  display none
   flex-direction column
   position absolute
-  top 10px
-  left 10px
+  top 80px
+  left calc(50% - 120px)
+  tagtext(14px)
   img
     width 17px
     max-height 20px
+    margin-right 15px
 
 .thumbnail_label
-  width 35px
+  width 200px
   height 35px
-  border-radius 100px
+  // border-radius 100px
   text-align center
   display flex
   align-items center
   justify-content center
-  padding 4px
-  margin-bottom 10px
-  box-sizing border-box
-  background-color rgba(255,255,255,1)
+  padding 20px
+  border-bottom 1px solid rgba(0,0,0,0.1)
+  &:last-of-type
+    border-bottom none
 
 .label_information_button
   input
@@ -582,7 +564,13 @@ h4
     color black
     margin-bottom 30px
 
-.warning
-  max-width 700px
-  margin auto
-  font-weight bold
+.about-text
+  max-width 1200px
+  width 100%
+  bodytext(21px,28px)
+  padding 20px
+  margin 40px auto
+  background-color pink
+  text-align center
+  span
+    font-weight bold

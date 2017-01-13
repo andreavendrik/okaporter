@@ -4,27 +4,62 @@
     jQuery('#showlabelinformation').live('click', function(event) {
          jQuery('#label_information').slideToggle(200,'swing');
     });
-    jQuery('#show_searchandfilter_mobile').live('click', function(event) {
-         jQuery('#searchandfilter_mobile').slideToggle(200,'swing');
+    jQuery('#show_filter-1').live('click', function(event) {
+         jQuery('#filter-1').slideToggle(200,'swing');
     });
+    jQuery('#show_filter-2').live('click', function(event) {
+         jQuery('#filter-2').slideToggle(200,'swing');
+    });
+    jQuery('#show_filter-3').live('click', function(event) {
+         jQuery('#filter-3').slideToggle(200,'swing');
+    });        
 });</script>
 
 <section id="main-index" class="main">
 
-  <!-- Filter function -->
 
-  <div class="filter_function">
-  	<span>Filter by product:</span>
-  	<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id"]' ); ?>
-  </div>
+<!-- Short introduction -->
+
+<div class="about-text">
+<span>This is Go Frank, a collection of sustainable and fair fashion brands.</span><br>If you are looking to make more conscious fashion choices, this is the place to start. <a href="">Read more...</a>
+</div>
 
 <!-- Filter function mobile -->
-  <div class="filter_function_mobile">
-    <span id="show_searchandfilter_mobile">Filter by product</span>
-    <div id="searchandfilter_mobile">
+
+<div class="filter-section">
+
+  <div class="filter">
+    <div class="filter-toggle" id="show_filter-1">
+    	<p>Product</p>
+		<svg width="12px" height="9px" viewBox="0 0 12 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    		<g id="Desktop-app" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        		<g id="Desktop-Home" transform="translate(-1206.000000, -583.000000)" fill="#FFFFFF">
+            	<polygon id="Triangle-3-Copy-4" points="1212 592 1206 583 1218 583"></polygon>
+       			</g>
+    		</g>
+		</svg>
+    </div>
+    <div class="filter-dropdown" id="filter-1">
       <?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id"]' ); ?>
     </div>
   </div>
+
+    <div class="filter">
+    <div class="filter-toggle" id="show_filter-2">Price</div>
+    <div class="filter-dropdown" id="filter-2">
+      <?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id"]' ); ?>
+    </div>
+  </div>
+
+    <div class="filter">
+    <div class="filter-toggle" id="show_filter-3">Committed to</div>
+    <div class="filter-dropdown" id="filter-3">
+      <?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id"]' ); ?>
+    </div>
+  </div>
+ </div>
+
+  <!-- Brands -->
 
   <?php if ( have_posts() ) : ?>
 
@@ -42,33 +77,38 @@
 						<?php the_tags( ''); ?>
 					</div>
         <!-- Labels -->
+        
 					<div class="thumbnail_labels_wrapper">
 						<?php
 							$thumbnail_labels = get_field('thumbnail_labels');
 							if( $thumbnail_labels && in_array('organic_cotton_label', $thumbnail_labels) ): ?>
 							<div class="thumbnail_label" id="label_organic">
 								<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/organic-icon2.svg">
+								<p>Organic materials</p>
 							</div>
 						<?php endif; ?>
 						<?php
 							$thumbnail_labels = get_field('thumbnail_labels');
 							if( $thumbnail_labels && in_array('fair_labour_label', $thumbnail_labels) ): ?>
 							<div class="thumbnail_label" id="label_labour">
-                <img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/fairlabour-icon2.svg">
+                				<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/fairlabour-icon2.svg">
+                				<p>Fair labour</p>
 							</div>
 						<?php endif; ?>
 						<?php
 							$thumbnail_labels = get_field('thumbnail_labels');
 							if( $thumbnail_labels && in_array('recycling_label', $thumbnail_labels) ): ?>
 							<div class="thumbnail_label" id="label_recycling">
-                <img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/recycling-icon2.svg">
+                				<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/recycling-icon2.svg">
+                				<p>Recycled materials</p>
 							</div>
 						<?php endif; ?>
 						<?php
 							$thumbnail_labels = get_field('thumbnail_labels');
 							if( $thumbnail_labels && in_array('vegan_label', $thumbnail_labels) ): ?>
 							<div class="thumbnail_label" id="label_vegan">
-                <img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/vegan-icon2.svg">
+               					<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/vegan-icon2.svg">
+               					<p>Vegan production</p>
 							</div>
 						<?php endif; ?>
 					</div>
@@ -91,28 +131,6 @@
 	<?php // You can display a message there aren't any posts yet here ?>
 
 <?php endif; ?>
-
-<!-- Button that triggers label_information div -->
-<div class="label_information_button">
-	<input type="button" value="?" id="showlabelinformation"></input>
-</div>
-
-<!-- Popup with label information  -->
-<div id="label_information">
-	<p>LABELS</p>
-	<p><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/organic-icon2.svg">
-organic materials</p>
-	<p><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/fairlabour-icon2.svg">fair labour</p>
-	<p><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/recycling-icon2.svg">recycling</p>
-	<p><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/vegan-icon2.svg">vegan production</p>
-</div>
-
-<div class="warning">
-  <p class="p1"><span class="s2">
-  IMPORTANT: PLEASE KEEP IN MIND THAT THIS SITE IS UNDER DEVELOPMENT AND IS ONLY MEANT TO GIVE YOU A FIRST IMPRESSION. THE BRANDS INCLUDED ON THE HOME PAGE MERELY SERVE TO ILLUSTRATE AND ARE NOT CONFIRMED PART OF THIS PROJECT (YET).
-  </span>
-  </p>
-</div>
 
 </section><!-- #main -->
 
