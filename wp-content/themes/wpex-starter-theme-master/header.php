@@ -4,7 +4,8 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">\
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>	
 	<?php wp_head(); ?>
 </head>
 
@@ -19,7 +20,7 @@
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<a href="<?php echo esc_url( home_url( '/category/mens-wear,womens-wear,bags,accessories,shoes/' ) ); ?>" rel="home">
 
-					<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/gf_thumbnail.svg">
+					<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-liggend-black.svg">
 
 				</a>
 				<?php wp_nav_menu( array(
@@ -31,12 +32,16 @@
 
 		<?php endif; ?>
 
-		<!-- Logo & tagline underneath menu -->
-
-			<div class="site-title">
-				<div class="site-title-logo">
-					<a href="<?php echo esc_url( home_url( '/category/mens-wear,womens-wear,bags,accessories,shoes/' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/gf_staand_black.svg"></a>
-				</div>
-			</div>
-
 	</header>
+
+<script>
+	jQuery(window).scroll(function() {     
+	    var scroll = jQuery(window).scrollTop();
+	    if (scroll > 30) {
+	        jQuery(".main-navigation").addClass("active");
+	    }
+	    else {
+	        jQuery(".main-navigation").removeClass("active");
+	    }
+});
+</script>

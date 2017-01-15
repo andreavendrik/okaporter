@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="59px" viewBox="0 0 44 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 11</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M17.9052632,50.8105263 C13.5573684,50.8105263 10,48.6031579 10,45.9052632 C10,43.2073684 13.5573684,41 17.9052632,41 C22.2531579,41 25.8105263,43.2073684 25.8105263,45.9052632 C25.8105263,48.6522105 22.2531579,50.8105263 17.9052632,50.8105263" id="path-1"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M17.6857879,0 L17.6857879,0 C4.10684057,0 -4.41947522,15.1578947 2.40157741,27.2210526 L17.6857879,47.6842105 L32.9699985,27.2210526 C39.7910511,15.1578947 31.2647353,0 17.6857879,0" id="path-3"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Desktop-app" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-brand-page-map" transform="translate(-490.000000, -1326.000000)">
+            <g id="Group-11" transform="translate(494.000000, 1328.000000)">
+                <g id="Path" fill-opacity="1" fill="black">
+                    <use filter="url(#filter-2)" xlink:href="#path-1"></use>
+                </g>
+                <g id="Fill-1">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="#363ED3" fill-rule="evenodd" xlink:href="#path-3"></use>
+                </g>
+                <path d="M17.6857879,25.4 C13.3378932,25.4 9.78052478,21.8426316 9.78052478,17.4947368 C9.78052478,13.1468421 13.3378932,9.58947368 17.6857879,9.58947368 C22.0336827,9.58947368 25.5910511,13.1468421 25.5910511,17.4947368 C25.5910511,21.9216842 22.0336827,25.4 17.6857879,25.4" id="Path" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
