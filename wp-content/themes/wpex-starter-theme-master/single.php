@@ -28,17 +28,13 @@
 					<div class="brand-introduction-text">
 						<?php the_content(); ?>
 					</div>
-					<div class="brand-introduction-buttons">
+					<div class="brand-buttons-wrapper">
 						<a href="<?php the_field ('webshop_url') ?>" target="blank">
-							<button class="button_wrapper">
-								Shop online <img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-link-white.svg">
+							<button class="brand_button" id="button_webshop">
+								Shop online
 							</button>
 						</a>
-						<a href="">
-							<button class="button_wrapper" id="button_shops_on_map">
-								Shops on map <img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-arrow-white.svg">
-							</button>
-						</a>
+							<button class="brand_button map-button" id="button_shops_on_map">Shops on map</button>
 					</div>
 				</article>
 

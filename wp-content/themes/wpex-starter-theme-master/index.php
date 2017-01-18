@@ -1,100 +1,52 @@
 <?php get_header(); ?>
 
-<!-- Toggle filters -->
+<!-- Add styling to active filter labels -->
 
 <script>jQuery(document).ready(function(){
 		jQuery('#show_filter-1').live('click', function(event) {
-				 jQuery('#filter-1').slideToggle(200,'swing');
-				 jQuery("#show_filter-1").toggleClass("filter-toggle-active");
-		});
-		jQuery('#show_filter-2').live('click', function(event) {
-				 jQuery('#filter-2').slideToggle(200,'swing');
-				 jQuery("#show_filter-2").toggleClass("filter-toggle-active");         
-		});
-		jQuery('#show_filter-3').live('click', function(event) {
-				 jQuery('#filter-3').slideToggle(200,'swing');
-				 jQuery("#show_filter-3").toggleClass("filter-toggle-active");         
-		});        
+				 jQuery("#show_filter-1").toggleClass("filter-label-active");
+		});    
 });</script>
 
-<section class="main">
 
 <!-- Logo & tagline underneath menu -->
 
-	<div class="site-title">
-		<div class="site-title-logo">
-			<a href="<?php echo esc_url( home_url( '/category/mens-wear,womens-wear,bags,accessories,shoes/' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-staand-white.svg"></a>
+	<div class="index-header">
+
+		<div class="index-header-logo">
+			<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-staand-black.svg"></a>
 		</div>
 
-		<div class="about-text">
-			This is <span>Go Frank</span>, a collection of sustainable and fair fashion brands.<br>If you are looking to make more conscious fashion choices, this is the place to start. <a href="">Read more...</a>
+		<div class="index-about-text">
+			This is <span>Go Frank</span>, a collection of sustainable and fair fashion brands.<br> If you are looking to make more conscious fashion choices, this is the place to start. <a href="">Read more...</a>
 		</div>
 	</div>
 
-</section>
+<!--  -->
 
-<section id="main-index" class="main">
+<section class="content-wrapper">
 
-	<!-- Filter function mobile -->
+	<!-- Filter function -->
 
 	<div class="filter-section">
 
 		<div class="filter">
-			<div class="filter-toggle" id="show_filter-1">
-				<p>Product</p>
-			<svg width="12px" height="9px" viewBox="0 0 12 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-					<g id="Desktop-app" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-							<g id="Desktop-Home" transform="translate(-1206.000000, -583.000000)" fill="#FFFFFF">
-								<polygon id="Triangle-3-Copy-4" points="1212 592 1206 583 1218 583"></polygon>
-							</g>
-					</g>
-			</svg>
-			</div>
-			<div class="filter-dropdown" id="filter-1">
+
+			<div class="filter-dropdown" id="filter-labels">
 				<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id"]' ); ?>
 			</div>
 		</div>
 
-			<div class="filter">
-				<div class="filter-toggle" id="show_filter-2">
-					<p>Price</p>
-					<svg width="12px" height="9px" viewBox="0 0 12 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-					<g id="Desktop-app" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-							<g id="Desktop-Home" transform="translate(-1206.000000, -583.000000)" fill="#FFFFFF">
-								<polygon id="Triangle-3-Copy-4" points="1212 592 1206 583 1218 583"></polygon>
-							</g>
-					</g>
-				</svg>
-				</div>
-				<div class="filter-dropdown" id="filter-2">
-					<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id"]' ); ?>
-				</div>
-		</div>
-
-			<div class="filter">
-				<div class="filter-toggle" id="show_filter-3">
-					<p>Committed to</p>
-						<svg width="12px" height="9px" viewBox="0 0 12 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-						<g id="Desktop-app" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								<g id="Desktop-Home" transform="translate(-1206.000000, -583.000000)" fill="#FFFFFF">
-									<polygon id="Triangle-3-Copy-4" points="1212 592 1206 583 1218 583"></polygon>
-								</g>
-						</g>
-				</svg>
-			</div>
-			<div class="filter-dropdown" id="filter-3">
-				<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id"]' ); ?>
-			</div>
-		</div>
 	 </div>
 
-		<!-- Brands -->
+<!-- Brands tiles -->
 
 <?php if ( have_posts() ) : ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<main class="post">
+		<div class="post">
+
 			<a href="<?php the_permalink() ?>">
 				<!-- Brand thumbnail -->
 				<div class="post-thumbnail">
@@ -169,16 +121,27 @@
 				); ?>
 				</header>
 			</a>
-		</main>
+		</div>
 
-<?php endwhile; ?>
+	<?php endwhile; ?>
+	<div class="post">
+
+		<div class="post-call">
+			<p>Your brand here?</p>
+			<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-plus-black.svg" border=0>
+		</div>
+	</div>
 
 <?php else : ?>
 
-	<?php // You can display a message there aren't any posts yet here ?>
+	<div class="no-filter-results">
+		Snap! No brands match your search. 
+	</div>
 
 <?php endif; ?>
 
-</section><!-- #main -->
+</section>
+
+</main>
 
 <?php get_footer(); ?>
