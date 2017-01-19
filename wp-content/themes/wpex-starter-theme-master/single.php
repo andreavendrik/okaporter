@@ -15,16 +15,18 @@
 			</header>
 
 			<main class="brand-wrapper">
-					<div class="post-tag" id="post-tag-single">
+
+					<div class="brand-tile-tag" id="brand-page-tag">
 						<?php the_tags( ''); ?>
 					</div>          
-					<div class="post-title" id="brand-title">
+					<div class="brand-tile-title" id="brand-page-title">
 						<h1><?php the_title(); ?></h1>
 					</div>
 
 			<!-- Content -->
 
 				<article class="brand-introduction">
+
 					<div class="brand-introduction-text">
 						<?php the_content(); ?>
 					</div>

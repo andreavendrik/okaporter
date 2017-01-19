@@ -9,27 +9,30 @@
 	<?php wp_head(); ?>
 </head>
 
+<!-- start of body -->
+
 <body <?php body_class(); ?>>
 
 
-	<!-- mobile menu -->
+	<!-- mobile menu (slide-out panel) -->
 
-	<section id="slideout-menu">
+	<section id="mobile-menu-slideout-panel">
 		<?php wp_nav_menu( array(
 			'theme_location' => 'primary',
 			'menu_id'        => 'primary-menu',
 		) ); ?>
 	</section>
 
-	<main class="slideout-main">
+<!-- div wrapping entire website -->
 
-		<header class="site-header">
+	<main class="website-wrapper">
 
 		<!-- menu -->
+
 		<nav class="menu-wrapper">
 
 			<section class="main-menu" role="navigation">
-				<div id="menu-button">
+				<div id="menu-toggle-button">
 					<span id="menu-line-1"></span>
 					<span id="menu-line-2"></span>
 					<span id="menu-line-3"></span>
@@ -39,6 +42,9 @@
 						<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-liggend-black.svg">
 					</a>
 				</div>
+				<div id="menu-filter-heading">
+					Filter brands
+				</div>
 				<div class="menu-items">
 					<?php wp_nav_menu( array(
 						'theme_location' => 'primary',
@@ -46,19 +52,17 @@
 					) ); ?>
 				</div>
 				<div id="menu-filter-button">
+					<svg height="29" width="28">
+  				<polygon points="3,0 28,0 16,13" style="fill:black;" />
+					</svg>	
 					<span id="filter-line-1"></span>
 					<span id="filter-line-2"></span>
 					<span id="filter-line-3"></span>
-					<span id="filter-line-4"></span>					
-<!-- 					<svg width="20px" height="23px" viewBox="281 16 20 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-						<path d="M289.152091,23.6117801 L281,16 L300.565017,16 L292.412927,23.6117801 L292.412927,32.6563658 L289.152091,29.4325531 L289.152091,23.6117801 Z" id="Combined-Shape" stroke="none" fill="#363ED3" fill-rule="evenodd"></path>
-					</svg> -->
+					<span id="filter-line-4"></span>				
 				</div>				
 			</section>
 
 		</nav>
-
-	</header>
 
 <script>
 
@@ -74,13 +78,15 @@
 		}
 });
 
-//adds styling to active filter button in mobile menu
+//adds styling when filter button is clicked on mobile
 
 	jQuery(document).ready(function(){
 		jQuery('#menu-filter-button').live('click', function(event) {
-			jQuery('#filter-1').slideToggle(200,'swing');
+			jQuery('#filter-labels').slideToggle(200,'swing');
 			jQuery('#menu-filter-button').toggleClass('menu-filter-button-active'); 
-			jQuery('.main-menu').toggleClass('filter-button-active');  			
+			jQuery('#menu-filter-heading').toggleClass('menu-filter-heading-active'); 
+			jQuery('.main-menu').toggleClass('filter-button-active');  	
+			jQuery('#menu-logo').toggleClass('hide-menu-logo');  								
 		});    
 });
 
@@ -94,10 +100,10 @@
 //slide out menu
 
 	jQuery(document).ready(function(){
-		jQuery('#menu-button').live('click', function(event) {
-			jQuery('#slideout-menu').toggleClass('slideout-menu-active');   
-			jQuery('.slideout-main').toggleClass('slideout-main-active');           
-			jQuery('#menu-button').toggleClass('menu-button-active');    
+		jQuery('#menu-toggle-button').live('click', function(event) {
+			jQuery('#mobile-menu-slideout-panel').toggleClass('mobile-menu-slideout-panel-active');   
+			jQuery('.website-wrapper').toggleClass('website-wrapper-active');           
+			jQuery('#menu-toggle-button').toggleClass('menu-toggle-button-active');    
 		  });
 		});  
 	// }

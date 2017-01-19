@@ -22,126 +22,122 @@
 		</div>
 	</div>
 
-<!--  -->
+<!-- Wrapper around content of index -->
 
 <section class="content-wrapper">
 
-	<!-- Filter function -->
+	<!-- Filter brands functionality -->
 
 	<div class="filter-section">
-
-		<div class="filter">
-
 			<div class="filter-dropdown" id="filter-labels">
 				<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id"]' ); ?>
 			</div>
-		</div>
-
-	 </div>
-
-<!-- Brands tiles -->
-
-<?php if ( have_posts() ) : ?>
-
-	<?php while ( have_posts() ) : the_post(); ?>
-
-		<div class="post">
-
-			<a href="<?php the_permalink() ?>">
-				<!-- Brand thumbnail -->
-				<div class="post-thumbnail">
-					<?php if ( has_post_thumbnail() ) {
-						the_post_thumbnail();
-					}?>
-				<!-- Brand tag -->
-					<div class="post-tag">
-						<?php the_tags( ''); ?>
-					</div>
-
-				<!-- Labels -->
-				
-					<div class="thumbnail_labels_wrapper">
-						<?php
-							$thumbnail_labels = get_field('thumbnail_labels');
-							if( $thumbnail_labels && in_array('organic_cotton_label', $thumbnail_labels) ): ?>
-							<div class="thumbnail_label">
-								<div class="label">
-									<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/organic-icon2.svg">
-									<p>Organic materials</p>
-								</div>
-								<div class="divider">
-									<hr></hr>
-								</div>
-							</div>
-						<?php endif; ?>
-						<?php
-							$thumbnail_labels = get_field('thumbnail_labels');
-							if( $thumbnail_labels && in_array('fair_labour_label', $thumbnail_labels) ): ?>
-							<div class="thumbnail_label">
-								<div class="label">
-									<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/fairlabour-icon2.svg">
-									<p>Fair labour</p>
-								</div>
-								<div class="divider">
-									<hr></hr>
-								</div>								
-							</div>
-						<?php endif; ?>
-						<?php
-							$thumbnail_labels = get_field('thumbnail_labels');
-							if( $thumbnail_labels && in_array('recycling_label', $thumbnail_labels) ): ?>
-							<div class="thumbnail_label">
-								<div class="label">							
-									<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/recycling-icon2.svg">
-									<p>Recycled materials</p>
-								</div>
-								<div class="divider">
-									<hr></hr>
-								</div>								
-							</div> 
-						<?php endif; ?>
-						<?php
-							$thumbnail_labels = get_field('thumbnail_labels');
-							if( $thumbnail_labels && in_array('vegan_label', $thumbnail_labels) ): ?>
-							<div class="thumbnail_label">
-								<div class="label">												
-									<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/vegan-icon2.svg">
-									<p>Vegan production</p>
-								</div>
-							</div>
-						<?php endif; ?>
-					</div>
-				</div>
-
-				<!-- Brand title -->
-				<header class="post-header">
-					<?php the_title( sprintf(
-					'<h2 class="post-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
-					'</a></h2>'
-				); ?>
-				</header>
-			</a>
-		</div>
-
-	<?php endwhile; ?>
-	<div class="post">
-
-		<div class="post-call">
-			<p>Your brand here?</p>
-			<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-plus-black.svg" border=0>
-		</div>
 	</div>
 
-<?php else : ?>
+	<!-- Brands tiles -->
 
-	<div class="no-filter-results">
-		Snap! No brands match your search. 
-	</div>
+	<?php if ( have_posts() ) : ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 
-<?php endif; ?>
+			<div class="brand-tile">
+
+				<a href="<?php the_permalink() ?>">
+					<!-- Brand thumbnail -->
+					<div class="brand-tile-thumbnail">
+						<?php if ( has_post_thumbnail() ) {
+							the_post_thumbnail();
+						}?>
+					<!-- Brand tag -->
+						<div class="brand-tile-tag">
+							<?php the_tags( ''); ?>
+						</div>
+
+					<!-- Brand labels -->					
+						<div class="brand-thumbnail-labels-section">
+							<?php
+								$thumbnail_labels = get_field('thumbnail_labels');
+								if( $thumbnail_labels && in_array('organic_cotton_label', $thumbnail_labels) ): ?>
+								
+								<div class="brand-thumbnail-label-wrapper">
+									<div class="brand-thumbnail-label">
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/organic-icon2.svg">
+										<p>Organic materials</p>
+									</div>
+									<div class="divider">
+										<hr></hr>
+									</div>
+								</div>
+							<?php endif; ?>
+							<?php
+								$thumbnail_labels = get_field('thumbnail_labels');
+								if( $thumbnail_labels && in_array('fair_labour_label', $thumbnail_labels) ): ?>
+								<div class="brand-thumbnail-label-wrapper">
+									<div class="brand-thumbnail-label">
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/fairlabour-icon2.svg">
+										<p>Fair labour</p>
+									</div>
+									<div class="divider">
+										<hr></hr>
+									</div>								
+								</div>
+							<?php endif; ?>
+							<?php
+								$thumbnail_labels = get_field('thumbnail_labels');
+								if( $thumbnail_labels && in_array('recycling_label', $thumbnail_labels) ): ?>
+								<div class="brand-thumbnail-label-wrapper">
+									<div class="brand-thumbnail-label">							
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/recycling-icon2.svg">
+										<p>Recycled materials</p>
+									</div>
+									<div class="divider">
+										<hr></hr>
+									</div>								
+								</div> 
+							<?php endif; ?>
+							<?php
+								$thumbnail_labels = get_field('thumbnail_labels');
+								if( $thumbnail_labels && in_array('vegan_label', $thumbnail_labels) ): ?>
+								<div class="brand-thumbnail-label-wrapper">
+									<div class="brand-thumbnail-label">												
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/vegan-icon2.svg">
+										<p>Vegan production</p>
+									</div>
+								</div>
+							<?php endif; ?>
+						</div>
+					</div>
+
+					<!-- Brand title -->
+					<header class="brand-tile-header">
+						<?php the_title( sprintf(
+						'<h2 class="brand-tile-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
+						'</a></h2>'
+					); ?>
+					</header>
+				</a>
+			</div>
+
+		<?php endwhile; ?>
+
+		<!-- Tile calling out for other brands -->
+
+		<div class="brand-tile">
+			<div class="call-for-brands">
+				<p>Your brand here?</p>
+				<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-plus-black.svg" border=0>
+			</div>
+		</div>
+
+	<?php else : ?>
+
+		<div class="no-filter-results">
+			Snap! No brands match your search. 
+		</div>
+
+	<?php endif; ?>
+
+</div>
 
 </section>
-
-</main>
 
 <?php get_footer(); ?>
