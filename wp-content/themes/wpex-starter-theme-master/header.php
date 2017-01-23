@@ -39,7 +39,7 @@
 				</div>
 				<div id="menu-logo">
 					<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home">
-						<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-liggend-black.svg">
+						<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-liggend-blue.svg">
 					</a>
 				</div>
 				<div id="menu-filter-heading">
@@ -66,7 +66,7 @@
 
 <script>
 
-//add class to main menu
+//adds styling to main menu on scroll
 
 	jQuery(window).scroll(function() {     
 		var scroll = jQuery(window).scrollTop();
@@ -93,7 +93,7 @@
 //adds styling to active filter button on desktop version
 	jQuery(document).ready(function(){
 		jQuery('.filter-dropdown label').live('click', function(event) {
-				jQuery('.filter-dropdown label').addClass('filter-dropdown-active');        			        
+				jQuery('.filter-dropdown label').addClass('filter-dropdown-active');        			
 		  });
 		});  
 

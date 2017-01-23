@@ -1,20 +1,11 @@
 <?php get_header(); ?>
 
-<!-- Add styling to active filter labels -->
-
-<script>jQuery(document).ready(function(){
-		jQuery('#show_filter-1').live('click', function(event) {
-				 jQuery("#show_filter-1").toggleClass("filter-label-active");
-		});    
-});</script>
-
-
 <!-- Logo & tagline underneath menu -->
 
 	<div class="index-header">
 
 		<div class="index-header-logo">
-			<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-staand-black.svg"></a>
+ 			<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-staand-blue-3.svg"></a>
 		</div>
 
 		<div class="index-about-text">
@@ -60,11 +51,8 @@
 								
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/organic-icon2.svg">
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable-wit.svg">
 										<p>Organic materials</p>
-									</div>
-									<div class="divider">
-										<hr></hr>
 									</div>
 								</div>
 							<?php endif; ?>
@@ -73,12 +61,9 @@
 								if( $thumbnail_labels && in_array('fair_labour_label', $thumbnail_labels) ): ?>
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/fairlabour-icon2.svg">
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-fair-wit.svg">
 										<p>Fair labour</p>
-									</div>
-									<div class="divider">
-										<hr></hr>
-									</div>								
+									</div>							
 								</div>
 							<?php endif; ?>
 							<?php
@@ -86,12 +71,9 @@
 								if( $thumbnail_labels && in_array('recycling_label', $thumbnail_labels) ): ?>
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">							
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/recycling-icon2.svg">
-										<p>Recycled materials</p>
-									</div>
-									<div class="divider">
-										<hr></hr>
-									</div>								
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-vegan-wit.svg">
+										<p>Vegan production</p>
+									</div>							
 								</div> 
 							<?php endif; ?>
 							<?php
@@ -99,8 +81,8 @@
 								if( $thumbnail_labels && in_array('vegan_label', $thumbnail_labels) ): ?>
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">												
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/uploads/2016/11/vegan-icon2.svg">
-										<p>Vegan production</p>
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-eu-wit.svg">
+										<p>Produced in EU</p>
 									</div>
 								</div>
 							<?php endif; ?>
@@ -122,10 +104,12 @@
 		<!-- Tile calling out for other brands -->
 
 		<div class="brand-tile">
-			<div class="call-for-brands">
-				<p>Your brand here?</p>
-				<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-plus-black.svg" border=0>
-			</div>
+			<a href="<?php echo esc_url( home_url( '/about#brand-application-section' ) );?>">
+				<div class="brand-application">
+					<p>Your brand here?</p>
+					<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-plus-black.svg" border=0>
+				</div>
+			</a>
 		</div>
 
 	<?php else : ?>

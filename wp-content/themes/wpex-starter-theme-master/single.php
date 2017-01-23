@@ -48,9 +48,7 @@
 
 						<?php if( get_field('organic_materials') ): ?>
 						<div class="brand-content-labels">
-							<div class="labels-image">
-								<img src="
-								<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-organic.svg">
+							<div class="labels-image" id="label-sustainable">
 							</div>
 							<div class="labels-text">
 								<h4>Organic materials</h4>
@@ -62,9 +60,7 @@
 
 					<?php if( get_field('fair_labour') ): ?>
 						<div class="brand-content-labels">
-							<div class="labels-image">
-								<img src="
-								<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-fair-labour.svg">
+							<div class="labels-image" id="label-fair">
 							</div>
 							<div class="labels-text">
 								<h4>Fair Labour</h4>
@@ -76,12 +72,10 @@
 
 					<?php if( get_field('recycling') ): ?>
 						<div class="brand-content-labels">
-							<div class="labels-image">
-								<img src="
-								<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-recycling.svg">
+							<div class="labels-image" id="label-vegan">
 							</div>
 							<div class="labels-text">
-								<h4>Recycling</h4>
+								<h4>Vegan</h4>
 								<?php the_field( 'recycling' ) ?>
 							</div>
 						</div>
@@ -89,12 +83,10 @@
 
 					<?php if( get_field('vegan') ): ?>
 						<div class="brand-content-labels">
-							<div class="labels-image">
-								<img src="
-								<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-vegan.svg">
+							<div class="labels-image" id="label-eu">
 							</div>
 							<div class="labels-text">
-								<h4>Vegan production</h4>
+								<h4>Produced in the EU</h4>
 								<?php the_field( 'vegan' ) ?>
 							</div>
 						</div>
