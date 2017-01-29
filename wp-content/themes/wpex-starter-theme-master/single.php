@@ -38,25 +38,21 @@
 							</div>
 							<div>
 								<h4>Website</h4>
-								<p><?php the_field( 'website' ) ?></p>
+								<p><a href="<?php the_field( 'website' ) ?>" target="_blank"><?php the_field( 'website' ) ?></a></p>
 							</div>
 						</div>
 
 						<div class="brand-button-wrapper">
-<!-- 							<a href="<?php the_field ('webshop_url') ?>" target="blank">
- -->								<!-- <button class="brand-button" id="button-webshop">
-									Shop online
-								</button> -->
 
 								<form class="brand-button-form" action="<?php the_field ('webshop_url') ?>">
-    								<input class="brand-button" id="button-webshop" type="submit" value="Shops online" />
+    								<input class="brand-button" id="button-webshop" type="submit" value="Shop online" /><span></span>
 								</form>
-<!-- 							</a>
- -->						<button class="brand-button" id="button-map">
-								Shops on map
-							</button>
+
+ 								<button class="brand-button" id="button-map">
+									Shops on map
+								</button>
+							</div>
 						</div>
-					</div>
 
 				</article>
 
@@ -148,7 +144,7 @@
 		$("#button-map").click(function() {
 		$('html, body').animate({
 			scrollTop: $(".brand-map").offset().top - 150
-		},2000);
+		},1000);
 		});
 </script>
 

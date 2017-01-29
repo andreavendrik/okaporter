@@ -5,7 +5,7 @@
 	<div class="index-header">
 
 		<div class="index-header-logo">
- 			<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-staand-blue-3.svg"></a>
+ 			<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-staand-blue.svg"></a>
 		</div>
 
 		<div class="index-about-text">

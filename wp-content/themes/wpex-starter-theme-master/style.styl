@@ -170,7 +170,8 @@ h4
 .menu-wrapper.active
 &.single .menu-wrapper
 &.page-template-shops .menu-wrapper
-  box-shadow 0px 0px 5px 0px rgba(0,0,0,0.3)
+  //box-shadow 0px 0px 5px 0px rgba(0,0,0,0.3)
+  border-bottom 2px solid black
   background-color white
   .main-menu
     img
@@ -381,13 +382,13 @@ h4
     bodytext(16px,23px)
 
 #about-header
-  background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/header_01.svg"); 
+  background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/header-01.svg"); 
   background-size cover
   background-position top center
   background-repeat no-repeat
   position relative
   width 100%
-  height 350px
+  height 400px
   
 .brand-header
   position relative
@@ -467,7 +468,7 @@ h4
   max-width 1080px
   padding 40px
   position relative
-  margin-top -80px
+  margin-top -100px
 
 @media only screen and (max-width:breakpoint3)
   .brand-wrapper
@@ -545,7 +546,6 @@ h4
   color white
   border 0
   padding 24px
-  //box-shadow 0px 0px 4px 0px rgba(0,0,0,0.3)
   cursor pointer
   display flex
   justify-content space-between
@@ -571,23 +571,27 @@ h4
     background-color grey   
     color black 
     &:after
-      background-image url(images/icon-arrow-black.svg)
-
-.brand-button-form
-  input
-    &:after
-      background-image url(images/icon-link-white.svg)
+      background-image url("../../../wp-content/themes/wpex-starter-theme-master/images/icon-arrow-black.svg", "utf8")
 
 #button-webshop
-  &:after
-    background-image url(images/icon-link-white.svg)
+  input[type=submit]
+    &:after
+      background-image url("../../../wp-content/themes/wpex-starter-theme-master/images/icon-link-white.svg", "utf8")
+      background-repeat no-repeat
+      width 20px
+      height 20px
+      position absolute
+      right 20px
+      top 20px
+      content ""
+      background-size cover 
 
 @media only screen and (max-width:breakpoint2)
   .brand-button-form, #button-map
     width 50%
 
 @media only screen and (max-width:breakpoint4)
-  .brand-button
+  .brand-button-form, #button-map
     width 100%
     
 .brand-button:hover, #button-map:hover
@@ -595,7 +599,7 @@ h4
   background-color black
   color white
   &:after
-    background-image url(images/icon-arrow-white.svg)  
+    background-image url("../../../wp-content/themes/wpex-starter-theme-master/images/icon-arrow-white.svg", "utf8")
 
 .brand-button-wrapper
   margin-top 40px
@@ -831,9 +835,11 @@ h4
   margin auto
   max-width 1200px
   padding 10px
+  margin-bottom 76px
 
 .page-wrapper
   width 100%
+  margin-bottom 75px
     
 #shops-page-wrapper
   width 100%
@@ -1362,4 +1368,8 @@ footer
   
 .wpgmza_table_title  
   font-weight bold
+  
+.p1
+  img
+    margin auto
   
