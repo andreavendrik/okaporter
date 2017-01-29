@@ -6,52 +6,73 @@
 
 			<!-- Header -->
 
-			<header class="brand-header">
-				<?php
-				if (class_exists('MultiPostThumbnails')) :
-				MultiPostThumbnails::the_post_thumbnail(get_post_type(),'secondary-image');
-				endif;
-				?>
+			<header class="brand-header" style="background-image: url('<?php echo MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'secondary-image'); ?>')">
 			</header>
 
 			<main class="brand-wrapper">
 
-					<div class="brand-tile-tag" id="brand-page-tag">
-						<?php the_tags( ''); ?>
-					</div>          
-					<div class="brand-tile-title" id="brand-page-title">
-						<h1><?php the_title(); ?></h1>
+				<article class="brand-introduction">
+
+					<div class="brand-information">
+						<!-- <div class="brand-tile-tag" id="brand-page-tag">
+							<?php the_tags( ''); ?>
+						</div>  -->         
+						<div class="brand-page-title">
+							<h1><?php the_title(); ?></h1>
+						</div>
+						<div class="brand-introduction-text">
+							<?php the_content(); ?>
+						</div>
 					</div>
+
+					<div class="brand-metadata">
+
+						<div class="brand-metadata-wrapper">
+							<div>
+								<h4>Country of origin</h4>
+								<p><?php the_field( 'country_of_origin' ) ?></p>
+							</div>
+							<div>
+								<h4>Labels</h4>
+								<p><?php the_field( 'official_labels' ) ?></p>
+							</div>
+							<div>
+								<h4>Website</h4>
+								<p><?php the_field( 'website' ) ?></p>
+							</div>
+						</div>
+
+						<div class="brand-button-wrapper">
+<!-- 							<a href="<?php the_field ('webshop_url') ?>" target="blank">
+ -->								<!-- <button class="brand-button" id="button-webshop">
+									Shop online
+								</button> -->
+
+								<form class="brand-button-form" action="<?php the_field ('webshop_url') ?>">
+    								<input class="brand-button" id="button-webshop" type="submit" value="Shops online" />
+								</form>
+<!-- 							</a>
+ -->						<button class="brand-button" id="button-map">
+								Shops on map
+							</button>
+						</div>
+					</div>
+
+				</article>
 
 			<!-- Content -->
 
-				<article class="brand-introduction">
-
-					<div class="brand-introduction-text">
-						<?php the_content(); ?>
-					</div>
-					<div class="brand-buttons-wrapper">
-						<a href="<?php the_field ('webshop_url') ?>" target="blank">
-							<button class="brand_button" id="button_webshop">
-								Shop online
-							</button>
-						</a>
-							<button class="brand_button map-button" id="button_shops_on_map">Shops on map</button>
-					</div>
-				</article>
+				<div class="brand-page-header"><h2>So why this brand?</h2></div>
 
 				<article class="brand-content">
 
-					<div class="brand-content-main">
-						<h3>Why is this brand a good choice?</h3>
-
-
-						<?php if( get_field('organic_materials') ): ?>
+					<?php if( get_field('organic_materials') ): ?>
 						<div class="brand-content-labels">
 							<div class="labels-image" id="label-sustainable">
+								<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable-mobile.svg">
 							</div>
 							<div class="labels-text">
-								<h4>Organic materials</h4>
+								<h3>Organic materials</h3>
 								<?php the_field( 'organic_materials' ) ?>
 							</div>
 						</div>
@@ -61,9 +82,10 @@
 					<?php if( get_field('fair_labour') ): ?>
 						<div class="brand-content-labels">
 							<div class="labels-image" id="label-fair">
+								<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-fair-mobile.svg">
 							</div>
 							<div class="labels-text">
-								<h4>Fair Labour</h4>
+								<h3>Fair Labour</h3>
 								<?php the_field( 'fair_labour' ) ?>
 							</div>
 						</div>
@@ -73,69 +95,44 @@
 					<?php if( get_field('recycling') ): ?>
 						<div class="brand-content-labels">
 							<div class="labels-image" id="label-vegan">
+								<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-vegan-mobile.svg">
 							</div>
 							<div class="labels-text">
-								<h4>Vegan</h4>
+								<h3>Vegan</h3>
 								<?php the_field( 'recycling' ) ?>
 							</div>
 						</div>
 					<?php endif; ?>
 
 					<?php if( get_field('vegan') ): ?>
-						<div class="brand-content-labels">
-							<div class="labels-image" id="label-eu">
-							</div>
+							<div class="brand-content-labels">
+								<div class="labels-image" id="label-eu">		
+									<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-eu-mobile.svg">		
+								</div>
 							<div class="labels-text">
-								<h4>Produced in the EU</h4>
+								<h3>Produced in the EU</h3>
 								<?php the_field( 'vegan' ) ?>
 							</div>
 						</div>
 					<?php endif; ?>
 
-				</div>
-
-				<div class="brand-content-metadata">
-					<h3>Information</h3>
-					<div class="brand-content-metadata-section">
-						<h4>Country of origin</h4>
-						<?php the_field( 'country_of_origin' ) ?>
-						</div>
-					<div class="brand-content-metadata-section">
-						<h4>Website</h4>
-						<?php the_field( 'website' ) ?>
-					</div>
-					<div class="brand-content-metadata-section">
-						<h4>official labels</h4>
-						<?php the_field( 'official_labels' ) ?>
-						</div>
-					<div class="brand-content-metadata-section">
-						<h4>Production</h4>
-						<?php the_field( 'production' ) ?>
-					</div>
-				</div>
 			</article>
 
-			<article class="brand-content">
+			<?php if( get_field('brand_story') ): ?>
 
-				<div class="brand-content-story">
-					<?php if( get_field('brand_story') ): ?>
-						<h3>The full story</h3>
-						<div class="brand-content-labels">
-							<div class="labels-text">
-								<?php the_field( 'brand_story' ) ?>
-							</div>
+				<div class="brand-page-header"><h2>The full story</h2></div>
+
+				<article class="brand-content">
+						<div class="labels-text" id="brand-story">
+							<?php the_field( 'brand_story' ) ?>
 						</div>
-					<?php endif; ?>
-				</div>
+					</div>
+				</article>
 
-				<div class="brand-content-story-empty">
-				</div>
+			<?php endif; ?>
 
-				<div class="brand-map-title">
-					<h3>Where to buy <?php the_title(); ?></h3>
-				</div>
+			<div class="brand-page-header"><h2>Where to buy <?php the_title(); ?></h2></div>
 
-			</article>
 
 		</main>
 
@@ -148,9 +145,9 @@
 	</section><!-- #main -->
 
  <script type="text/javascript">
-		$("#button_shops_on_map").click(function() {
+		$("#button-map").click(function() {
 		$('html, body').animate({
-			scrollTop: $(".brand-map-title").offset().top - 150
+			scrollTop: $(".brand-map").offset().top - 150
 		},2000);
 		});
 </script>

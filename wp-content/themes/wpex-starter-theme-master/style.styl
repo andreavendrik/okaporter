@@ -2,7 +2,7 @@
 breakpoint4 = 600px
 breakpoint3 = 700px
 breakpoint2 = 870px
-breakpoint1 = 1100px
+breakpoint1 = 1000px
 blue = #363ED3
 middleblue = #B6C6FF
 lightblue = #00E1FF
@@ -12,38 +12,47 @@ blue10 = #E9FDFF
 pink = #FFB6C9
 lightpink = #FFDCE7
 grey = #E6E6E6
+lightgrey = #F2F2F2
 green = #3ACAAC
 green50 = #9CE2D1
 
 @font-face
   font-family 'HK Grotesk'
   src: url('fonts/hkgrotesk-regular-webfont.woff') format('woff'),
-       url('fonts/HKGrotesk-Regular.ttf') format('truetype');
+       url('fonts/HKGrotesk-Regular.otf') format('truetype');
   font-style normal
   font-weight normal
   text-rendering optimizeLegibility
 
 @font-face
   font-family 'HK Grotesk'
+  src: url('fonts/hkgrotesk-medium-webfont.woff') format('woff'),
+       url('fonts/HKGrotesk-Medium.otf') format('truetype');
+  font-style bold
+  font-weight 500
+  text-rendering optimizeLegibility
+  
+@font-face
+  font-family 'HK Grotesk'
   src: url('fonts/hkgrotesk-bold-webfont.woff') format('woff'),
-       url('fonts/HKGrotesk-Bold.ttf') format('truetype');
+       url('fonts/HKGrotesk-Bold.otf') format('truetype');
   font-style bold
   font-weight bold
   text-rendering optimizeLegibility
 
-titletext(font-size=50px,line-height=45px,text-transform=normal)
+titletext(font-size=50px,line-height=45px)
   font-family 'HK Grotesk'
-  text-transform text-transform
   font-size font-size
   line-height line-height
+  font-weight bold
 
-bodytext(font-size=20px,line-height=30px,font-weight=normal)
+bodytext(font-size=18px,line-height=28px,font-weight=normal)
   font-family 'HK Grotesk'
   font-size font-size
   line-height line-height
   font-weight font-weight
 
-tagtext(font-size=14px,font-weight=bold,line-height=14px,text-transform=none)
+tagtext(font-size=12px,font-weight=bold,line-height=14px,text-transform=none)
   font-family 'HK Grotesk'
   text-transform text-transform
   font-size font-size
@@ -66,73 +75,14 @@ a, a:hover, a:visited, a:active
 h1
   titletext()
 
+h2
+  titletext(40px,50px)
 h3
-  titletext(30px,40px,auto)
-  margin-top 50px
-
+  titletext(19px,27px,auto)
 h4
   tagtext(,,,uppercase)
   margin-top 25px
   margin-bottom 5px
-
-.brand_button
-  width 250px
-  height 64px
-  background-color blue
-  margin-bottom 20px
-  color white
-  border 0
-  padding 24px
-  box-shadow 0px 0px 4px 0px rgba(0,0,0,0.3)
-  cursor pointer
-  display flex
-  justify-content space-between
-  tagtext(16px,normal)
-  box-sizing border-box
-  text-decoration none
-  position relative
-  img
-    height 15px
-    margin-left 5px
-  a
-    text-decoration none
-  &:after
-      background-repeat no-repeat
-      width 20px
-      height 20px
-      position absolute
-      right 20px
-      top 20px
-      content ""
-      background-size cover 
-  &#button_shops_on_map
-    background-color blue25   
-    color black 
-    &:after
-      background-image url(images/icon-arrow-black.svg)
-  
-#button_webshop
-  &:after
-    background-image url(images/icon-link-white.svg)
-
-@media only screen and (max-width:breakpoint3)
-  .brand_button
-    width 100%
-
-.brand_button:hover, #button_shops_on_map:hover
-  transition 0.3s
-  background-color black
-  color white
-  &:after
-    background-image url(images/icon-arrow-white.svg)  
-
-.brand-buttons-wrapper
-  a
-    text-decoration none
-
-@media only screen and (max-width:breakpoint3)
-  .brand-buttons-wrapper
-    margin-top 30px
 
 .menu
   display flex
@@ -142,8 +92,30 @@ h4
   .menu
     display block
     
+.menu-items
+  display flex
+  align-items center
+  justify-content center
+  
 .menu-item
-  margin 5px 10px
+  margin 5px 5px 5px 40px
+  position relative
+  ul
+    cursor pointer
+  &:hover
+    &:after
+      position absolute
+      content ''
+      background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-06.svg", "utf8");        
+      background-position left
+      background-size cover
+      top 7px
+      pointer-events none
+      left calc(50% - 35px)
+      background-repeat no-repeat
+      mix-blend-mode multiply
+      height 20px
+      width 70px
   
 @media only screen and (max-width:breakpoint4)
   .menu-items
@@ -152,25 +124,34 @@ h4
 @media only screen and (max-width:breakpoint4)
   .menu-item
     margin 0px
+    &:hover
+      &:after
+        background-image none
 
 .menu-wrapper
   position fixed
   top 0px
+  left 0px
   width 100%
   z-index 101  
+  transition all 0.5s  
+  
+.menu-wrapper-active
+  left 70vw
   
 .main-menu
   background-color transparent
   justify-content space-between
   align-items center
-  padding 5px 20px
+  padding 5px 10px
   display flex
   height 60px
   box-sizing border-box
   width 100%
+  max-width 1180px
+  margin 0 auto 
   top 0
   left 0
-  transition all 0.5s
   a
     color black
     text-decoration none
@@ -186,33 +167,36 @@ h4
   .main-menu
     padding 15px  
   
-.main-menu.active
-&.single .main-menu
+.menu-wrapper.active
+&.single .menu-wrapper
+&.page-template-shops .menu-wrapper
   box-shadow 0px 0px 5px 0px rgba(0,0,0,0.3)
   background-color white
-  img
-    display block
-  a
-    color black
-    &:hover
-      color blue
+  .main-menu
+    img
+      display block
+    a
+      color black
+      &:hover
+        color blue
 
 .filter-button-active
   background-color grey
    
 #menu-filter-button
   display none
-  width 29px
+  width 30px
   height 25px
   position relative
   overflow hidden
   svg 
     position absolute
     top 0px
+    opacity 1
     transition all 0.5s
   span
     position absolute
-    border-radius 5px
+    border-radius 3px
     height 2px
     background-color black
     transition all 0.5s
@@ -233,8 +217,10 @@ h4
     height 40%!important
   #filter-line-4
     top 0px
-    width 22px
-    left 5px
+    width 27px
+    left 2px
+    border-radius 0px!important
+    display none
 
 @media only screen and (max-width:breakpoint4)
   .home
@@ -244,6 +230,7 @@ h4
 .menu-filter-button-active
   svg
     top -25px!important
+    opacity 0
     fill blue
   span
     background-color blue!important
@@ -311,7 +298,43 @@ h4
   
 .menu-filter-heading-active
   display block!important
+
+.social-icons
+  margin-left 35px
+  position relative
+  &:hover
+    &:after
+      position absolute
+      content ''
+      background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-06.svg", "utf8");        
+      background-position left
+      background-size contain
+      top 0px
+      pointer-events none
+      left calc(50% - 12px)
+      background-repeat no-repeat
+      mix-blend-mode multiply
+      height 20px
+      width 25px
   
+    
+.facebook
+  cursor pointer
+  width 15px
+  height 15px
+  margin-top 2px
+  background-size contain
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/facebook.svg", "utf8");  
+  &:hover
+    background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/facebook-blue.svg", "utf8");  
+
+.social-icons-mobile
+  position absolute
+  bottom 20px
+  left 20px
+  img
+    width 20px
+    
 .index-header
   background-color white
   text-align center
@@ -327,11 +350,12 @@ h4
   display block
   img
     width 360px
-    margin 80px auto 30px 
+    margin 140px auto 30px 
 @media only screen and (max-width:breakpoint4)
   .index-header-logo
     img
       width 70%
+      margin-top 60px      
     padding-top 15px
       
 .index-about-text
@@ -341,7 +365,6 @@ h4
   margin 0px auto 0px
   text-align center
   box-sizing border-box
-  background-color white
   color black
   span
     font-weight bold
@@ -368,114 +391,283 @@ h4
   
 .brand-header
   position relative
-  max-height 70vh
+  height 70vh
   overflow hidden
   margin-top 55px
   display flex
+  background-size cover
+  background-position center center  
+  background-repeat no-repeat
   img
     width 100%
     height 100%
+    
 
 @media only screen and (max-width:breakpoint3)
   .brand-header
-      max-height 90vh
-
-#brand-page-title
-  background-color white
-  padding 18px 18px 23px
-  position absolute
-  height 85px
-  top -140px
-  left 25px
-  min-width 300px
-  box-sizing border-box
-@media only screen and (max-width:breakpoint3)
-  #brand-page-title
+    height 50vh
     width 100%
-    position absolute
-    margin-bottom 30px
-    background-color grey
-    top 0px
-    left 0px
+
+.brand-page-title
+  background-color transparent
+  width 100%
+  padding 0px 30px 30px 0px
+  box-sizing border-box
+  text-align left
+  text-overflow ellipsis
+  overflow hidden  
+  white-space nowrap
+  h1
+    titletext(65px,65px)    
+
+@media only screen and (max-width:breakpoint3)
+  .brand-page-title
     padding 20px
+    margin-left -20px
+    margin-bottom 30px
+    width calc(100% + 40px)
+    background-color blue25    
+    h1
+      titletext(50px,50px)
 
 #brand-page-tag
-  top -173px
+  position absolute
   left 30px
-  bottom auto
-  background-color transparent
-  &:after
+  top 30px  
+  height 25px
+  text-align left
+  width auto
+  padding 5px
+  max-width auto
+  background-color blue50
+  &:before
+    content ''
+    position absolute
+    margin-top -5px
+    width 100%
+    height 25px
+    background-repeat no-repeat
+    background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-end.svg", "utf8");        
+    background-position right
     background-size contain
+  &:after
+    background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-beginning.svg", "utf8");        
+    background-position left
+    background-size contain
+    height 25px
+    margin-top -19px
+    margin-left -10px
+    //background-image none
 @media only screen and (max-width:breakpoint3)
   #brand-page-tag
     top -35px
     
 .brand-wrapper
-  display flex
-  flex-wrap wrap
   margin auto
-  max-width 1000px
-  background-color white
+  max-width 1080px
+  padding 40px
   position relative
-  padding 60px 25px
+  margin-top -80px
 
 @media only screen and (max-width:breakpoint3)
   .brand-wrapper
     display block
-    padding 40px 20px 
+    padding 0px 20px 
+    margin-top 0px
 
 .brand-introduction
   display flex
-  flex-wrap wrap
+  flex-wrap wrap  
+  margin-bottom 100px
 
 @media only screen and (max-width:breakpoint3)
   .brand-introduction
     display block
-    margin-top 80px
-
-.brand-introduction-text
-  flex 2
-  -webkit-flex 2
-  -ms-flex 2
-  margin-right 50px
-  flex-shrink 0
+    margin-bottom 0px
+    
+.brand-information
+  flex 2.5
+  width 100%
+  padding 90px 0px 0px
+  bodytext(23px,34px)
 
 @media only screen and (max-width:breakpoint3)
+  .brand-information
+    display block
+    padding-top 0px
+    bodytext(21px,30px)
+    
+.brand-introduction-text
+  margin-right 75px
+
+@media only screen and (max-width:breakpoint2)
   .brand-introduction-text
-    width 100%
     margin-right 0px
+
+.brand-metadata
+  background-color blue10
+  flex 1
+  display flex
+  flex-direction column
+  justify-content flex-end
+  a
+    text-decoration none
+
+@media only screen and (max-width:breakpoint2)
+  .brand-metadata
+    flex none
+    width 100%
+    margin-top 40px
+
+.brand-metadata-wrapper
+  &:last-of-type
+    margin-bottom 35px
+  padding 0px 20px
+  h4
+    margin-bottom 10px
+
+@media only screen and (max-width:breakpoint2)
+  .brand-metadata-wrapper
+    display flex
+    flex-direction row
+    justify-content space-between
+
+@media only screen and (max-width:breakpoint3)
+  .brand-metadata-wrapper
+    display flex
+    flex-direction column
+    justify-content space-between
+    
+.brand-button
+  width 100%
+  height 60px
+  background-color blue
+  color white
+  border 0
+  padding 24px
+  //box-shadow 0px 0px 4px 0px rgba(0,0,0,0.3)
+  cursor pointer
+  display flex
+  justify-content space-between
+  tagtext(16px,normal)
+  box-sizing border-box
+  text-decoration none
+  position relative
+  img
+    height 15px
+    margin-left 5px
+  a
+    text-decoration none
+  &:after
+      background-repeat no-repeat
+      width 20px
+      height 20px
+      position absolute
+      right 20px
+      top 20px
+      content ""
+      background-size cover 
+  &#button-map
+    background-color grey   
+    color black 
+    &:after
+      background-image url(images/icon-arrow-black.svg)
+
+.brand-button-form
+  input
+    &:after
+      background-image url(images/icon-link-white.svg)
+
+#button-webshop
+  &:after
+    background-image url(images/icon-link-white.svg)
+
+@media only screen and (max-width:breakpoint2)
+  .brand-button-form, #button-map
+    width 50%
+
+@media only screen and (max-width:breakpoint4)
+  .brand-button
+    width 100%
+    
+.brand-button:hover, #button-map:hover
+  transition 0.3s
+  background-color black
+  color white
+  &:after
+    background-image url(images/icon-arrow-white.svg)  
+
+.brand-button-wrapper
+  margin-top 40px
+
+@media only screen and (max-width:breakpoint2)
+  .brand-button-wrapper
+    display flex
+
+@media only screen and (max-width:breakpoint4)
+  .brand-button-wrapper
+    display block
+    
+.brand-page-header
+  margin 75px 0px 25px
+
+@media only screen and (max-width:breakpoint3)
+  .brand-page-header
+    margin 45px 0px 25px
+    h2
+      titletext(35px)
 
 .brand-content
   display flex
   flex-wrap wrap
+  justify-content space-between  
 
-@media only screen and (max-width:breakpoint3)
-  .brand-content
-    display block
+// @media only screen and (max-width:breakpoint3)
+//   .brand-content
+//     //display block
 
-.brand-content-main
-  flex 2
-  -webkit-flex 2
-  -ms-flex 2
-  margin-right 50px
-  flex-shrink 0
-  h3
-    margin-bottom 35px
+.brand-content-labels
+  width calc(50% - 10px)
+  display flex
+  align-items center
+  flex-direction column
+  flex-wrap wrap
+  background-color blue10
+  margin 25px 0px 0px
+  padding 20px
+  //border-radius 5px
+  h4
+    margin-top 0px
 
-@media only screen and (max-width:breakpoint3)
-  .brand-content-main
-    flex none
-    -webkit-flex none
-    -ms-flex none
+@media only screen and (max-width:breakpoint4)
+  .brand-content-labels
     width 100%
-    margin-right 0px
+    margin 0px 0px 25px
+    &:last-of-type
+      margin 0px
 
-.brand-content-story
-  flex 2
-  -webkit-flex 2
-  -ms-flex 2
-  margin-right 50px
-  flex-shrink 0
+.labels-text
+  flex 4
+  -webkit-flex 4
+  p
+    margin-top 20px
+    &:first-of-type
+      margin-top 0px
+  h4 
+    text-align left
+    margin-bottom 10px
+
+.labels-image 
+  text-align center
+  height 80px
+  margin 20px auto 30px
+  img
+    width 100%
+    height 100%
+
+#brand-story
+  p
+    max-width 700px
 
 @media only screen and (max-width:breakpoint3)
   .brand-content-story
@@ -491,77 +683,19 @@ h4
   -ms-flex 1
   flex-shrink 0
 
-.brand-content-metadata
-  flex 1
-  -webkit-flex 1
-  -ms-flex 1
-  flex-shrink 0
-  h3
-    flex 0 0 100%
-    margin-bottom 35px
-
-.brand-content-labels
-  display flex
-  margin-top 25px
-  align-items center
-  flex-wrap wrap
-  h4
-    margin-top 0px
-
-.labels-text
-  flex 4
-  -webkit-flex 4
-  -ms-flex 4
-  p
-    margin-top 20px
-    &:first-of-type
-      margin-top 0px
-
-.labels-image
-  flex 1
-  -webkit-flex 1
-  -ms-flex 1
-  margin-left 10px
-  padding-right 25px
-  text-align center
-  width 100px
-  height 100px
-  background-size 70%
-  background-position left center
-  background-repeat no-repeat
-#label-fair
-  background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-fair.svg", "utf8");
-#label-sustainable
-  background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable.svg", "utf8");
-#label-vegan
-  background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-vegan.svg", "utf8");
-#label-eu
-  background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-eu.svg", "utf8");
-
-@media only screen and (max-width:breakpoint4)
-  .labels-image
-    flex none
-    margin 20px 0px 40px
-    width 100%
-    background-position center center
-    img
-      width 125px
-  .brand-content-labels
-    background-color blue10
-    padding 20px    
-  #label-fair
-    background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-fair-mobile.svg", "utf8");
-  #label-sustainable
-    background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable-mobile.svg", "utf8");
-  #label-vegan
-    background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-vegan-mobile.svg", "utf8");
-  #label-eu
-    background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-eu-mobile.svg", "utf8");
-    
+// #label-fair
+//   background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-fair-mobile.svg", "utf8");
+// #label-sustainable
+//   background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable-mobile.svg", "utf8");
+// #label-vegan
+//   background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-vegan-mobile.svg", "utf8");
+// #label-eu
+//   background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-eu-mobile.svg", "utf8");
+  
 
 .filter-section
   width 100%
-  margin-top 40px
+  margin 40px 0px
   z-index 100
   position relative
 @media only screen and (max-width:breakpoint4)
@@ -576,13 +710,13 @@ h4
   
 .filter-dropdown
   box-sizing border-box
-  tagtext(14px,bold,,capitalize) 
+  tagtext(,bold,,capitalize) 
   ul
     display flex
     align-items center
     flex-wrap wrap
   input
-    tagtext(14px,bold,,capitalize)  
+    tagtext(,bold,,capitalize)  
     height 45px
     border 0px
     background-color white
@@ -701,10 +835,31 @@ h4
 .page-wrapper
   width 100%
     
+#shops-page-wrapper
+  width 100%
+  height 100%
+  position relative
+  background-color blue25
+
+.shops-page-about-text
+  bodytext(21px,28px,bold)
+  text-align center
+  width 100%
+  margin auto
+  padding 100px 0px 40px
+  z-index 2
+  position relative
+
+@media only screen and (max-width:breakpoint4)  
+  .shops-page-about-text
+    text-align left
+    padding 100px 20px 40px
+
+  
 .brand-tile
   width calc(32.5%)
   position relative
-  margin 20px 0
+  margin 0px 0px 20px 0px
   transition all 0.5s
   a
     color white
@@ -719,16 +874,16 @@ h4
       filter grayscale(1)
     .brand-thumbnail-labels-section
       visibility visible
+      pointer-events none
       opacity 1
       img
         opacity 1
         mix-blend-mode normal    
 
-@media only screen and (max-width:breakpoint3)
+@media only screen and (max-width:breakpoint1)
   .brand-tile
     width 49%
     margin 0px 0px 30px 0px    
-    height 100%
 
 @media only screen and (max-width:breakpoint4)
   .brand-tile
@@ -741,6 +896,7 @@ h4
   min-height 400px
   background-color blue
   text-align center
+  position absolute
   cursor pointer
   &:hover,&:active
     background-color blue25
@@ -766,6 +922,11 @@ h4
     box-sizing content-box
     border-radius 100px
     
+@media only screen and (max-width:breakpoint4)
+  .brand-application
+    position relative
+    height 450px
+
 .brand-tile-thumbnail
   width 100%
   max-height 460px
@@ -788,7 +949,7 @@ h4
       height 100%
 
 .brand-tile-tag
-  tagtext(13px,,,uppercase)
+  tagtext(,,,uppercase)
   padding 10px
   position absolute
   left calc(50% - 150px)
@@ -804,17 +965,17 @@ h4
     margin-top -20px
     width 100%
     height 30px
-    background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-05.svg", "utf8");    
+    background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-07.svg", "utf8");    
     background-repeat no-repeat
     background-position center 
-    background-size cover
+    background-size contain
   a
     color black
     text-decoration none
     cursor auto
 
 .brand-tile-title
-  titletext(42px,35px)    
+  titletext(45px,35px)    
   padding 21px 18px 27px
   background-color blue25
   white-space nowrap
@@ -835,7 +996,7 @@ h4
   width 100%
   position absolute
   top 20%
-  tagtext(14px,bold,,uppercase)
+  tagtext(,bold,,uppercase)
   img
     width 35px
     max-height 35px
@@ -883,7 +1044,6 @@ h4
   background-color white
   bottom 120px
   right 40px
-  font-size 14px
   width 200px
   box-shadow 0px 0px 3px 1px rgba(0,0,0,0.3)
   &::before
@@ -942,6 +1102,8 @@ h4
     padding 10px
     box-sizing border-box
     margin-top 20px
+  h1
+      margin 50px auto 25px    
   h2
     margin 40px 0px 20px
     
@@ -1033,22 +1195,40 @@ h4
   h2
     margin-top 0px
     
- #faq-section
+#faq-section
   width 100%
   background-color blue10
   padding 50px
   .page-content
     background-color transparent   
-     
+   
+@media only screen and (max-width:breakpoint3)
+  #faq-section
+    padding 0px 0px 40px
+
 .brand-map-title
   width 100%
   margin-top 40px
   
 .brand-map
   width 100%
-  height 500px
+  height 70vh
   overflow hidden
   background-color blue
+@media only screen and (max-width:breakpoint3)
+  .brand-map
+    height 50vh
+    
+.shops-map
+  width 100%
+  height 600px
+  margin 0 auto
+  z-index 1
+  position relative
+  pointer-events none
+@media only screen and (max-width:breakpoint3)
+  .shops-map
+    width 100%
 
 .no-filter-results
   text-align center
@@ -1062,10 +1242,11 @@ h4
   margin-top 0px
   
 #mobile-menu-slideout-panel
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  display none
+  height 100%
+  width 0
+  position fixed
+  z-index 1000
   top 0
   left 0
   overflow-x hidden
@@ -1089,18 +1270,23 @@ h4
     display block
     transition 0.3s
 
+@media only screen and (max-width:breakpoint4)
+  #mobile-menu-slideout-panel
+    display block
+    
 .website-wrapper
   overflow-x hidden
   width 100%
   transition all 0.5s  
-    
-.website-wrapper-active
-    margin-left 80vw
-    width 100%
-    overflow hidden
+
+@media only screen and (max-width:breakpoint4)
+  .website-wrapper-active
+      margin-left 70vw
+      width 100%
+      overflow hidden
 
 .mobile-menu-slideout-panel-active
-  width 80vw!important
+  width 70vw!important
   transition all .5s
 
 .footer-content
@@ -1110,26 +1296,42 @@ h4
   margin 0 auto 
   
 footer
-  background-color grey
-  margin-top 50px
+  background-color lightgrey
   color black
   width 100%
   height 100%
   padding 50px 50px 75px
   bodytext(16px,26px)
+  h4
+    margin-bottom 15px
+    margin-left 10px
+    position relative
+    &:after
+      position absolute
+      content ''
+      background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-06.svg", "utf8");        
+      background-position left
+      background-size contain
+      top -10px
+      left -10px
+      background-repeat no-repeat
+      mix-blend-mode multiply
+      cursor pointer
+      height 35px
+      width 90px
   a
     color black!important
   .footer-content-section
     margin-right 50px
-    flex 2    
+    flex 1   
     &:last-of-type
       margin-right 0px
     &:first-of-type
       flex 1
-      margin-top 30px
+      //margin-top 30px
     img
-      width 190px
-      
+      width 150px
+      margin-top 20px
   span
     font-weight bold
     
@@ -1147,3 +1349,14 @@ footer
         margin auto
         img
           width 200px
+          
+
+.wpgmza_table_marker
+  display none 
+
+.sorting, .dataTables_length, .dataTables_filter
+  display none
+  
+.wpgmza_table_title  
+  font-weight bold
+  
