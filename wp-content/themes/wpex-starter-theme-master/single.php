@@ -136,7 +136,7 @@
 
 		</main>
 
-		<section class="brand-map">
+		<section class="map brand-map">
 			<?php the_field( 'map_code' ) ?>
 		</section>
 

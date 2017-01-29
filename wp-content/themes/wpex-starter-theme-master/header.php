@@ -6,6 +6,8 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>	
+	<script src="https://use.typekit.net/ppk6yft.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
 	<?php wp_head(); ?>
 </head>
 
@@ -21,6 +23,9 @@
 			'theme_location' => 'primary',
 			'menu_id'        => 'primary-menu',
 		) ); ?>
+		<div class="social-icons-mobile">
+			<a href=""><div class="facebook"></a>
+		</div>
 	</section>
 
 <!-- div wrapping entire website -->
@@ -50,10 +55,13 @@
 						'theme_location' => 'primary',
 						'menu_id'        => 'primary-menu',
 					) ); ?>
+					<div class="social-icons">
+						<a href=""><div class="facebook"></div></a>
+					</div>
 				</div>
 				<div id="menu-filter-button">
-					<svg height="29" width="28">
-  				<polygon points="3,0 28,0 16,13" style="fill:black;" />
+					<svg height="29" width="30">
+  				<polygon points="1,0 31,0 16,13" style="fill:black;" />
 					</svg>	
 					<span id="filter-line-1"></span>
 					<span id="filter-line-2"></span>
@@ -71,10 +79,10 @@
 	jQuery(window).scroll(function() {     
 		var scroll = jQuery(window).scrollTop();
 		if (scroll > 30) {
-			jQuery(".main-menu").addClass("active");
+			jQuery(".menu-wrapper").addClass("active");
 		}
 		else {
-			jQuery(".main-menu").removeClass("active");
+			jQuery(".menu-wrapper").removeClass("active");
 		}
 });
 
@@ -102,10 +110,27 @@
 	jQuery(document).ready(function(){
 		jQuery('#menu-toggle-button').live('click', function(event) {
 			jQuery('#mobile-menu-slideout-panel').toggleClass('mobile-menu-slideout-panel-active');   
-			jQuery('.website-wrapper').toggleClass('website-wrapper-active');           
+			jQuery('.website-wrapper').toggleClass('website-wrapper-active');          
+			jQuery('.menu-wrapper').toggleClass('menu-wrapper-active');           			 
 			jQuery('#menu-toggle-button').toggleClass('menu-toggle-button-active');    
 		  });
 		});  
-	// }
- </script>
 
+</script>
+
+<script>
+
+	var scrollTimer = null;
+
+	jQuery(document).ready(function(){
+
+		jQuery(window).on('scroll', function() {
+		    jQuery('.map').css("pointer-events", "none");
+		    window.clearTimeout(scrollTimer);
+			scrollTimer = window.setTimeout(function() {
+			    jQuery('.map').css("pointer-events", "auto");
+			}, 500);
+		})
+	
+	});  
+</script>

@@ -5,3 +5,4 @@ wp-content/plugins
 !wp-content/themes/wpex-starter-theme-master
 wp-includes
 .DS_Store
+node_modules

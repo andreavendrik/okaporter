@@ -14,7 +14,7 @@ $content = $post->post_content;?>
 			Find shops selling frank brands in your neighborhood.
 		</div>
 
-	<div class="shops-map">
+	<div class="map shops-map">
 		<?php the_field ('shops_map') ?>
 		</div>
 
