@@ -27,7 +27,7 @@
 			<h4>Who?</h4>
 			<p>
 				Go Frank is an initiative by Jonne Bosselaar and Andrea Vendrik.
-				Any questions, remarks, shout outs? <a href="mailto:hello@gofrank.nl">Email us</a>.
+				Any questions, remarks, shout outs? <a href="mailto:hello@gofrank.me">Email us</a>.
 		 
 			</p>
 		</div>

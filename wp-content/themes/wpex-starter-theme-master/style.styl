@@ -98,7 +98,7 @@ h4
   justify-content center
   
 .menu-item
-  margin 5px 5px 5px 40px
+  margin 5px 5px 5px 20px
   position relative
   ul
     cursor pointer
@@ -171,7 +171,7 @@ h4
 &.single .menu-wrapper
 &.page-template-shops .menu-wrapper
   //box-shadow 0px 0px 5px 0px rgba(0,0,0,0.3)
-  border-bottom 2px solid black
+  border-bottom 2px solid rgba(0,0,0,0.8)
   background-color white
   .main-menu
     img
@@ -301,7 +301,7 @@ h4
   display block!important
 
 .social-icons
-  margin-left 35px
+  margin-left 30px
   position relative
   &:hover
     &:after
@@ -389,6 +389,10 @@ h4
   position relative
   width 100%
   height 400px
+
+.about-portraits
+  text-align center
+  margin 20px 0px
   
 .brand-header
   position relative
@@ -489,7 +493,7 @@ h4
 .brand-information
   flex 2.5
   width 100%
-  padding 90px 0px 0px
+  padding 100px 0px 0px
   bodytext(23px,34px)
 
 @media only screen and (max-width:breakpoint3)
@@ -687,16 +691,6 @@ h4
   -ms-flex 1
   flex-shrink 0
 
-// #label-fair
-//   background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-fair-mobile.svg", "utf8");
-// #label-sustainable
-//   background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable-mobile.svg", "utf8");
-// #label-vegan
-//   background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-vegan-mobile.svg", "utf8");
-// #label-eu
-//   background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-eu-mobile.svg", "utf8");
-  
-
 .filter-section
   width 100%
   margin 40px 0px
@@ -730,7 +724,7 @@ h4
   input[type=checkbox]
     width 20px
     height 20px
-    margin-right 20px
+    margin-right 15px
     appearance none
     -moz-appearance none
     -webkit-appearance none
@@ -753,10 +747,10 @@ h4
     justify-content center
     align-items center 
     background-color blue
-    height 55px
+    height 50px
     width 150px
     color white
-    border-radius 5px        
+    border-radius 3px        
     margin-top 15px
   input[type=checkbox]:checked 
     &:after
@@ -766,20 +760,21 @@ h4
       right 3px
       bottom 3px
       content ''
-      background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-cross-black.svg", "utf8");    
+      background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-cross-black.svg", "utf8")
       background-repeat no-repeat
       background-size cover
       background-position center center         
   label
     background-color grey     
     min-width 125px
+    //border 1px solid grey
     display flex
     align-items center
     justify-content space-between
-    border-radius 5px
-    box-shadow 0px 1px 0px 0px rgba(0,0,0,0.2)        
+    border-radius 3px
+    box-shadow inset 0px -3px 0px 0px rgba(0,0,0,0.2)        
     padding 0px 15px
-    height 55px
+    height 50px
     cursor pointer
     margin-top 15px
 @media only screen and (max-width:breakpoint4)
@@ -825,8 +820,9 @@ h4
         background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-cross-blue.svg", "utf8");     
 
 .filter-dropdown-active
-  background-color middleblue!important
-  box-shadow inset 0px 2px 0px 0px rgba(0,0,0,0.05)!important
+  background-color blue50!important
+  //border-bottom 1px solid rgba(0,0,0,0.3)    
+  box-shadow inset 0px 3px 0px 0px rgba(0,0,0,0.2)!important
 
 .content-wrapper
   display flex
@@ -982,7 +978,7 @@ h4
 
 .brand-tile-title
   titletext(45px,35px)    
-  padding 21px 18px 27px
+  padding 25px 18px 25px
   background-color blue25
   white-space nowrap
   text-overflow ellipsis
@@ -1369,7 +1365,6 @@ footer
 .wpgmza_table_title  
   font-weight bold
   
-.p1
-  img
-    margin auto
+.size-full 
+  text-align center
   
