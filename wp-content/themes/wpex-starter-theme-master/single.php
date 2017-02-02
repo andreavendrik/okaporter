@@ -13,10 +13,7 @@
 
 				<article class="brand-introduction">
 
-					<div class="brand-information">
-						<!-- <div class="brand-tile-tag" id="brand-page-tag">
-							<?php the_tags( ''); ?>
-						</div>  -->         
+					<div class="brand-information">      
 						<div class="brand-page-title">
 							<h1><?php the_title(); ?></h1>
 						</div>
@@ -33,9 +30,13 @@
 								<p><?php the_field( 'country_of_origin' ) ?></p>
 							</div>
 							<div>
-								<h4>Labels</h4>
-								<p><?php the_field( 'official_labels' ) ?></p>
+								<h4>Founder</h4>
+								<p><?php the_field( 'founder' ) ?></p>
 							</div>
+							<div>
+								<h4>Collection</h4>
+								<p><?php the_field( 'collection' ) ?></p>
+							</div>							
 							<div>
 								<h4>Website</h4>
 								<p><a href="<?php the_field( 'website' ) ?>" target="_blank"><?php the_field( 'website' ) ?></a></p>

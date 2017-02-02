@@ -11,19 +11,22 @@
 		<div class="index-about-text">
 			This is <span>Go Frank</span>, a collection of sustainable and fair fashion brands.<br> If you are looking to make more conscious fashion choices, this is the place to start. <a href="">Read more...</a>
 		</div>
+
 	</div>
 
+
+<!-- Filter brands functionality -->
+
+<div class="filter-wrapper">
+		<div class="filter-dropdown" id="filter-labels">
+			<p>Filter brands</p> 
+			<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id"]' ); ?>
+		</div>
+</div>
+	
 <!-- Wrapper around content of index -->
 
 <section class="content-wrapper">
-
-	<!-- Filter brands functionality -->
-
-	<div class="filter-section">
-			<div class="filter-dropdown" id="filter-labels">
-				<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id"]' ); ?>
-			</div>
-	</div>
 
 	<!-- Brands tiles -->
 
@@ -47,12 +50,12 @@
 						<div class="brand-thumbnail-labels-section">
 							<?php
 								$thumbnail_labels = get_field('thumbnail_labels');
-								if( $thumbnail_labels && in_array('organic_cotton_label', $thumbnail_labels) ): ?>
+								if( $thumbnail_labels && in_array('green_production_label', $thumbnail_labels) ): ?>
 								
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">
 										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable-wit.svg">
-										<p>Organic materials</p>
+										<p>Green Production</p>
 									</div>
 								</div>
 							<?php endif; ?>
@@ -68,7 +71,7 @@
 							<?php endif; ?>
 							<?php
 								$thumbnail_labels = get_field('thumbnail_labels');
-								if( $thumbnail_labels && in_array('recycling_label', $thumbnail_labels) ): ?>
+								if( $thumbnail_labels && in_array('vegan_label', $thumbnail_labels) ): ?>
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">							
 										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-vegan-wit.svg">
@@ -78,7 +81,7 @@
 							<?php endif; ?>
 							<?php
 								$thumbnail_labels = get_field('thumbnail_labels');
-								if( $thumbnail_labels && in_array('vegan_label', $thumbnail_labels) ): ?>
+								if( $thumbnail_labels && in_array('produced_in_eu_label', $thumbnail_labels) ): ?>
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">												
 										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-eu-wit.svg">
@@ -124,4 +127,20 @@
 
 </section>
 
+<script>
+
+//makes filter menu sticky
+
+var  mn = jQuery(".filter-wrapper");
+mns = "filter-wrapper-active";
+hdr = jQuery('.index-header').height();
+
+jQuery(window).scroll(function() {
+  if( jQuery(window).scrollTop() > hdr - 60 ) {
+    mn.addClass(mns);
+  } else {
+    mn.removeClass(mns);
+  }
+});
+</script>
 <?php get_footer(); ?>

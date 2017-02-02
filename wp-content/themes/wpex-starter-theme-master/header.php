@@ -78,13 +78,14 @@
 
 	jQuery(window).scroll(function() {     
 		var scroll = jQuery(window).scrollTop();
-		if (scroll > 30) {
+		if (scroll > 60) {
 			jQuery(".menu-wrapper").addClass("active");
 		}
 		else {
 			jQuery(".menu-wrapper").removeClass("active");
 		}
 });
+
 
 //adds styling when filter button is clicked on mobile
 
