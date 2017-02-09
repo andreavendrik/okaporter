@@ -5,7 +5,7 @@
 <section class="index-header" id="index-header-id">
 
 	<div class="index-header-logo">
-			<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-staand-blue.svg"></a>
+			<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/gf-logo-16.svg"></a>
 	</div>
 
 	<div class="index-about-text">
@@ -154,7 +154,7 @@
 	  }
 	});
 
-	
+
 </script>
 
 <!-- Google Analytics code -->
