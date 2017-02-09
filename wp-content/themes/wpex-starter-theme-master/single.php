@@ -45,13 +45,18 @@
 
 						<div class="brand-button-wrapper">
 
-								<form class="brand-button-form" action="<?php the_field ('webshop_url') ?>">
-    								<input class="brand-button" id="button-webshop" type="submit" value="Shop online" /><span></span>
-								</form>
-
- 								<button class="brand-button" id="button-map">
-									Shops on map
-								</button>
+				<a
+					class="brand-button" 
+					id="button-webshop" 
+					href="<?php the_field ('webshop_url') ?>" target="_blank">
+						Shop online
+				</a>
+				<a
+					class="brand-button" 
+					id="button-map" 
+				>
+						Shops on map
+				</a>
 							</div>
 						</div>
 
@@ -63,17 +68,23 @@
 
 				<article class="brand-content">
 
-					<?php if( get_field('organic_materials') ): ?>
+					<?php if( get_field('green_production') ): ?>
 						<div class="brand-content-labels">
 							<div class="labels-image" id="label-sustainable">
 								<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable-mobile.svg">
 							</div>
 							<div class="labels-text">
-								<h3>Organic materials</h3>
-								<?php the_field( 'organic_materials' ) ?>
+							<?php if( get_field('sustainable_production') ): ?>
+								<h3>Green production</h3>
+								<?php the_field( 'sustainable_production' ) ?>
+							<?php endif; ?>								
+							<?php if( get_field('sustainable_materials') ): ?>
+								<h3>Sustainable materials</h3>
+								<?php the_field( 'sustainable_materials' ) ?>
+							<?php endif; ?>								
 							</div>
 						</div>
-					<?php endif; ?>
+					<?php endif; ?>		
 
 
 					<?php if( get_field('fair_labour') ): ?>
@@ -82,33 +93,33 @@
 								<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-fair-mobile.svg">
 							</div>
 							<div class="labels-text">
-								<h3>Fair Labour</h3>
+								<h3>Fair labour</h3>
 								<?php the_field( 'fair_labour' ) ?>
 							</div>
 						</div>
 					<?php endif; ?>
 
 
-					<?php if( get_field('recycling') ): ?>
+					<?php if( get_field('vegan') ): ?>
 						<div class="brand-content-labels">
 							<div class="labels-image" id="label-vegan">
 								<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-vegan-mobile.svg">
 							</div>
 							<div class="labels-text">
 								<h3>Vegan</h3>
-								<?php the_field( 'recycling' ) ?>
+								<?php the_field( 'vegan' ) ?>
 							</div>
 						</div>
 					<?php endif; ?>
 
-					<?php if( get_field('vegan') ): ?>
+					<?php if( get_field('produced_in_eu') ): ?>
 							<div class="brand-content-labels">
 								<div class="labels-image" id="label-eu">		
 									<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-eu-mobile.svg">		
 								</div>
 							<div class="labels-text">
 								<h3>Produced in the EU</h3>
-								<?php the_field( 'vegan' ) ?>
+								<?php the_field( 'produced_in_eu' ) ?>
 							</div>
 						</div>
 					<?php endif; ?>

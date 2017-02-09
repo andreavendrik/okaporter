@@ -45,6 +45,8 @@
 
 <?php wp_footer(); ?>
 
+	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
+
 </main>
 </body>
 </html>

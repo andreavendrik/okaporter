@@ -2,27 +2,31 @@
 
 <!-- Logo & tagline underneath menu -->
 
-	<div class="index-header">
+<section class="index-header" id="index-header-id">
 
-		<div class="index-header-logo">
- 			<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-staand-blue.svg"></a>
-		</div>
-
-		<div class="index-about-text">
-			This is <span>Go Frank</span>, a collection of sustainable and fair fashion brands.<br> If you are looking to make more conscious fashion choices, this is the place to start. <a href="">Read more...</a>
-		</div>
-
+	<div class="index-header-logo">
+			<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-staand-blue.svg"></a>
 	</div>
+
+	<div class="index-about-text">
+		This is <span>Go Frank</span>, a collection of sustainable and fair fashion brands.<br> If you are looking to make more conscious fashion choices, this is the place to start. <a href="">Read more...</a>
+	</div>
+
+</section>
 
 
 <!-- Filter brands functionality -->
 
-<div class="filter-wrapper">
-		<div class="filter-dropdown" id="filter-labels">
-			<p>Filter brands</p> 
+<section class="filter-wrapper">
+
+	<div class="filter">
+		<button class="filter-button-desktop">Filter brands</button>
+		<div class="filter-labels">
 			<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id"]' ); ?>
 		</div>
-</div>
+	</div>
+
+</section>
 	
 <!-- Wrapper around content of index -->
 
@@ -37,10 +41,8 @@
 
 				<a href="<?php the_permalink() ?>">
 					<!-- Brand thumbnail -->
-					<div class="brand-tile-thumbnail">
-						<?php if ( has_post_thumbnail() ) {
-							the_post_thumbnail();
-						}?>
+					<div class="brand-tile-thumbnail" onclick="location.href='<?php the_permalink() ?>'" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
+
 					<!-- Brand tag -->
 						<div class="brand-tile-tag">
 							<?php the_tags( ''); ?>
@@ -123,24 +125,48 @@
 
 	<?php endif; ?>
 
-</div>
+	</div>
 
 </section>
 
 <script>
 
-//makes filter menu sticky
+//adds styling and pulls out filter menu when filter button is clicked on mobile 
 
-var  mn = jQuery(".filter-wrapper");
-mns = "filter-wrapper-active";
-hdr = jQuery('.index-header').height();
-
-jQuery(window).scroll(function() {
-  if( jQuery(window).scrollTop() > hdr - 60 ) {
-    mn.addClass(mns);
-  } else {
-    mn.removeClass(mns);
-  }
+	jQuery(document).ready(function(){
+		jQuery('.filter-button-desktop').live('click', function(event) {
+			jQuery('.filter-labels').slideToggle(200,'swing');		
+			jQuery('.filter-button-desktop').toggleClass('filter-button-desktop-active');  	
+		});    
 });
+
+//makes filter labels sticky to top on desktop
+
+	var  mn = jQuery(".filter-wrapper");
+	mns = "filter-wrapper-active";
+	hdr = document.getElementById('index-header-id').scrollHeight;
+
+	jQuery(window).scroll(function() {
+	  if( jQuery(window).scrollTop() > (hdr - 60) ) {
+	    mn.addClass(mns);
+	  } else {
+	    mn.removeClass(mns);
+	  }
+	});
+
+	
 </script>
+
+<!-- Google Analytics code -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91644969-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
 <?php get_footer(); ?>
