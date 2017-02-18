@@ -39,12 +39,21 @@ green50 = #9CE2D1
   font-style bold
   font-weight bold
   text-rendering optimizeLegibility
+  
+@font-face
+  font-family 'Lydian'
+  src: embedurl('fonts/lydian-bold-italic-bt-589c3496562d1-webfont.woff') format('woff'),
+       embedurl('fonts/lydian-bold-italic-bt-589c3496562d1.ttf') format('truetype');
+  font-style italic
+  font-weight bold
+  text-rendering optimizeLegibility
 
 titletext(font-size=50px,line-height=45px)
-  font-family 'HK Grotesk'
+  font-family 'Lydian'
   font-size font-size
   line-height line-height
   font-weight bold
+  font-style italic
 
 bodytext(font-size=18px,line-height=28px,font-weight=normal)
   font-family 'HK Grotesk'
@@ -77,14 +86,26 @@ h1
   titletext()
 
 h2
-  titletext(40px,50px)
+  titletext(50px,50px)
 h3
-  titletext(19px,27px,auto)
+  bodytext(19px,27px,auto)
 h4
   tagtext(,,,uppercase)
   margin-top 25px
-  margin-bottom 5px
+  margin-bottom 10px
 
+ol
+  counter-reset foo
+  display table
+  li
+    counter-increment foo
+    display table-row
+    &:before
+      content counter(foo) "."
+      display table-cell
+      text-align right
+      padding-right 10px
+      
 .menu
   display flex
   width 100%
@@ -303,7 +324,8 @@ h4
     transform rotate(-45deg)
   
 #menu-logo
-  height 40px
+  img
+    height 35px
 
 .hide-menu-logo
   display none
@@ -400,13 +422,13 @@ h4
     bodytext(16px,23px)
 
 #about-header
-  background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/header-03.png"); 
+  background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/header-04.png"); 
   background-size cover
   background-position top center
   background-repeat no-repeat
   position relative
   width 100%
-  height 450px
+  height 400px
 
 .about-portraits
   text-align center
@@ -419,12 +441,16 @@ h4
   display flex
   margin-top 60px
   background-size cover
-  background-position top center  
+  background-position center center  
   background-repeat no-repeat
   img
     width 100%
     height 100%
 
+@media only screen and (max-width:breakpoint2)
+  .brand-header
+      background-position top center  
+      
 @media only screen and (max-width:breakpoint4)
   .brand-header
     height 50vh
@@ -441,7 +467,7 @@ h4
   overflow hidden  
   white-space nowrap
   h1
-    titletext(65px,65px)    
+    titletext(70px,70px)    
 
 @media only screen and (max-width:breakpoint3)
   .brand-page-title
@@ -528,6 +554,11 @@ h4
   .brand-introduction-text
     margin-right 0px
 
+.brand-photographer-credits
+  margin-top 20px
+  tagtext(,normal,,uppercase)
+  display flex
+  
 .brand-metadata
   background-color blue10
   flex 1
@@ -647,7 +678,7 @@ h4
   .brand-page-header
     margin 45px 0px 25px
     h2
-      titletext(35px)
+      titletext(45px)
 
 .brand-content
   display flex
@@ -687,6 +718,28 @@ h4
   h3
     text-align left
     margin-top 20px
+  ol
+    ounter-reset foo
+    display table
+    li
+      counter-increment foo
+      display table-row
+      &:before
+        content counter(foo) "."
+        display table-cell
+        text-align right
+        padding-right 10px
+  ul
+    ounter-reset foo
+    display table
+    li
+      counter-increment foo
+      display table-row
+      &:before
+        content "•"
+        display table-cell
+        text-align right
+        padding-right 10px
 
 .labels-image 
   text-align center
@@ -1093,7 +1146,7 @@ h4
     cursor auto
 
 .brand-tile-title
-  titletext(45px,35px)    
+  titletext(50px,40px)    
   padding 20px 18px 25px
   background-color blue25
   white-space nowrap
@@ -1115,7 +1168,7 @@ h4
   width 100%
   position absolute
   top 20%
-  tagtext(18px,bold,24px,capitalize)
+  tagtext(16px,bold,24px,capitalize)
   img
     width 45px
     max-height 45px
@@ -1215,7 +1268,7 @@ h4
     margin-top 20px
   #page-introduction
     bodytext(27px,38px,bold)
-    margin 30px 0px 30px
+    margin 15px 0px 30px
   img
     border-radius 100px
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
@@ -1228,7 +1281,7 @@ h4
   h1
       margin 50px auto 25px    
   h2
-    margin 40px 0px 20px
+    margin 30px 0px
 
  @media only screen and (max-width:breakpoint3)
   .page-content
@@ -1335,7 +1388,7 @@ h4
 #faq-section
   width 100%
   background-color blue10
-  padding 50px
+  padding 25px 50px 50px
   .page-content
     background-color transparent   
    
@@ -1351,9 +1404,15 @@ h4
   width 100%
   overflow hidden
   pointer-events none
+  .p1
+   max-width 1080px 
+   padding 40px
+   margin auto
 @media only screen and (max-width:breakpoint3)
   .brand-map
-    height 90vh
+    max-height 90vh
+    p
+      padding 20px
     
 .shops-map
   width 100%
@@ -1369,13 +1428,13 @@ h4
   box-shadow 0px 0px 0px 0px rgba(0,0,0,0)!important
   
 .wpgmp_tabs_container
-  width 250px!important
+  width 200px!important
   right 10px
   bottom 70px
   top auto!important
   box-shadow 0px 0px 3px 1px rgba(0,0,0,0.3)!important
   *
-    font-size 16px!important  
+    font-size 13px!important  
 
 @media only screen and (max-width:breakpoint4)
   .wpgmp_tabs_container

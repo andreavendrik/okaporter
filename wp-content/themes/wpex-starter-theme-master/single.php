@@ -20,6 +20,11 @@
 						<div class="brand-introduction-text">
 							<?php the_content(); ?>
 						</div>
+						<?php if( get_field('photographer') ): ?>
+							<div class="brand-photographer-credits">
+							Photography by&nbsp;<?php the_field( 'photographer' ); ?>
+							</div>
+						<?php endif; ?>
 					</div>
 
 					<div class="brand-metadata">
@@ -27,19 +32,19 @@
 						<div class="brand-metadata-wrapper">
 							<div>
 								<h4>Country of origin</h4>
-								<p><?php the_field( 'country_of_origin' ) ?></p>
+								<p><?php the_field( 'country_of_origin' ); ?></p>
 							</div>
 							<div>
 								<h4>Founder</h4>
-								<p><?php the_field( 'founder' ) ?></p>
+								<p><?php the_field( 'founder' ); ?></p>
 							</div>
 							<div>
 								<h4>Collection</h4>
-								<p><?php the_field( 'collection' ) ?></p>
+								<p><?php the_field( 'collection' ); ?></p>
 							</div>							
 							<div>
 								<h4>Website</h4>
-								<p><a href="<?php the_field( 'website' ) ?>" target="_blank"><?php the_field( 'website' ) ?></a></p>
+								<p><a href="<?php the_field( 'website' ); ?>" target="_blank"><?php the_field( 'website' ); ?></a></p>
 							</div>
 						</div>
 
@@ -76,11 +81,11 @@
 							<div class="labels-text">
 							<?php if( get_field('sustainable_production') ): ?>
 								<h3>Green production</h3>
-								<?php the_field( 'sustainable_production' ) ?>
+								<?php the_field( 'sustainable_production' ); ?>
 							<?php endif; ?>								
 							<?php if( get_field('sustainable_materials') ): ?>
 								<h3>Sustainable materials</h3>
-								<?php the_field( 'sustainable_materials' ) ?>
+								<?php the_field( 'sustainable_materials' ); ?>
 							<?php endif; ?>								
 							</div>
 						</div>
@@ -94,7 +99,7 @@
 							</div>
 							<div class="labels-text">
 								<h3>Fair labour</h3>
-								<?php the_field( 'fair_labour' ) ?>
+								<?php the_field( 'fair_labour' ); ?>
 							</div>
 						</div>
 					<?php endif; ?>
@@ -107,7 +112,7 @@
 							</div>
 							<div class="labels-text">
 								<h3>Vegan</h3>
-								<?php the_field( 'vegan' ) ?>
+								<?php the_field( 'vegan' ); ?>
 							</div>
 						</div>
 					<?php endif; ?>
@@ -119,7 +124,7 @@
 								</div>
 							<div class="labels-text">
 								<h3>Produced in the EU</h3>
-								<?php the_field( 'produced_in_eu' ) ?>
+								<?php the_field( 'produced_in_eu' ); ?>
 							</div>
 						</div>
 					<?php endif; ?>

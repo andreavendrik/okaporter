@@ -43,7 +43,7 @@
 				</div>
 				<div id="menu-logo">
 					<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home">
-						<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-liggend-blue.svg">
+						<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/gf-logo-21.svg">
 					</a>
 				</div>
 				<div id="menu-filter-heading">
