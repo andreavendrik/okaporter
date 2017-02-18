@@ -1042,15 +1042,12 @@ ol
         position absolute
         width 100%
         height 100%
-        opacity 0.8
+        opacity 0.5
         pointer-events none
       filter grayscale(1)
     .brand-thumbnail-labels-section
-      visibility visible
       pointer-events none
-      opacity 1
       img
-        opacity 1
         mix-blend-mode normal    
 
 @media only screen and (max-width:breakpoint1)
@@ -1161,18 +1158,19 @@ ol
 
 .brand-thumbnail-labels-section
   display flex
-  visibility hidden
-  opacity 0
   transition visibility 0s, opacity 1s
   flex-direction column
-  width 100%
   position absolute
-  top 20%
-  tagtext(16px,bold,24px,capitalize)
+  top 15px
+  right 15px
+  tagtext(11px,bold,24px,uppercase)
   img
-    width 45px
-    max-height 45px
-    margin-right 15px
+    width 40px
+    max-height 40px
+    margin 0px 0px 10px
+    //background-color white
+    //border-radius 0px 0px 0px 5px
+    padding 3px
   hr
     border-top: 1px solid blue;
     width 100px
@@ -1181,12 +1179,10 @@ ol
     left calc(50% - 50px)
 
 .brand-thumbnail-label-wrapper
-  height 35px
   display flex
   align-items center
   justify-content center
   flex-direction column
-  padding 45px
   &:last-of-type
     hr
       display none

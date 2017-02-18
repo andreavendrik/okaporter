@@ -56,9 +56,9 @@
 								
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable-wit.svg">
-										<p>Green Production</p>
-									</div>
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable.svg">
+<!-- 										<p>Green Production</p>
+ -->									</div>
 								</div>
 							<?php endif; ?>
 							<?php
@@ -66,9 +66,9 @@
 								if( $thumbnail_labels && in_array('fair_labour_label', $thumbnail_labels) ): ?>
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-fair-wit.svg">
-										<p>Fair labour</p>
-									</div>							
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-fair.svg">
+<!-- 										<p>Fair labour</p>
+ -->									</div>							
 								</div>
 							<?php endif; ?>
 							<?php
@@ -76,9 +76,9 @@
 								if( $thumbnail_labels && in_array('vegan_label', $thumbnail_labels) ): ?>
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">							
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-vegan-wit.svg">
-										<p>Vegan production</p>
-									</div>							
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-vegan.svg">
+<!-- 										<p>Vegan production</p>
+ -->									</div>							
 								</div> 
 							<?php endif; ?>
 							<?php
@@ -86,9 +86,9 @@
 								if( $thumbnail_labels && in_array('produced_in_eu_label', $thumbnail_labels) ): ?>
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">												
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-eu-wit.svg">
-										<p>Produced in EU</p>
-									</div>
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-eu.svg">
+<!-- 										<p>Produced in EU</p>
+ -->									</div>
 								</div>
 							<?php endif; ?>
 						</div>
