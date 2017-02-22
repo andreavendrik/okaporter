@@ -9,7 +9,7 @@
 	</div>
 
 	<div class="index-about-text">
-		This is <span>Go Frank</span>, a noncommercial collection of sustainable and fair fashion brands.<br> If you are looking to make more conscious fashion choices, this is the place to start. <a href="">Read more...</a>
+		This is <span>Go Frank</span>, a noncommercial collection of sustainable and fair fashion brands.<br> If you are looking to make more conscious fashion choices, this is the place to start. <a href="<?php echo get_bloginfo('siteurl');?>/about">Read more...</a>
 	</div>
 
 </section>
@@ -134,7 +134,7 @@
 //adds styling and pulls out filter menu when filter button is clicked on mobile 
 
 	jQuery(document).ready(function(){
-		jQuery('.filter-button-desktop').live('click', function(event) {
+		jQuery('.filter-button-desktop').on('click', function(event) {
 			jQuery('.filter-labels').slideToggle(200,'swing');		
 			jQuery('.filter-button-desktop').toggleClass('filter-button-desktop-active');  	
 		});    
@@ -142,19 +142,86 @@
 
 //makes filter labels sticky to top on desktop
 
-	var  mn = jQuery(".filter-wrapper");
-	mns = "filter-wrapper-active";
-	hdr = document.getElementById('index-header-id').scrollHeight;
+	var getWindowY = function() { return window.pageYOffset || document.documentElement.scrollTop }
 
 	jQuery(window).scroll(function() {
-	  if( jQuery(window).scrollTop() > (hdr - 60) ) {
-	    mn.addClass(mns);
-	  } else {
-	    mn.removeClass(mns);
-	  }
-	});
+		if(getWindowY() <= 400) {
+			jQuery(".filter-wrapper").removeClass('filter-wrapper-active');
+		} else {
+			jQuery(".filter-wrapper").addClass('filter-wrapper-active');
+		}
+	})
+
+//adds styling to main menu on scroll
+
+	jQuery(window).scroll(function() {     
+		var scroll = jQuery(window).scrollTop();
+		if (scroll > 60) {
+			jQuery(".menu-wrapper").addClass("active");
+		}
+		else {
+			jQuery(".menu-wrapper").removeClass("active");
+		}
+});
 
 
+//adds styling and pulls out filter menu when filter button is clicked on mobile 
+
+	jQuery(document).ready(function(){
+		jQuery('#filter-button-mobile').on('click', function(event) {
+			jQuery('.filter-labels').slideToggle(200,'swing');
+			jQuery('#filter-button-mobile').toggleClass('filter-button-mobile-active'); 
+			jQuery('#menu-filter-heading').toggleClass('menu-filter-heading-active'); 
+			jQuery('.main-menu').toggleClass('filter-button-active');  	
+			jQuery('#menu-logo').toggleClass('hide-menu-logo');  								
+		});    
+});
+
+//adds styling to active filter button on desktop 
+	jQuery(document).ready(function(){
+
+		jQuery('.filter-labels input[checked]').each(function() {
+			jQuery(this).parent().addClass('filter-labels-active');        			
+		})
+
+		jQuery('.filter-labels input').on('change', function(event) {
+			if(this.checked) {
+				jQuery(this).parent().addClass('filter-labels-active');        			
+			}
+			else {
+				jQuery(this).parent().removeClass('filter-labels-active');        			
+			}
+		  });
+		});  
+
+//slide out menu
+
+	jQuery(document).ready(function(){
+		jQuery('#menu-toggle-button').on('click', function(event) {
+			jQuery('#mobile-menu-slideout-panel').toggleClass('mobile-menu-slideout-panel-active');   
+			jQuery('.website-wrapper').toggleClass('website-wrapper-active');          
+			jQuery('.menu-wrapper').toggleClass('menu-wrapper-active');           			 
+			jQuery('#menu-toggle-button').toggleClass('menu-toggle-button-active');    
+		  });
+		});  
+
+</script>
+
+<script>
+
+	var scrollTimer = null;
+
+	jQuery(document).ready(function(){
+
+		jQuery(window).on('scroll', function() {
+		    jQuery('.map').css("pointer-events", "none");
+		    window.clearTimeout(scrollTimer);
+			scrollTimer = window.setTimeout(function() {
+			    jQuery('.map').css("pointer-events", "auto");
+			}, 500);
+		})
+	
+	});  
 </script>
 
 <!-- Google Analytics code -->
