@@ -22,7 +22,7 @@
 	<div class="filter">
 		<button class="filter-button-desktop">Filter brands</button>
 		<div class="filter-labels">
-			<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id"]' ); ?>
+			<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id" post_types="post"]' ); ?>
 		</div>
 	</div>
 
@@ -97,7 +97,7 @@
 					<!-- Brand title -->
 					<header class="brand-tile-header">
 						<?php the_title( sprintf(
-						'<h2 class="brand-tile-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
+						'<h2 class="brand-tile-title" data-small-font="%s"><a href="%s">', get_field('smaller_font'), esc_url( get_permalink() ) ),
 						'</a></h2>'
 					); ?>
 					</header>
