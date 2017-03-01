@@ -131,16 +131,11 @@
 
 			</article>
 
-			<?php if( get_field('brand_story') ): ?>
+			<?php if( get_field('collection_images') ): ?>
 
-				<div class="brand-page-header"><h2>The full story</h2></div>
+				<div class="brand-page-header"><h2>The collection</h2></div>
 
-				<article class="brand-content">
-						<div class="labels-text" id="brand-story">
-							<?php the_field( 'brand_story' ) ?>
-						</div>
-					</div>
-				</article>
+					<?php the_field( 'collection_images' ) ?>
 
 			<?php endif; ?>
 
