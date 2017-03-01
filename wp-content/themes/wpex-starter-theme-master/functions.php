@@ -176,9 +176,8 @@ class WPEX_Starter_Theme_Setup {
 
 // Start the class and set as variable for child-theming
 $wpex_starter_theme_setup = new WPEX_Starter_Theme_Setup;
-?>
 
-<?php
+//Randomize post order
 session_start();
 add_filter( 'posts_orderby', 'randomise_with_pagination' );
 function randomise_with_pagination( $orderby ) {
