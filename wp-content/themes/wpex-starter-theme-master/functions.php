@@ -206,3 +206,48 @@ function randomise_with_pagination( $orderby ) {
 	}
 	return $orderby;
 }
+
+//allow anyone to see a draft
+function guest_enable_hidden_single_post($query){
+
+    if (is_user_logged_in()) return $query;
+     //user is not logged
+
+    if(!is_single()) return $query;
+    //this is a single post
+
+    if (!$query->is_main_query())return $query;
+	//this is the main query    
+
+    $query->set( 'post_status',array('publish','pending','draft'));
+    //allowed post statuses for guest
+
+    return $query;
+
+}
+
+function guest_reload_hidden_single_post($posts){
+    global $wp_query, $wpdb;
+
+    if (is_user_logged_in()) return $posts;
+    //user is not logged
+
+    if(!is_single()) return $posts;
+    //this is a single post
+
+    if (!$wp_query->is_main_query())return $posts;
+    //this is the main query
+
+    if($wp_query->post_count) return $posts;
+    //no posts were found
+
+    $posts = $wpdb->get_results($wp_query->request);
+
+    return $posts;
+}
+
+//allow guests to view single posts even if they have not post_status="publish"
+add_filter('pre_get_posts','guest_enable_hidden_single_post');
+
+//reload hidden posts
+add_filter('the_posts','guest_reload_hidden_single_post');
