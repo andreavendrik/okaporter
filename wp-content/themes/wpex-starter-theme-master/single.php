@@ -4,12 +4,14 @@
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<!-- Header -->
+			<!-- header image -->
 
 			<header class="brand-header" style="background-image: url('<?php echo MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'secondary-image'); ?>')">
 			</header>
 
 			<main class="brand-wrapper">
+
+			<!-- brand introduction -->
 
 				<article class="brand-introduction">
 
@@ -26,6 +28,8 @@
 							</div>
 						<?php endif; ?>
 					</div>
+
+			<!-- brand basic information -->					
 
 					<div class="brand-metadata">
 
@@ -50,6 +54,8 @@
 
 						<div class="brand-button-wrapper">
 
+			<!-- shop buttons -->
+
 				<a
 					class="brand-button" 
 					id="button-webshop" 
@@ -67,7 +73,7 @@
 
 				</article>
 
-			<!-- Content -->
+			<!-- brand information -->
 
 				<div class="brand-page-header"><h2>So why this brand?</h2></div>
 
@@ -131,6 +137,8 @@
 
 			</article>
 
+		<!-- optional collection images -->
+
 			<?php if( get_field('collection_images') ): ?>
 
 				<div class="brand-page-header"><h2>The collection</h2></div>
@@ -139,16 +147,24 @@
 
 			<?php endif; ?>
 
-			<div class="brand-page-header"><h2>Where to buy <?php the_title(); ?></h2></div>
 
+		<!-- brand map -->
+
+		<?php if( get_field('map_code') ): ?>
+			<div class="brand-page-header"><h2>Where to buy <?php the_title(); ?></h2></div>
+		<?php endif; ?>
 
 		</main>
 
-		<section class="map brand-map">
-			<?php the_field( 'map_code' ) ?>
-		</section>
+
+		<?php if( get_field('map_code') ): ?>
+			<section class="map brand-map">
+				<?php the_field( 'map_code' ) ?>
+			</section>
+		<?php endif; ?>
 
 		<?php endwhile; // End of the loop. ?>
+
 
 	</section><!-- #main -->
 
