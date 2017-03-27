@@ -4,16 +4,36 @@
 
 <section class="index-header" id="index-header-id">
 
-	<div class="index-header-logo">
-			<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home"><img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/gf-logo-20.svg"></a>
+	<div class="index-header-swash">
+		<img src="../../../wp-content/themes/wpex-starter-theme-master/images/index-swash-2.png">
 	</div>
 
-	<div class="index-about-text">
-		This is <span>Go Frank</span>, a noncommercial collection of sustainable and fair fashion brands.<br> If you are looking to make more conscious fashion choices, this is the place to start. <a href="<?php echo get_bloginfo('siteurl');?>/about">Read more...</a>
+	<div class="index-header-tagline">
+			Tired of fast fashion?<br>
+			Go Frank!
+	</div>
+
+	<div class="index-header-text">
+		Hiya, welcome to Go Frank. Going frank is about recognising the impact of fast fashion on people and planet, and committing to making better fashion choices onwards. 
+		This is not easy, so we are here to help. 
+		We <a id="frank-brands-link">introduce you to frank brands</a>, <a href="<?php echo get_bloginfo('siteurl');?>/shops">show where you to find them</a>, and invite you to <a href="<?php echo get_bloginfo('siteurl');?>/about">join the movement</a>!
+	</div>
+
+	<div class="index-header-button">
+		<a
+		id="header-button" 
+		href="<?php echo get_bloginfo('siteurl');?>/about" target="_blank">
+			Join us, Go Frank!
+		</a>
 	</div>
 
 </section>
 
+
+
+<div class="brands-header">
+	Meet frank brands
+</div>
 
 <!-- Filter brands functionality -->
 
@@ -27,10 +47,12 @@
 	</div>
 
 </section>
-	
+
+
 <!-- Wrapper around content of index -->
 
-<section class="content-wrapper">
+<section class="content-wrapper" id="frank-brands">
+
 
 	<!-- Brands tiles -->
 
@@ -131,3 +153,12 @@
 
 
 <?php get_footer(); ?>
+
+
+ <script type="text/javascript">
+		$("#frank-brands-link").click(function() {
+		$('html, body').animate({
+			scrollTop: $("#frank-brands").offset().top - 150
+		},1000);
+		});
+</script>

@@ -87,7 +87,7 @@
 	var getWindowY = function() { return window.pageYOffset || document.documentElement.scrollTop }
 
 	jQuery(window).scroll(function() {
-		if(getWindowY() <= 400) {
+		if(getWindowY() <= 900) {
 			jQuery(".filter-wrapper").removeClass('filter-wrapper-active');
 		} else {
 			jQuery(".filter-wrapper").addClass('filter-wrapper-active');
@@ -176,4 +176,12 @@
   ga('create', 'UA-91644969-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+
+ <script type="text/javascript">
+		$("#frank-brands-link").click(function() {
+		$('html, body').animate({
+			scrollTop: $("#frank-brands").offset().top - 150
+		},1000);
+		});
 </script>
