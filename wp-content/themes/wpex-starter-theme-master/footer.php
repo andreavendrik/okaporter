@@ -16,7 +16,7 @@
 		<div class="footer-content-section">
 			<h4>What?</h4>		
 			<p>
-				<span>Go Frank</span> is a showcase for sustainable and fair fashion brands.
+				<span>Go Frank</span> is a platform devoted to helping people who want to start making sustainable and fair fashion choices.
 				Read more about it <a href="<?php echo esc_url( home_url( '/about' ) );?>" rel="about">here.</a>
 			</p>
 <!-- 			<p>

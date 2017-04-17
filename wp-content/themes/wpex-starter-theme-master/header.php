@@ -22,7 +22,9 @@
 			'menu_id'        => 'primary-menu',
 		) ); ?>
 		<div class="social-icons-mobile">
-			<a href="https://www.facebook.com/gofrankme" target="_blank"><div class="facebook"></a>
+			<a href="https://www.facebook.com/gofrankme" target="_blank"><div class="social-icon" id="facebook-icon-mobile"></div></a>
+			<a href="https://www.instagram.com/gofrankfashion" target="_blank"><div class="social-icon" id="twitter-icon-mobile"></div></a>
+			<a href="https://www.twitter.com/gofrankme" target="_blank"><div class="social-icon" id="instagram-icon-mobile"></div></a>
 		</div>
 	</section>
 
@@ -53,8 +55,10 @@
 						'theme_location' => 'primary',
 						'menu_id'        => 'primary-menu',
 					) ); ?>
-					<div class="social-icons">
-						<a href="https://www.facebook.com/gofrankme" target="_blank"><div class="facebook"></div></a>
+					<div class="social-icons-desktop">
+						<a href="https://www.facebook.com/gofrankme" target="_blank"><div class="social-icon" id="facebook-icon-desktop"></div></a>
+						<a href="https://www.instagram.com/gofrankfashion" target="_blank"><div class="social-icon" id="instagram-icon-desktop"></div></a>
+						<a href="https://www.twitter.com/gofrankme" target="_blank"><div class="social-icon" id="twitter-icon-desktop"></div></a>					
 					</div>
 				</div>
 				<div id="filter-button-mobile">
@@ -87,7 +91,7 @@
 	var getWindowY = function() { return window.pageYOffset || document.documentElement.scrollTop }
 
 	jQuery(window).scroll(function() {
-		if(getWindowY() <= 900) {
+		if(getWindowY() <= 820) {
 			jQuery(".filter-wrapper").removeClass('filter-wrapper-active');
 		} else {
 			jQuery(".filter-wrapper").addClass('filter-wrapper-active');

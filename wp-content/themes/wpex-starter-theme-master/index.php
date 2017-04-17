@@ -8,31 +8,43 @@
 		<img src="../../../wp-content/themes/wpex-starter-theme-master/images/index-swash-2.png">
 	</div>
 
-	<div class="index-header-tagline">
-			Tired of fast fashion?<br>
-			Go Frank!
+	<div class="header-tagline">
+		Tired of fast fashion?<br>
+		Go Frank!
 	</div>
 
 	<div class="index-header-text">
-		Hiya, welcome to Go Frank. Going frank is about recognising the impact of fast fashion on people and planet, and committing to making better fashion choices onwards. 
-		This is not easy, so we are here to help. 
-		We <a id="frank-brands-link">introduce you to frank brands</a>, <a href="<?php echo get_bloginfo('siteurl');?>/shops">show where you to find them</a>, and invite you to <a href="<?php echo get_bloginfo('siteurl');?>/about">join the movement</a>!
+		Hello! Welcome to Go Frank. If you are looking to make more conscious fashion choices, this is the place to start. Changing your ways can be hard, so we are here to help as your personal coach and guide.
+		We introduce you to <a id="frank-brands-link">frank brands</a>, show where to <a href="<?php echo get_bloginfo('siteurl');?>/shops">find them</a>, and invite you to <a href="<?php echo get_bloginfo('siteurl');?>/about">join the movement</a>!
 	</div>
 
-	<div class="index-header-button">
-		<a
-		id="header-button" 
-		href="<?php echo get_bloginfo('siteurl');?>/about" target="_blank">
-			Join us, Go Frank!
-		</a>
-	</div>
 
 </section>
 
+<section class="index-cta">
+<b>Going frank</b> means recognising the impact of fast fashion on people and planet, and resolving to make better choices onwards.<br>
+Go Frank today! Sign up to our newsletter for new brands, tips and more inspiration.
 
+
+	<div class="index-cta-newsletter">
+		<form action="//gofrank.us15.list-manage.com/subscribe/post?u=b4cb67be017f0bcbe31903598&amp;id=92def1d047" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+			    <div class="mc-newsletter-application" id="mc-newsletter-homepage">
+						<input type="email" value="Your email address" name="EMAIL" class="required email mc-field" id="mce-EMAIL">
+						<div class="clear">
+				    		<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+				    	</div>
+					<div id="mce-responses" class="clear">
+						<div class="response" id="mce-error-response" style="display:none"></div>
+						<div class="response" id="mce-success-response" style="display:none"></div>
+					</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+				    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b4cb67be017f0bcbe31903598_92def1d047" tabindex="-1" value=""></div>
+			    </div>
+			</form>
+	</div>
+</section>
 
 <div class="brands-header">
-	Meet frank brands
+	Meet our <br>frank brands
 </div>
 
 <!-- Filter brands functionality -->
