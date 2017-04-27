@@ -6,9 +6,9 @@ breakpoint1 = 1000px
 blue = #363ED3
 middleblue = #B6C6FF
 lightblue = #00E1FF
-blue50 = #80F0FF
-blue25 = #C0FBFF
-blue10 = #E9FDFF
+blue50 = #00E2FF
+blue25 = #99F3FF
+blue10 = #EDFDFF
 pink = #FFB6C9
 lightpink = #FFDCE7
 grey = #E6E6E6
@@ -205,6 +205,7 @@ ol
 &.single .menu-wrapper
 &.page-template-shops .menu-wrapper
 &.page-template .menu-wrapper
+&.category-blog .menu-wrapper
   border-bottom 2px solid rgba(0,0,0,0.8)
   background-color white
   .main-menu
@@ -498,18 +499,18 @@ ol
     padding 60px 20px 0px
     background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-09.png");
     background-position bottom center
-    background-size 90%
+    background-size 80%
 
 #page-header-tagline
-  titletext(60px,70px)    
+  titletext(55px,65px)    
 @media only screen and (max-width:breakpoint4)
   #page-header-tagline
-    titletext(45px,45px)
+    titletext(30px,35px)
     padding 35px 0px 0px
     
 .brands-header
   bodytext(55px,65px,bold)
-  margin 60px auto 80px
+  margin 60px auto 40px
   text-align center
   position relative
   br
@@ -529,7 +530,7 @@ ol
 @media only screen and (max-width:breakpoint4)
   .brands-header
     bodytext(35px,35px,bold)
-    margin 40px auto 50px
+    margin 40px auto 30px
     padding 0px 20px
     br
       display block
@@ -571,7 +572,7 @@ ol
 .brand-page-title
   background-color transparent
   width 100%
-  padding 0px 30px 30px 0px
+  padding 0px 30px 25px 0px
   box-sizing border-box
   text-align left
   text-overflow ellipsis
@@ -582,10 +583,10 @@ ol
 
 @media only screen and (max-width:breakpoint3)
   .brand-page-title
-    padding 20px
+    padding 20px 20px 15px
     margin-left -20px
-    margin-bottom 25px
-    width calc(100% + 40px)
+    margin-bottom 20px
+    width calc(100% + 35px)
     background-color blue25    
     h1
       titletext(50px,50px)
@@ -601,7 +602,7 @@ ol
 @media only screen and (max-width:breakpoint3)
   .brand-wrapper
     display block
-    padding 0px 20px 
+    padding 0px 15px 
     margin-top 0px
 
 .brand-introduction
@@ -1139,8 +1140,7 @@ ol
 
 @media only screen and (max-width:breakpoint4)  
   .shops-page-about-text
-    text-align left
-    padding 100px 20px 40px
+    padding 80px 15px 20px
 
 .brand-tile-wrapper
   margin-top 100px
@@ -1189,6 +1189,17 @@ ol
   .brand-tile
     width 100%
     margin 0px 0px 30px 0px
+    &:hover
+      transform none
+      .brand-tile-title
+        background-color none
+      .brand-tile-thumbnail
+        &:before
+          content none
+          opacity 1
+        &:after
+          content none
+          opacity 0
 
 .brand-application
   width 100%
@@ -1274,7 +1285,7 @@ ol
 
 .brand-tile-title
   titletext(50px,50px)    
-  padding 15px 18px 25px
+  padding 16px 18px 25px
   background-color blue25
   white-space nowrap
   text-overflow ellipsis
@@ -1291,7 +1302,7 @@ ol
 @media only screen and (max-width:breakpoint4)
   .brand-tile-title
     titletext(40px,40px)
-    padding 15px 15px 20px
+    padding 17px 15px 20px
     height 70px
     &[data-small-font="1"]
       font-size 36px
@@ -1842,3 +1853,191 @@ footer
 .response
   min-width 400px
   margin 20px 0px
+  
+.blog-post-tile
+  width 45%
+  position relative
+  margin auto 
+  overflow auto
+  text-align center
+  position relative
+  margin-bottom 30px
+  transition all 0.3s
+  .blog-post-title
+    bodytext(30px,30px,bold)
+    margin 10px auto 20px
+    text-align center  
+  &:first-of-type
+    width 100%
+    &:hover
+      background-color transparent
+    .blog-post-information
+      background-color blue
+      color white
+      padding 30px
+      &:after
+        position absolute
+        content ''
+        background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/featured-blog-post-background-image.png");        
+        background-size cover
+        width 90%
+        height 278px
+        top 380px 
+        left 5%
+        right 5%
+        opacity 0.5 
+        mix-blend-mode overlay
+      &:hover
+        background-color blue10  
+        color blue
+    .blog-post-title
+      titletext(60px,60px)
+      margin 20px 
+    &:after
+      content none
+    .blog-post-thumbnail
+      height 500px  
+  &:hover
+    transform translateY(-5px)
+    background-color blue10
+    .blog-post-information
+      background-color blue10
+      color blue
+  &:after
+    content ''
+    position absolute
+    height 10px
+    bottom 0px
+    left 0px
+    right 0px
+    width 100%
+    background-color blue      
+  a
+    text-decoration none  
+  
+@media only screen and (max-width:breakpoint3)
+  .blog-post-tile
+    width 100%
+    padding 20px 5px
+    margin-bottom 0px
+    &:first-of-type
+      .blog-post-tile
+      .blog-post-thumbnail
+        height 300px
+      .blog-post-title
+        titletext(40px,40px)
+        margin 10px 0px 15px
+      .blog-post-information
+        padding 20px 20px 30px 20px
+        &:after
+          bottom 40px    
+          top 200px!important
+          height auto
+            
+.blog-post-information
+  width 90%
+  height 100%
+  margin -120px auto 20px
+  z-index 100
+  background-color white
+  color black
+  padding 20px 30px
+  transition all 0.3s  
+  a
+    color white
+    text-decoration none
+
+@media only screen and (max-width:breakpoint3)
+  .blog-post-information
+    padding 20px
+    margin-bottom 0px
+        
+.blog-post-thumbnail
+  width 100%
+  height 350px
+  margin 0
+  position relative
+  background-color grey
+  cursor pointer
+  transition all 0.5s
+  background-size cover
+  background-repeat no-repeat
+  background-position top center
+  transition background-color 0.5s   
+  z-index -1
+@media only screen and (max-width:breakpoint3)
+  .blog-post-thumbnail
+    height 400px
+    
+  .blog-post-excerpt
+    bodytext(14px,21px)
+    
+.blog-post-author
+  tagtext(12px,bold,,uppercase)
+  margin-top 20px
+
+.blog-post-author
+  tagtext(11px,bold,,uppercase)
+  
+.blog-wrapper
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+  margin auto
+  max-width 1200px
+  padding 10px
+  margin 100px auto 50px  
+
+#single-post-wrapper
+  max-width 800px
+  background-color white
+  display block
+  margin -80px auto 20px
+  padding 40px
+  z-index 100
+     
+@media only screen and (max-width:breakpoint3)
+  #single-post-wrapper
+    padding 30px 15px
+    
+.single-post-header
+  position relative
+  height 70vh
+  overflow hidden
+  display flex
+  margin-top 60px
+  background-size cover
+  background-position center center  
+  background-repeat no-repeat
+  z-index -1
+  img
+    width 100%
+    height 100%  
+@media only screen and (max-width:breakpoint3)
+  .single-post-header
+    margin-top 0px  
+    
+.single-post-title
+  bodytext(50px,50px,bold)
+  margin-bottom 20px
+  text-align center
+@media only screen and (max-width:breakpoint3)
+  .single-post-title
+    text-align left
+    bodytext(40px,40px,bold)
+      
+.single-post-author
+  tagtext(12px,bold,,uppercase)
+  margin-bottom 30px
+  text-align center
+@media only screen and (max-width:breakpoint3)
+  .single-post-author
+    text-align left
+      
+.single-post-content
+  p
+    margin-top 15px
+@media only screen and (max-width:breakpoint3)
+  .single-post-content
+    p
+      margin-top 25px

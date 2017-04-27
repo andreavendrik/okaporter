@@ -12,7 +12,7 @@ $content = $post->post_content;?>
 
 <section class="page-header">
 	<div class="header-tagline" id="page-header-tagline">
-		Let's go frank: our manifesto
+		Let's go frank together: our manifesto
 	</div>
 </section>
 
@@ -29,7 +29,7 @@ $content = $post->post_content;?>
 	<div class="page-content" id="mailchimp-form-wrapper">
 		<div class="mailchimp-form">
 			<h3>Join us, Go Frank!</h3>
-			<p>Become part of our movement, and subscribe to our newsletter helping you to make better fashion choices starting today.</p>
+			<p>Let's do this together! Subscribe to our monthly newsletter and let us help you to make better fashion choices starting today.</p>
 			<form action="//gofrank.us15.list-manage.com/subscribe/post?u=b4cb67be017f0bcbe31903598&amp;id=92def1d047" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 			    <div class="mc-newsletter-application">
 					<div class="mc-field-group">

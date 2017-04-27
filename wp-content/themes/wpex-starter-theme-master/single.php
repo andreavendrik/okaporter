@@ -52,26 +52,25 @@
 							</div>
 						</div>
 
-						<div class="brand-button-wrapper">
-
 			<!-- shop buttons -->
 
-				<a
-					class="brand-button" 
-					id="button-webshop" 
-					href="<?php the_field ('webshop_url') ?>" 
-					target="_blank"
-					onclick="ga('send', 'event', 'button', 'website button');">
-						Shop online
-				</a>
-				<a
-					class="brand-button" 
-					id="button-map" 
-				>
-						Shops on map
-				</a>
-							</div>
+						<div class="brand-button-wrapper">
+							<a
+								class="brand-button" 
+								id="button-webshop" 
+								href="<?php the_field ('webshop_url') ?>" 
+								target="_blank"
+								onclick="ga('send', 'event', 'button', 'website button');">
+									Shop online
+							</a>
+							<a
+								class="brand-button" 
+								id="button-map" 
+							>
+									Shops on map
+							</a>
 						</div>
+					</div>
 
 				</article>
 
