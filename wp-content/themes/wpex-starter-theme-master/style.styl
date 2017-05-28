@@ -1,4 +1,5 @@
 // out: style.css, sourcemap: true, compress: false
+breakpoint5 = 374px
 breakpoint4 = 600px
 breakpoint3 = 700px
 breakpoint2 = 870px
@@ -414,14 +415,37 @@ ol
     padding 20px 20px 10px
     
 .header-tagline
-  titletext(65px,75px)
   position relative
   z-index 1
+  text-align center
+  width 100%  
+  margin-top 20px
+  h2
+    titletext(65px,65px)
 @media only screen and (max-width:breakpoint4)
   .header-tagline
-    padding-top 75px
-    titletext(32px,35px)
-      
+    padding 0px 20px 0px
+    margin 60px auto 40px
+    height 80px
+    background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-09.png");
+    background-position center center
+    background-size contain
+    background-color transparent    
+    background-repeat no-repeat
+    h2
+      padding-top 20px
+      titletext(50px,50px)
+
+#index-tagline
+  background-image none
+
+@media only screen and (max-width:breakpoint4)
+  #index-tagline
+    margin-bottom 0px    
+    padding 0px
+    h2
+      titletext(33px,35px)
+
 .index-header-swash
   position absolute
   img
@@ -459,8 +483,12 @@ ol
  @media only screen and (max-width:breakpoint4)
   .index-header-text
     bodytext(14px,21px)
-    padding 40px 10px 30px
+    padding 40px 40px 20px
 
+ @media only screen and (max-width:breakpoint5)
+  .index-header-text
+    padding 40px 10px 20px
+    
 .index-cta
   margin 0px auto 0px
   width 100%
@@ -472,7 +500,7 @@ ol
  @media only screen and (max-width:breakpoint4)
   .index-cta
     text-align center
-    bodytext(12px,17px)
+    bodytext(14px,21px)
 
 .index-cta-newsletter
   display flex
@@ -487,26 +515,18 @@ ol
   width 100%
   padding 150px 20px 130px
   margin-top 20px
+  height 300px
   text-align center
-  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/page-background.png");
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/featured-blog-post-background-image2.png");
   background-position center center
   background-size cover
   background-repeat no-repeat  
-  img
-    width 330px
+  background-color blue
 @media only screen and (max-width:breakpoint4)
   .page-header
-    padding 60px 20px 0px
-    background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-09.png");
-    background-position bottom center
-    background-size 80%
-
-#page-header-tagline
-  titletext(55px,65px)    
-@media only screen and (max-width:breakpoint4)
-  #page-header-tagline
-    titletext(30px,35px)
-    padding 35px 0px 0px
+    height 0px
+    padding 40px
+    background-color transparent
     
 .brands-header
   bodytext(55px,65px,bold)
@@ -1122,6 +1142,7 @@ ol
 .page-wrapper
   width 100%
   margin-bottom 75px
+  position relative
     
 #shops-page-wrapper
   width 100%
@@ -1239,7 +1260,7 @@ ol
 
 .brand-tile-thumbnail
   width 100%
-  height 450px
+  height 400px
   margin 0
   position relative
   overflow hidden
@@ -1402,12 +1423,15 @@ ol
   max-width 720px
   margin auto
   z-index 30
-  padding 20px
+  padding 40px
+  background-color white
   bodytext()
+  ul
+    list-style-position inside
   p 
     margin-top 20px
   #page-introduction
-    bodytext(27px,38px,bold)
+    bodytext(24px,30px,bold)
     margin 15px 0px 30px
   h1
       margin 50px auto 25px    
@@ -1415,10 +1439,15 @@ ol
     margin 30px 0px
   img
     width 100%
+    margin-top 20px
+  &:nth-of-type(1)
+    margin -80px auto 0px
 @media only screen and (max-width:breakpoint4)
   .page-content
+    padding 20px
+    background-color transparent 
     #page-introduction
-      bodytext(21px,29px,bold)      
+      bodytext(21px,29px,bold)     
     
 #about-us
   img
@@ -1531,6 +1560,39 @@ ol
       bodytext(32px,35px,bold)
       margin-bottom 20px
 
+#help-us-section
+  border-radius 5px
+  margin 25px auto 40px
+  h2
+    margin-top 0px
+    bodytext(40px,45px,bold)
+
+@media only screen and (max-width:breakpoint4)
+  #help-us-section
+    h2
+      bodytext(32px,35px,bold)
+      margin-bottom 20px
+
+#join-go-frank-header
+  background-color blue10
+  position relative
+  background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/featured-blog-post-background-image.png");        
+ 
+@media only screen and (max-width:breakpoint4)
+  #join-go-frank-header
+    background-color transparent
+    background-image none
+
+.join-go-frank-wrapper
+  max-width 800px
+  display block
+  padding 40px
+  position relative
+  z-index 100
+  margin auto
+  .header-tagline
+    text-align center
+
 #faq-section
   width 100%
   background-color blue10
@@ -1590,6 +1652,8 @@ ol
 &.wpgmp_tab_item
   background white!important
   text-indent 5px!important
+  padding 0px!important
+  margin 0px!important
   
 .wpgmp_toggle_container
   bottom -50px!important
@@ -1749,8 +1813,6 @@ footer
   h3
     titletext(60px,65px)
     padding-bottom 25px
-  p
-    padding 0px 40px
 .mc-newsletter-application
   display flex
   flex-direction column
@@ -1865,7 +1927,7 @@ footer
   transition all 0.3s
   .blog-post-title
     bodytext(30px,30px,bold)
-    margin 10px auto 20px
+    margin 0px auto 20px
     text-align center  
   &:first-of-type
     width 100%
@@ -1875,18 +1937,6 @@ footer
       background-color blue
       color white
       padding 30px
-      &:after
-        position absolute
-        content ''
-        background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/featured-blog-post-background-image.png");        
-        background-size cover
-        width 90%
-        height 278px
-        top 380px 
-        left 5%
-        right 5%
-        opacity 0.5 
-        mix-blend-mode overlay
       &:hover
         background-color blue10  
         color blue

@@ -91,7 +91,7 @@
 	var getWindowY = function() { return window.pageYOffset || document.documentElement.scrollTop }
 
 	jQuery(window).scroll(function() {
-		if(getWindowY() <= 820) {
+		if(getWindowY() <= 785) {
 			jQuery(".filter-wrapper").removeClass('filter-wrapper-active');
 		} else {
 			jQuery(".filter-wrapper").addClass('filter-wrapper-active');

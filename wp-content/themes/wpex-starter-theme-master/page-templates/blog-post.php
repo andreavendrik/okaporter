@@ -34,7 +34,7 @@ global $post;
 				</div>
 
 
-			</section>
+			</main>
 
 		<?php endwhile; // End of the loop. ?>
 

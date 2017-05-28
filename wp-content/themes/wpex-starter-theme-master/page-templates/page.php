@@ -11,14 +11,17 @@ $content = $post->post_content;?>
 
 
 <section class="page-header">
-	<div class="header-tagline" id="page-header-tagline">
-		Let's go frank together: our manifesto
-	</div>
 </section>
 
 <section class="page-wrapper">
+
 	<div class="page-content">
-		<div id="page-introduction"><?php the_field ('introduction') ?></div>
+		<div class="header-tagline">
+			<h2>Our mission</h2>
+		</div>
+		<div id="page-introduction">
+			<?php the_field ('introduction') ?>
+		</div>
 		<?php the_field ('about_go_frank') ?>
 	</div>
 
@@ -29,7 +32,7 @@ $content = $post->post_content;?>
 	<div class="page-content" id="mailchimp-form-wrapper">
 		<div class="mailchimp-form">
 			<h3>Join us, Go Frank!</h3>
-			<p>Let's do this together! Subscribe to our monthly newsletter and let us help you to make better fashion choices starting today.</p>
+			<p>Going Frank is not easy, so we are here to help. Subscribe to our monthly newsletter and let us guide you towards better choices. Let’s do this together! </p>
 			<form action="//gofrank.us15.list-manage.com/subscribe/post?u=b4cb67be017f0bcbe31903598&amp;id=92def1d047" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 			    <div class="mc-newsletter-application">
 					<div class="mc-field-group">
@@ -69,7 +72,7 @@ $content = $post->post_content;?>
 
 	<div id="faq-section">
 		<div class="page-content">
-			<h2>Frequently Asked Questions</h2>
+			<h2>Questions you might have</h2>
 			<?php the_field ('faq') ?>
 		</div>
 	</div>

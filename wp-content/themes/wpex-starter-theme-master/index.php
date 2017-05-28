@@ -8,16 +8,14 @@
 		<img src="../../../wp-content/themes/wpex-starter-theme-master/images/index-swash-2.png">
 	</div>
 
-	<div class="header-tagline">
-		Tired of fast fashion?<br>
-		Go Frank!
+	<div class="header-tagline" id="index-tagline">
+		<h2>Tired of fast fashion?<br>
+		Go Frank!</h2>
 	</div>
 
 	<div class="index-header-text">
-		Hello! Welcome to Go Frank. If you are looking to make more conscious fashion choices, this is the place to start. Changing your ways can be hard, so we are here to help as your personal coach and guide!<br>
-		We introduce you to <a id="frank-brands-link">frank brands</a>, show where to <a href="<?php echo get_bloginfo('siteurl');?>/shops">find them</a>, and invite you to <a href="<?php echo get_bloginfo('siteurl');?>/about">do this together</a>!
+		Hello! Welcome to Go Frank. Are you looking to make more conscious fashion choices? You have come to the right place! Go Frank is here to help as your personal coach and guide. We introduce you to <a id="frank-brands-link">frank brands</a>, show where to <a href="<?php echo get_bloginfo('siteurl');?>/shops">find them</a>, and invite you to <a href="<?php echo get_bloginfo('siteurl');?>/about">do this together</a>! 
 	</div>
-
 
 </section>
 
