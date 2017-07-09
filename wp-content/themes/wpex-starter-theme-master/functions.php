@@ -276,7 +276,7 @@ function content($limit) {
 //exclude blog posts from homepage
 function exclude_category( $query ) {
     if ( $query->is_home() && $query->is_main_query() ) {
-        $query->set( 'cat', '-49' );
+        $query->set( 'cat', '-62' );
     }
 }
 add_action( 'pre_get_posts', 'exclude_category' );

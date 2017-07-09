@@ -50,7 +50,7 @@
 	<div class="filter">
 		<button class="filter-button-desktop">Filter brands</button>
 		<div class="filter-labels">
-			<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id" post_types="post"]' ); ?>
+			<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id" post_types="post" id="16"]' ); ?>
 		</div>
 	</div>
 
