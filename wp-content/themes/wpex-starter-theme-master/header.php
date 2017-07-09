@@ -7,7 +7,6 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/js/slideout/dist/slideout.min.js"></script>
 </head>
 
 
@@ -23,7 +22,9 @@
 			'menu_id'        => 'primary-menu',
 		) ); ?>
 		<div class="social-icons-mobile">
-			<a href=""><div class="facebook"></a>
+			<a href="https://www.facebook.com/gofrankme" target="_blank"><div class="social-icon" id="facebook-icon-mobile"></div></a>
+			<a href="https://www.instagram.com/gofrankfashion" target="_blank"><div class="social-icon" id="twitter-icon-mobile"></div></a>
+			<a href="https://www.twitter.com/gofrankme" target="_blank"><div class="social-icon" id="instagram-icon-mobile"></div></a>
 		</div>
 	</section>
 
@@ -43,7 +44,7 @@
 				</div>
 				<div id="menu-logo">
 					<a href="<?php echo esc_url( home_url( '' ) ); ?>" rel="home">
-						<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/logo-liggend-blue.svg">
+						<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/gf-logo-21.svg">
 					</a>
 				</div>
 				<div id="menu-filter-heading">
@@ -54,8 +55,10 @@
 						'theme_location' => 'primary',
 						'menu_id'        => 'primary-menu',
 					) ); ?>
-					<div class="social-icons">
-						<a href=""><div class="facebook"></div></a>
+					<div class="social-icons-desktop">
+						<a href="https://www.facebook.com/gofrankme" target="_blank"><div class="social-icon" id="facebook-icon-desktop"></div></a>
+						<a href="https://www.instagram.com/gofrankfashion" target="_blank"><div class="social-icon" id="instagram-icon-desktop"></div></a>
+						<a href="https://www.twitter.com/gofrankme" target="_blank"><div class="social-icon" id="twitter-icon-desktop"></div></a>					
 					</div>
 				</div>
 				<div id="filter-button-mobile">
@@ -71,7 +74,29 @@
 
 		</nav>
 
+
 <script>
+
+//adds styling and pulls out filter menu when filter button is clicked on mobile 
+
+	jQuery(document).ready(function(){
+		jQuery('.filter-button-desktop').on('click', function(event) {
+			jQuery('.filter-labels').slideToggle(200,'swing');		
+			jQuery('.filter-button-desktop').toggleClass('filter-button-desktop-active');  	
+		});    
+});
+
+//makes filter labels sticky to top on desktop
+
+	var getWindowY = function() { return window.pageYOffset || document.documentElement.scrollTop }
+
+	jQuery(window).scroll(function() {
+		if(getWindowY() <= 785) {
+			jQuery(".filter-wrapper").removeClass('filter-wrapper-active');
+		} else {
+			jQuery(".filter-wrapper").addClass('filter-wrapper-active');
+		}
+	})
 
 //adds styling to main menu on scroll
 
@@ -89,7 +114,7 @@
 //adds styling and pulls out filter menu when filter button is clicked on mobile 
 
 	jQuery(document).ready(function(){
-		jQuery('#filter-button-mobile').live('click', function(event) {
+		jQuery('#filter-button-mobile').on('click', function(event) {
 			jQuery('.filter-labels').slideToggle(200,'swing');
 			jQuery('#filter-button-mobile').toggleClass('filter-button-mobile-active'); 
 			jQuery('#menu-filter-heading').toggleClass('menu-filter-heading-active'); 
@@ -100,18 +125,28 @@
 
 //adds styling to active filter button on desktop 
 	jQuery(document).ready(function(){
-		jQuery('.filter-labels label').live('click', function(event) {
-				jQuery('.filter-labels label').addClass('filter-labels-active');        			
+
+		jQuery('.filter-labels input[checked]').each(function() {
+			jQuery(this).parent().addClass('filter-labels-active');        			
+		})
+
+		jQuery('.filter-labels input').on('change', function(event) {
+			if(this.checked) {
+				jQuery(this).parent().addClass('filter-labels-active');        			
+			}
+			else {
+				jQuery(this).parent().removeClass('filter-labels-active');        			
+			}
 		  });
 		});  
 
 //slide out menu
 
 	jQuery(document).ready(function(){
-		jQuery('#menu-toggle-button').live('click', function(event) {
+		jQuery('#menu-toggle-button').on('click', function(event) {
 			jQuery('#mobile-menu-slideout-panel').toggleClass('mobile-menu-slideout-panel-active');   
 			jQuery('.website-wrapper').toggleClass('website-wrapper-active');          
-			jQuery('.menu-wrapper').toggleClass('menu-wrapper-active');           			 
+			jQuery('.menu-wrapper').toggleClass('menu-wrapper-slideout');           			 
 			jQuery('#menu-toggle-button').toggleClass('menu-toggle-button-active');    
 		  });
 		});  
@@ -133,4 +168,24 @@
 		})
 	
 	});  
+</script>
+
+<!-- Google Analytics code -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91644969-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+ <script type="text/javascript">
+		$("#frank-brands-link").click(function() {
+		$('html, body').animate({
+			scrollTop: $("#frank-brands").offset().top - 150
+		},1000);
+		});
 </script>

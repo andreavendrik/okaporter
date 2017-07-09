@@ -1,4 +1,5 @@
 // out: style.css, sourcemap: true, compress: false
+breakpoint5 = 374px
 breakpoint4 = 600px
 breakpoint3 = 700px
 breakpoint2 = 870px
@@ -6,9 +7,9 @@ breakpoint1 = 1000px
 blue = #363ED3
 middleblue = #B6C6FF
 lightblue = #00E1FF
-blue50 = #80F0FF
-blue25 = #C0FBFF
-blue10 = #E9FDFF
+blue50 = #00E2FF
+blue25 = #99F3FF
+blue10 = #EDFDFF
 pink = #FFB6C9
 lightpink = #FFDCE7
 grey = #E6E6E6
@@ -39,31 +40,48 @@ green50 = #9CE2D1
   font-style bold
   font-weight bold
   text-rendering optimizeLegibility
+  
+@font-face
+  font-family 'Lydian'
+  src: embedurl('fonts/337349_0_0.woff') format('woff'),
+       embedurl('fonts/337349_0_0.ttf') format('truetype');
+  font-style italic
+  font-weight bold
+  text-rendering optimizeLegibility
 
 titletext(font-size=50px,line-height=45px)
-  font-family 'HK Grotesk'
+  font-family 'Lydian', -apple-system, 'Helvetica Neue', Helvetica, sans-serif
   font-size font-size
   line-height line-height
   font-weight bold
+  font-style italic
 
 bodytext(font-size=18px,line-height=28px,font-weight=normal)
-  font-family 'HK Grotesk'
+  font-family 'HK Grotesk', -apple-system, 'Helvetica Neue', Helvetica, sans-serif
   font-size font-size
   line-height line-height
   font-weight font-weight
+  font-style normal
 
-tagtext(font-size=12px,font-weight=bold,line-height=14px,text-transform=none)
-  font-family 'HK Grotesk'
+tagtext(font-size=13px,font-weight=bold,line-height=14px,text-transform=none)
+  font-family 'HK Grotesk', -apple-system, 'Helvetica Neue', Helvetica, sans-serif
   text-transform text-transform
   font-size font-size
   line-height line-height
   letter-spacing 0.5px
   font-weight font-weight
 
+resetappearance()
+  -moz-appearance none
+  -webkit-appearance none
+  -o-appearance none
+  -ms-appearance none
+  appearance none
 *
   box-sizing border-box
   padding 0
   margin 0
+  -webkit-tap-highlight-color transparent
 
 body
   bodytext()
@@ -77,14 +95,26 @@ h1
   titletext()
 
 h2
-  titletext(40px,50px)
+  titletext(50px,50px)
 h3
-  titletext(19px,27px,auto)
+  bodytext(19px,27px,auto)
 h4
   tagtext(,,,uppercase)
   margin-top 25px
-  margin-bottom 5px
+  margin-bottom 10px
 
+ol
+  counter-reset foo
+  display table
+  li
+    counter-increment foo
+    display table-row
+    &:before
+      content counter(foo) "."
+      display table-cell
+      text-align right
+      padding-right 10px
+      
 .menu
   display flex
   width 100%
@@ -136,7 +166,7 @@ h4
   z-index 101  
   transition all 0.5s  
 
-.menu-wrapper-active
+.menu-wrapper-slideout
   margin-left 70vw
   position fixed
   
@@ -156,14 +186,14 @@ h4
   a
     color black
     text-decoration none
-    tagtext()
+    tagtext(16px)
     transition all 0.5s
     &:hover
       color blue
     img
       height 40px
-      margin auto
       display none
+      margin-top 10px
 @media only screen and (max-width:breakpoint4)
   .main-menu
     padding 15px  
@@ -175,13 +205,15 @@ h4
 .menu-wrapper.active
 &.single .menu-wrapper
 &.page-template-shops .menu-wrapper
+&.page-template .menu-wrapper
+&.category-blog .menu-wrapper
   border-bottom 2px solid rgba(0,0,0,0.8)
   background-color white
   .main-menu
-    img
-      display block
     a
       color black
+      img
+        display block
       &:hover
         color blue
 
@@ -233,6 +265,7 @@ h4
 
 @media only screen and (max-width:breakpoint4)
   .home
+  &.category
     #filter-button-mobile
       display flex
       visibility visible
@@ -303,7 +336,8 @@ h4
     transform rotate(-45deg)
   
 #menu-logo
-  height 40px
+  img
+    height 35px
 
 .hide-menu-logo
   display none
@@ -315,71 +349,121 @@ h4
 .menu-filter-heading-active
   display block!important
 
-.social-icons
+.social-icons-desktop
   margin-left 30px
   position relative
-  &:hover
-    &:after
-      position absolute
-      content ''
-      background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash_06.png");       
-      background-position left
-      background-size contain
-      top 0px
-      pointer-events none
-      left calc(50% - 12px)
-      background-repeat no-repeat
-      mix-blend-mode multiply
-      height 20px
-      width 25px
-    
-.facebook
+  display flex
+@media only screen and (max-width:breakpoint4)
+  .social-icons-desktop
+    display none
+  
+.social-icon
   cursor pointer
-  width 15px
+  width 18px
   height 15px
   margin-top 2px
+  margin-right 10px
   background-repeat no-repeat
-  background-size cover
+  background-size contain
+  
+#facebook-icon-desktop
   background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/facebook.png");  
   &:hover
     background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/facebook-blue.png");  
 
-.social-icons-mobile
-  width 25px
-  height 25px
-  margin 25px 15px
-  .facebook
-    background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/facebook-white.png");  
-    width 20px
-    height 25px
+#instagram-icon-desktop
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/instagram-black.png");  
+  &:hover
+    background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/instagram-blue.png");  
     
+#twitter-icon-desktop
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/twitter-black.png");  
+  &:hover
+    background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/twitter-blue.png");  
+
+.social-icons-mobile
+  margin-left 10px
+  margin-top 10px
+  display flex
+  align-items center
+  justify-content flex-start
+  
+#facebook-icon-mobile
+  width 30px
+  height 25px
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/facebook-white.png");  
+
+#instagram-icon-mobile
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/instagram-white.png");  
+    
+#twitter-icon-mobile
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/twitter-white.png");  
+
 .index-header
   background-color white
+  background-repeat no-repeat
+  background-size cover
+  background-position top center
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/index-background.png");  
   text-align center
-  padding 0px 20px
+  padding 140px 20px 60px
   width 100%
-  height 100%
   display block
-  
-.page-template .index-header
-  padding 0px
-  
-.index-header-logo
-  display block
-  img
-    width 300px
-    margin 140px auto 10px 
+
 @media only screen and (max-width:breakpoint4)
-  .index-header-logo
-    padding-top 40px
+  .index-header
+    padding 20px 20px 10px
+    
+.header-tagline
+  position relative
+  z-index 1
+  text-align center
+  width 100%  
+  margin-top 20px
+  h2
+    titletext(65px,65px)
+@media only screen and (max-width:breakpoint4)
+  .header-tagline
+    padding 0px 20px 0px
+    margin 60px auto 40px
+    height 80px
+    background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-09.png");
+    background-position center center
+    background-size contain
+    background-color transparent    
+    background-repeat no-repeat
+    h2
+      padding-top 20px
+      titletext(45px,45px)
+
+#index-tagline
+  background-image none
+
+@media only screen and (max-width:breakpoint4)
+  #index-tagline
+    margin-bottom 0px    
+    padding 0px
+    h2
+      titletext(33px,35px)
+
+.index-header-swash
+  position absolute
+  img
+    width 380px
+  left calc(50% - 200px)
+  margin-top -25px
+  z-index 1
+@media only screen and (max-width:breakpoint4)
+  .index-header-swash
+    margin-top 55px
     img
-      width 78%
-      margin-top 60px      
-      
-.index-about-text
-  width 100%
-  bodytext(21px,28px)
-  padding 30px 0px 100px 
+      width 50%
+    
+.index-header-text
+  width 500px
+  z-index 10
+  bodytext()
+  padding 40px 0px 20px
   margin 0px auto 0px
   text-align center
   box-sizing border-box
@@ -389,25 +473,95 @@ h4
   a
     color blue
 @media only screen and (max-width:breakpoint3)
-  .index-about-text
+  .index-header-text
     bodytext(19px,27px)
+    width 100%
     padding 30px 0px 50px
     br
       display none
 
-@media only screen and (max-width:breakpoint4)
-  .about-text
-    bodytext(16px,23px)
+ @media only screen and (max-width:breakpoint4)
+  .index-header-text
+    bodytext(14px,21px)
+    padding 40px 40px 20px
 
-#about-header
-  background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/header-03.png"); 
-  background-size cover
-  background-position top center
-  background-repeat no-repeat
-  position relative
+ @media only screen and (max-width:breakpoint5)
+  .index-header-text
+    padding 40px 10px 20px
+    
+.index-cta
+  margin 0px auto 0px
   width 100%
-  height 450px
+  padding 20px 20px
+  background-color green
+  text-align center
+  bodytext()
 
+ @media only screen and (max-width:breakpoint4)
+  .index-cta
+    text-align center
+    bodytext(14px,21px)
+
+.index-cta-newsletter
+  display flex
+  margin-top 15px
+  justify-content center
+  align-items center
+  
+.page-template .index-header
+  padding 0px
+
+.page-header
+  width 100%
+  padding 150px 20px 130px
+  margin-top 20px
+  height 300px
+  text-align center
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/featured-blog-post-background-image2.png");
+  background-position center center
+  background-size cover
+  background-repeat no-repeat  
+  background-color blue
+@media only screen and (max-width:breakpoint4)
+  .page-header
+    height 0px
+    padding 40px
+    background-color transparent
+    
+.brands-header
+  bodytext(55px,65px,bold)
+  margin 60px auto 40px
+  text-align center
+  position relative
+  br
+    display none
+  &:after
+    content ''
+    position absolute
+    //background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/brands-header-swash.png"); 
+    background-size contain
+    background-position center
+    background-repeat no-repeat
+    width 100%
+    height 19px
+    right 0px
+    top 80px
+    
+@media only screen and (max-width:breakpoint4)
+  .brands-header
+    bodytext(35px,35px,bold)
+    margin 40px auto 30px
+    padding 0px 20px
+    br
+      display block
+    &:after
+      height 9px
+      top 85px
+    
+#frank-brands-link
+  text-decoration underline
+  cursor pointer
+  
 .about-portraits
   text-align center
   margin 20px 0px
@@ -419,12 +573,16 @@ h4
   display flex
   margin-top 60px
   background-size cover
-  background-position top center  
+  background-position center center  
   background-repeat no-repeat
   img
     width 100%
     height 100%
 
+@media only screen and (max-width:breakpoint2)
+  .brand-header
+      background-position top center  
+      
 @media only screen and (max-width:breakpoint4)
   .brand-header
     height 50vh
@@ -434,56 +592,24 @@ h4
 .brand-page-title
   background-color transparent
   width 100%
-  padding 0px 30px 30px 0px
+  padding 0px 30px 25px 0px
   box-sizing border-box
   text-align left
   text-overflow ellipsis
   overflow hidden  
   white-space nowrap
   h1
-    titletext(65px,65px)    
+    titletext(70px,70px)    
 
 @media only screen and (max-width:breakpoint3)
   .brand-page-title
-    padding 20px
+    padding 20px 20px 15px
     margin-left -20px
-    margin-bottom 25px
-    width calc(100% + 40px)
+    margin-bottom 20px
+    width calc(100% + 35px)
     background-color blue25    
     h1
       titletext(50px,50px)
-
-#brand-page-tag
-  position absolute
-  left 30px
-  top 30px  
-  height 25px
-  text-align left
-  width auto
-  padding 5px
-  max-width auto
-  background-color blue50
-  &:before
-    content ''
-    position absolute
-    margin-top -5px
-    width 100%
-    height 25px
-    background-repeat no-repeat
-    background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-end.svg", "utf8");        
-    background-position right
-    background-size contain
-  &:after
-    background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-beginning.svg", "utf8");        
-    background-position left
-    background-size contain
-    height 25px
-    margin-top -19px
-    margin-left -10px
-    //background-image none
-@media only screen and (max-width:breakpoint3)
-  #brand-page-tag
-    top -35px
     
 .brand-wrapper
   margin auto
@@ -496,7 +622,7 @@ h4
 @media only screen and (max-width:breakpoint3)
   .brand-wrapper
     display block
-    padding 0px 20px 
+    padding 0px 15px 
     margin-top 0px
 
 .brand-introduction
@@ -528,6 +654,11 @@ h4
   .brand-introduction-text
     margin-right 0px
 
+.brand-photographer-credits
+  margin-top 20px
+  tagtext(,normal,,uppercase)
+  display flex
+  
 .brand-metadata
   background-color blue10
   flex 1
@@ -561,18 +692,22 @@ h4
     display flex
     flex-direction column
     justify-content space-between
+    bodytext(17px,26px)
+    h4
+      tagtext(11px,,,uppercase)
+      margin-bottom 5px
     
 .brand-button
   width 100%
-  height 60px
+  height 70px
   background-color blue
   color white
   border 0
-  padding 24px
+  padding 27px
   cursor pointer
   display flex
   justify-content space-between
-  tagtext(16px,normal)
+  tagtext(19px,normal)
   box-sizing border-box
   text-decoration none
   position relative
@@ -589,7 +724,7 @@ h4
     height 20px
     position absolute
     right 20px
-    top 20px
+    top 25px
     content ""
     background-size cover 
   &#button-webshop
@@ -599,15 +734,15 @@ h4
       background-color blue50
       color black
       &:after
-        background-image url("../../../wp-content/themes/wpex-starter-theme-master/images/icon-link-black.svg", "utf8")      
+        background-image url("../../../wp-content/themes/wpex-starter-theme-master/images/icon-link-black.png")      
     &:after
-      background-image url("../../../wp-content/themes/wpex-starter-theme-master/images/icon-link-white.svg", "utf8")
+      background-image url("../../../wp-content/themes/wpex-starter-theme-master/images/icon-link-white.png")
       background-repeat no-repeat
       width 20px
       height 20px
       position absolute
       right 20px
-      top 20px
+      top 25px
       content ""
       background-size cover 
   &#button-map
@@ -618,12 +753,20 @@ h4
       background-color blue50
       color black
     &:after
-      background-image url("../../../wp-content/themes/wpex-starter-theme-master/images/icon-arrow-black.svg", "utf8")
+      background-image url("../../../wp-content/themes/wpex-starter-theme-master/images/icon-arrow-black.png")
 
 
 @media only screen and (max-width:breakpoint2)
   .brand-button
     width 50%
+    height 60px
+    padding 22px
+    tagtext(16px,normal)
+    &:after
+      top 20px
+    &#button-webshop
+      &:after
+        top 20px
 
 @media only screen and (max-width:breakpoint4)
   .brand-button
@@ -647,7 +790,7 @@ h4
   .brand-page-header
     margin 45px 0px 25px
     h2
-      titletext(35px)
+      titletext(45px,50px)
 
 .brand-content
   display flex
@@ -687,7 +830,35 @@ h4
   h3
     text-align left
     margin-top 20px
+  ol
+    ounter-reset foo
+    display table
+    li
+      counter-increment foo
+      display table-row
+      &:before
+        content counter(foo) "."
+        display table-cell
+        text-align right
+        padding-right 10px
+  ul
+    ounter-reset foo
+    display table
+    li
+      counter-increment foo
+      display table-row
+      &:before
+        content "•"
+        display table-cell
+        text-align right
+        padding-right 10px
 
+@media only screen and (max-width:breakpoint3)
+  .labels-text
+    h3
+      bodytext(17px,26px,bold)
+      margin 25px 0px 5px
+      
 .labels-image 
   text-align center
   height 80px
@@ -695,6 +866,10 @@ h4
   img
     width 100%
     height 100%
+
+@media only screen and (max-width:breakpoint3)
+  .labels-image 
+    margin 20px auto 0px
 
 #brand-story
   p
@@ -714,6 +889,9 @@ h4
   -ms-flex 1
   flex-shrink 0
 
+.cat-item
+  display none
+  
 .filter-wrapper
   width 100%
   margin 0px auto -80px  
@@ -802,30 +980,47 @@ h4
   box-sizing border-box
   display block
   tagtext(,bold,,capitalize) 
+  z-index 1000
   ul
     display flex
     align-items center
     flex-wrap wrap
+    li
+      ul
+        li
+          &:nth-of-type(1)
+            input[type=checkbox]
+              background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-eu-wit.svg", "utf8")
+          &:nth-of-type(2)
+            input[type=checkbox]
+              background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable-wit.svg", "utf8")              
+          &:nth-of-type(3)
+            input[type=checkbox]
+              background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-fair-wit.svg", "utf8")              
+          &:nth-of-type(4)
+            input[type=checkbox]
+              background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-vegan-wit.svg", "utf8")              
+          &:nth-of-type(5)
+            display none
   input
     tagtext(,bold,,capitalize)  
     height 45px
     border 0px
-    background-color white
     color blue
     text-align center     
     cursor pointer 
   input[type=checkbox]
-    width 20px
-    height 20px
-    margin-right 15px
-    appearance none
-    -moz-appearance none
-    -webkit-appearance none
-    -o-appearance none
-    -ms-appearance none
-    background-color rgba(0,0,0,0.2)
+    width 25px
+    height 25px
+    margin-right 10px
+    resetappearance()
+    //background-color rgba(0,0,0,0.2)
     position relative
     border-radius 2px
+    background-repeat no-repeat
+    //opacity 0.5
+    outline none
+    background-color transparent
     &:after
       position absolute
       top 3px
@@ -842,18 +1037,18 @@ h4
     height 50px
     width 125px
     color white
-    border-radius 3px    
-    -webkit-appearance: none;        
+    border-radius 3px
+    resetappearance()
   input[type=checkbox]:checked 
-    background-color blue
+    opacity 1
     &:after
       position absolute
+      opacity 1
       top 3px
       left 3px
       right 3px
       bottom 3px
       content ''
-      background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-cross-white.svg", "utf8")
       background-repeat no-repeat
       background-size cover
       background-position center center         
@@ -868,8 +1063,13 @@ h4
     cursor pointer
     margin 15px 0px
     margin-right 10px
-    border 1px solid white
+    border 1px solid rgba(0,0,0,0.1)
+    //opacity 0.5
     transition all 0.5s
+    user-select none
+    &:hover
+      background-color blue10
+      border 1px solid blue25!important
 @media only screen and (max-width:breakpoint1)
   .filter-labels    
     background-color transparent
@@ -896,7 +1096,7 @@ h4
               padding 0px
     label
       margin 0px
-      height 70px      
+      height 60px      
       justify-content flex-start
       background-color white
       border-bottom 1px solid rgba(0,0,0,0.1)        
@@ -905,23 +1105,29 @@ h4
       width 100%
       background-color blue
       color white
-      height 70px
+      height 60px
       margin-top 0px
+      border 0
     input[type=checkbox]
       width 25px
       height 25px
-      border 1px solid blue
+      background-color 1px solid blue
+      padding 3px
+      border 0px
       background-color white
       &:after
-        background-image none
+        top 2px
+        right 2px
+        left 2px
+        bottom 2px
     input[type=checkbox]:checked
-      background-color white
-      &:after
-        background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-cross-blue.svg", "utf8");     
+      background-color green
 
 .filter-labels-active
   background-color blue25!important
   border 1px solid blue25!important
+  opacity 1!important
+
 @media only screen and (max-width:breakpoint1)
   .filter-labels-active
     border-bottom 1px solid rgba(0,0,0,0.1)!important    
@@ -937,7 +1143,7 @@ h4
   margin auto
   max-width 1200px
   padding 10px
-  margin 75px auto 75px
+  margin 75px auto 50px
 
 @media only screen and (max-width:breakpoint4)
   .content-wrapper
@@ -946,6 +1152,7 @@ h4
 .page-wrapper
   width 100%
   margin-bottom 75px
+  position relative
     
 #shops-page-wrapper
   width 100%
@@ -964,8 +1171,7 @@ h4
 
 @media only screen and (max-width:breakpoint4)  
   .shops-page-about-text
-    text-align left
-    padding 100px 20px 40px
+    padding 80px 15px 20px
 
 .brand-tile-wrapper
   margin-top 100px
@@ -974,30 +1180,35 @@ h4
   width calc(32.5%)
   position relative
   margin 0px 0px 20px 0px
-  transition all 0.5s
+  transition all 0.3s
   a
     color black
     text-decoration none    
-  &:hover,&:active
+  &:hover
+    transform translateY(-3px)   
     .brand-tile-title
       background-color blue
     .brand-tile-thumbnail
-      background-color white
       &:before
         content ''
         background-color white
         position absolute
         width 100%
         height 100%
-        opacity 0.8
+        opacity 0.6
         pointer-events none
-      filter grayscale(1)
+      &:after
+        content ''
+        background-color blue10
+        position absolute
+        width 100%
+        height 100%
+        opacity 0.5
+        mix-blend-mode color
+        pointer-events none        
     .brand-thumbnail-labels-section
-      visibility visible
-      pointer-events none
-      opacity 1
+      pointer-events none 
       img
-        opacity 1
         mix-blend-mode normal    
 
 @media only screen and (max-width:breakpoint1)
@@ -1009,11 +1220,22 @@ h4
   .brand-tile
     width 100%
     margin 0px 0px 30px 0px
+    &:hover
+      transform none
+      .brand-tile-title
+        background-color none
+      .brand-tile-thumbnail
+        &:before
+          content none
+          opacity 1
+        &:after
+          content none
+          opacity 0
 
 .brand-application
   width 100%
   height 100%
-  min-height 530px
+  min-height 480px
   background-color blue
   text-align center
   cursor pointer
@@ -1044,11 +1266,11 @@ h4
 @media only screen and (max-width:breakpoint4)
   .brand-application
     position relative
-    height 450px
+    height 400px
 
 .brand-tile-thumbnail
   width 100%
-  height 450px
+  height 400px
   margin 0
   position relative
   overflow hidden
@@ -1062,18 +1284,18 @@ h4
 
 @media only screen and (max-width:breakpoint4)
   .brand-tile-thumbnail
-    height 65vh
+    height 50vh
 
 
 .brand-tile-tag
-  tagtext(,,,uppercase)
+  tagtext(12px,,,uppercase)
   padding 10px
   position absolute
   left calc(50% - 150px)
   text-align center
   bottom 0px
   width 100%
-  max-width 300px
+  width 300px
   height 30px
   pointer-events none
   box-sizing border-box
@@ -1093,8 +1315,8 @@ h4
     cursor auto
 
 .brand-tile-title
-  titletext(45px,35px)    
-  padding 20px 18px 25px
+  titletext(50px,50px)    
+  padding 16px 18px 25px
   background-color blue25
   white-space nowrap
   text-overflow ellipsis
@@ -1105,21 +1327,30 @@ h4
   a
     color black
     text-decoration none  
+  &[data-small-font="1"]
+    font-size 40px
 
+@media only screen and (max-width:breakpoint4)
+  .brand-tile-title
+    titletext(40px,40px)
+    padding 17px 15px 20px
+    height 70px
+    &[data-small-font="1"]
+      font-size 36px
+    
 .brand-thumbnail-labels-section
   display flex
-  visibility hidden
-  opacity 0
   transition visibility 0s, opacity 1s
   flex-direction column
-  width 100%
   position absolute
-  top 20%
-  tagtext(18px,bold,24px,capitalize)
+  top 15px
+  right 15px
+  tagtext(11px,bold,24px,uppercase)
   img
-    width 45px
-    max-height 45px
-    margin-right 15px
+    width 40px
+    max-height 40px
+    margin 0px 0px 10px
+    padding 3px
   hr
     border-top: 1px solid blue;
     width 100px
@@ -1128,20 +1359,14 @@ h4
     left calc(50% - 50px)
 
 .brand-thumbnail-label-wrapper
-  height 35px
   display flex
   align-items center
   justify-content center
   flex-direction column
-  padding 45px
   &:last-of-type
     hr
       display none
 
- @media only screen and (max-width:breakpoint4)
-  .brand-thumbnail-label-wrapper
-    padding 45px 20px
-    
 .brand-thumbnail-label
   display flex  
   align-items center  
@@ -1206,33 +1431,41 @@ h4
 
 .page-content
   max-width 720px
-  background-color rgba(255,255,255,0.95)
   margin auto
   z-index 30
-  padding 20px
+  padding 40px
+  background-color white
   bodytext()
+  ul
+    list-style-position inside
   p 
     margin-top 20px
   #page-introduction
-    bodytext(27px,38px,bold)
-    margin 30px 0px 30px
-  img
-    border-radius 100px
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
-    width 200px
-    height 200px
-    padding 10px
-    box-sizing border-box
-    margin-top 20px
+    bodytext(24px,30px,bold)
+    margin 15px 0px 30px
   h1
       margin 50px auto 25px    
   h2
-    margin 40px 0px 20px
-
- @media only screen and (max-width:breakpoint3)
+    margin 30px 0px
+  img
+    width 100%
+    margin-top 20px
+  &:nth-of-type(1)
+    margin -80px auto 0px
+@media only screen and (max-width:breakpoint4)
   .page-content
-    margin 20px 0px
+    padding 20px
+    background-color transparent 
+    #page-introduction
+      bodytext(21px,29px,bold)     
+    
+#about-us
+  img
+    width 100%
+    height 100%
+    box-sizing border-box
+    margin-top 20px
+
         
 .form10 
   .wdform-element-section
@@ -1288,10 +1521,7 @@ h4
       width 25px
       height 25px
       appearance none
-      -moz-appearance none
-      -webkit-appearance none
-      -o-appearance none
-      -ms-appearance none
+      resetappearance()
       background-color white
       border 0px solid blue
       position relative
@@ -1327,15 +1557,56 @@ h4
 
 #brand-application-section
   background-color green
+  border-radius 5px
   padding 30px
-  margin 10px auto 40px
+  margin 25px auto 40px
   h2
     margin-top 0px
-    
+    bodytext(40px,45px,bold)
+
+@media only screen and (max-width:breakpoint4)
+  #brand-application-section
+    h2
+      bodytext(32px,35px,bold)
+      margin-bottom 20px
+
+#help-us-section
+  border-radius 5px
+  margin 25px auto 40px
+  h2
+    margin-top 0px
+    bodytext(40px,45px,bold)
+
+@media only screen and (max-width:breakpoint4)
+  #help-us-section
+    h2
+      bodytext(32px,35px,bold)
+      margin-bottom 20px
+
+#join-go-frank-header
+  background-color blue10
+  position relative
+  background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/featured-blog-post-background-image.png");        
+ 
+@media only screen and (max-width:breakpoint4)
+  #join-go-frank-header
+    background-color transparent
+    background-image none
+
+.join-go-frank-wrapper
+  max-width 800px
+  display block
+  padding 40px
+  position relative
+  z-index 100
+  margin auto
+  .header-tagline
+    text-align center
+
 #faq-section
   width 100%
   background-color blue10
-  padding 50px
+  padding 25px 50px 50px
   .page-content
     background-color transparent   
    
@@ -1351,9 +1622,15 @@ h4
   width 100%
   overflow hidden
   pointer-events none
+  .p1
+   max-width 1080px 
+   padding 40px
+   margin auto
 @media only screen and (max-width:breakpoint3)
   .brand-map
-    height 90vh
+    max-height 90vh
+    p
+      padding 10px
     
 .shops-map
   width 100%
@@ -1369,13 +1646,13 @@ h4
   box-shadow 0px 0px 0px 0px rgba(0,0,0,0)!important
   
 .wpgmp_tabs_container
-  width 250px!important
+  width 200px!important
   right 10px
   bottom 70px
   top auto!important
   box-shadow 0px 0px 3px 1px rgba(0,0,0,0.3)!important
   *
-    font-size 16px!important  
+    font-size 13px!important  
 
 @media only screen and (max-width:breakpoint4)
   .wpgmp_tabs_container
@@ -1385,6 +1662,8 @@ h4
 &.wpgmp_tab_item
   background white!important
   text-indent 5px!important
+  padding 0px!important
+  margin 0px!important
   
 .wpgmp_toggle_container
   bottom -50px!important
@@ -1474,6 +1753,7 @@ footer
   width 100%
   height 100%
   padding 50px 50px 75px
+  margin-top 35px
   bodytext(16px,26px)
   h4
     margin-bottom 15px
@@ -1524,7 +1804,6 @@ footer
         img
           width 200px
           
-
 .wpgmza_table_marker
   display none 
 
@@ -1536,3 +1815,314 @@ footer
   
 .size-full 
   text-align center
+
+#mailchimp-form-wrapper
+  width 100%
+.mailchimp-form
+  text-align center  
+  h3
+    titletext(60px,65px)
+    padding-bottom 25px
+.mc-newsletter-application
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  margin 35px 0px 0px
+  width 100%
+@media only screen and (max-width:breakpoint3)
+  .mailchimp-form
+    h3
+      titletext(45px,45px)
+      padding-bottom 0px
+    p 
+      padding 0px
+      
+#mc-newsletter-homepage
+  display flex
+  justify-content center
+  margin-top 0px
+  flex-direction row
+  #mc-embedded-subscribe
+    margin 0px
+    height 40px
+    width 110px
+    cursor pointer
+    bodytext(16px)
+    text-decoration none
+    border-radius 5px
+    transition all 0.3s
+    border 2px solid blue
+    cursor pointer
+    resetappearance()  
+  .mc-field
+    background-color white
+    width 300px
+    height 40px
+    margin 0px 15px 0px 0px
+    bodytext(16px)
+  .mc-field-group
+    margin-top 0px
+
+@media only screen and (max-width:breakpoint3)
+  #mc-newsletter-homepage
+    flex-direction row
+    #mc-embedded-subscribe
+      bodytext(14px)
+      width 100px
+    .mc-field
+      bodytext(14px)
+      width 100%
+
+.mc-field-group
+  margin-top 20px
+  display flex
+  align-items center
+  flex-direction column
+  justify-content center
+  tagtext(,,,uppercase)
+  width 100%
+  
+.mc-field
+  bodytext(19px)!important
+  border-radius 5px
+  height 40px
+  background-color lightgrey
+  padding-left 10px
+  border 0
+  flex 1
+  margin 15px 40px
+  width 100%
+@media only screen and (max-width:breakpoint3)
+  .mc-field
+    width 100%
+    margin 20px 0px
+    
+#mc-embedded-subscribe
+  font-family HK Grotesk!important
+  justify-content center
+  border 0px
+  align-items center 
+  background-color blue!important
+  height 40px
+  width 120px
+  color white
+  border-radius 5px      
+  resetappearance()
+  margin-top 25px
+  bodytext(15px)  
+  cursor pointer
+  transition all 0.3s
+  border 2px solid blue  
+  &:hover
+    background-color white!important
+    transform translateY(-3px)
+    color blue
+.mce_inline_error
+  color red
+  bodytext(13px)
+  margin-bottom 10px
+.response
+  min-width 400px
+  margin 20px 0px
+  
+.blog-post-tile
+  width 45%
+  position relative
+  margin 20px 
+  overflow auto
+  text-align center
+  position relative
+  margin-bottom 30px
+  transition all 0.3s
+  .blog-post-title
+    bodytext(30px,30px,bold)
+    margin 0px auto 20px
+    text-align center  
+  &:first-of-type
+    width 100%
+    &:hover
+      background-color transparent
+    .blog-post-information
+      background-color blue10
+      color black
+      padding 30px 60px
+      &:hover
+        background-color blue  
+        color blue10
+    .blog-post-title
+      titletext(60px,60px)
+      margin 20px 
+    &:after
+      content none
+    .blog-post-thumbnail
+      height 500px  
+  &:hover
+    transform translateY(-5px)
+    background-color blue10
+    .blog-post-information
+      background-color blue10
+      color blue
+  &:after
+    content ''
+    position absolute
+    height 10px
+    bottom 0px
+    left 0px
+    right 0px
+    width 100%
+    background-color blue      
+  a
+    text-decoration none  
+  
+@media only screen and (max-width:breakpoint3)
+  .blog-post-tile
+    width 100%
+    margin 0px 0px 40px 0px
+    .blog-post-title
+      bodytext(25px,25px,bold)
+    &:first-of-type
+      margin 0px 0px 20px 0px
+      .blog-post-tile
+      .blog-post-thumbnail
+        height 200px
+      .blog-post-title
+        titletext(40px,40px)
+        margin 10px 0px 15px
+      .blog-post-information
+        padding 20px 20px 30px 20px
+        &:after
+          bottom 40px    
+          top 200px!important
+          height auto
+            
+.blog-post-information
+  width 90%
+  height 100%
+  margin -120px auto 20px
+  z-index 100
+  background-color white
+  color black
+  padding 20px 30px
+  transition all 0.3s  
+  a
+    color white
+    text-decoration none
+
+@media only screen and (max-width:breakpoint3)
+  .blog-post-information
+    padding 20px
+    height auto
+    margin -40px auto 20px
+        
+.blog-post-thumbnail
+  width 100%
+  height 350px
+  margin 0
+  position relative
+  background-color grey
+  cursor pointer
+  transition all 0.5s
+  background-size cover
+  background-repeat no-repeat
+  background-position top center
+  transition background-color 0.5s   
+  z-index -1
+@media only screen and (max-width:breakpoint3)
+  .blog-post-thumbnail
+    height 200px
+    
+  .blog-post-excerpt
+    bodytext(14px,21px)
+    
+.blog-post-author
+  tagtext(12px,bold,,uppercase)
+  margin-top 20px
+
+.blog-post-author
+  tagtext(11px,bold,,uppercase)
+  
+.blog-wrapper
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+  margin auto
+  max-width 1200px
+  padding 15px
+  margin 100px auto 50px  
+
+@media only screen and (max-width:breakpoint3)
+  .blog-wrapper
+    margin 80px auto 50px
+
+#single-post-wrapper
+  max-width 800px
+  background-color white
+  display block
+  margin -80px auto 20px
+  padding 40px
+  z-index 100
+     
+@media only screen and (max-width:breakpoint3)
+  #single-post-wrapper
+    padding 30px 15px
+    
+.single-post-header
+  position relative
+  height 70vh
+  overflow hidden
+  display flex
+  margin-top 60px
+  background-size cover
+  background-position top center  
+  background-repeat no-repeat
+  z-index -1
+  img
+    width 100%
+    height 100%  
+@media only screen and (max-width:breakpoint3)
+  .single-post-header
+    margin-top 0px  
+    
+.single-post-title
+  bodytext(50px,50px,bold)
+  margin-bottom 20px
+  text-align center
+@media only screen and (max-width:breakpoint3)
+  .single-post-title
+    text-align left
+    bodytext(40px,40px,bold)
+      
+.single-post-author
+  tagtext(12px,bold,,uppercase)
+  margin-bottom 30px
+  text-align center
+@media only screen and (max-width:breakpoint3)
+  .single-post-author
+    text-align left
+      
+.single-post-content
+  p
+    margin-top 15px
+    &:first-of-type
+      margin-top 5px
+  h2
+    margin-top 30px
+    margin-bottom -10px
+    bodytext(26px,,bold)
+  h3
+    margin-top 25px
+    margin-bottom -10px
+    bodytext(,,bold)
+    text-transform none
+  img
+    margin-top 20px
+  
+blockquote
+  titletext(27px,32px)
+  margin 25px  
+
+@media only screen and (max-width:breakpoint3)
+  .single-post-content
+    p
+      margin-top 15px

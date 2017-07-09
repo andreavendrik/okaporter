@@ -176,3 +176,113 @@ class WPEX_Starter_Theme_Setup {
 
 // Start the class and set as variable for child-theming
 $wpex_starter_theme_setup = new WPEX_Starter_Theme_Setup;
+
+//Randomize post order
+session_start();
+add_filter( 'posts_orderby', 'randomise_with_pagination' );
+function randomise_with_pagination( $orderby ) {
+	if( is_front_page() ) {
+	  	// Reset seed on load of initial archive page
+		if( ! get_query_var( 'paged' ) || get_query_var( 'paged' ) == 0 || get_query_var( 'paged' ) == 1 ) {
+			if( isset( $_SESSION['seed'] ) ) {
+				unset( $_SESSION['seed'] );
+			}
+		}
+	
+		// Get seed from session variable if it exists
+		$seed = false;
+		if( isset( $_SESSION['seed'] ) ) {
+			$seed = $_SESSION['seed'];
+		}
+	
+	    	// Set new seed if none exists
+	    	if ( ! $seed ) {
+	      		$seed = rand();
+	      		$_SESSION['seed'] = $seed;
+	    	}
+	
+	    	// Update ORDER BY clause to use seed
+	    	$orderby = 'RAND(' . $seed . ')';
+	}
+	return $orderby;
+}
+
+//allow anyone to see a draft
+function guest_enable_hidden_single_post($query){
+
+    if (is_user_logged_in()) return $query;
+     //user is not logged
+
+    if(!is_single()) return $query;
+    //this is a single post
+
+    if (!$query->is_main_query())return $query;
+	//this is the main query    
+
+    $query->set( 'post_status',array('publish','pending','draft'));
+    //allowed post statuses for guest
+
+    return $query;
+
+}
+
+function guest_reload_hidden_single_post($posts){
+    global $wp_query, $wpdb;
+
+    if (is_user_logged_in()) return $posts;
+    //user is not logged
+
+    if(!is_single()) return $posts;
+    //this is a single post
+
+    if (!$wp_query->is_main_query())return $posts;
+    //this is the main query
+
+    if($wp_query->post_count) return $posts;
+    //no posts were found
+
+    $posts = $wpdb->get_results($wp_query->request);
+
+    return $posts;
+}
+
+//make blog post excerpt shorter
+function excerpt($limit) {
+  $excerpt = explode(' ', get_the_excerpt(), $limit);
+  if (count($excerpt)>=$limit) {
+    array_pop($excerpt);
+    $excerpt = implode(" ",$excerpt).'...';
+  } else {
+    $excerpt = implode(" ",$excerpt);
+  }	
+  $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
+  return $excerpt;
+}
+ 
+function content($limit) {
+  $content = explode(' ', get_the_content(), $limit);
+  if (count($content)>=$limit) {
+    array_pop($content);
+    $content = implode(" ",$content).'...';
+  } else {
+    $content = implode(" ",$content);
+  }	
+  $content = preg_replace('/[.+]/','', $content);
+  $content = apply_filters('the_content', $content); 
+  $content = str_replace(']]>', ']]&gt;', $content);
+  return $content;
+}
+
+//exclude blog posts from homepage
+function exclude_category( $query ) {
+    if ( $query->is_home() && $query->is_main_query() ) {
+        $query->set( 'cat', '-62' );
+    }
+}
+add_action( 'pre_get_posts', 'exclude_category' );
+
+//allow guests to view single posts even if they have not post_status="publish"
+add_filter('pre_get_posts','guest_enable_hidden_single_post');
+
+//reload hidden posts
+add_filter('the_posts','guest_reload_hidden_single_post');
