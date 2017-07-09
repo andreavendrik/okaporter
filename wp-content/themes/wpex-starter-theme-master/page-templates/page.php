@@ -15,7 +15,7 @@ $content = $post->post_content;?>
 
 <section class="page-wrapper">
 
-	<div class="page-content">
+	<div class="page-content" id="page-introduction">
 		<div class="header-tagline">
 			<h2>Our mission</h2>
 		</div>
