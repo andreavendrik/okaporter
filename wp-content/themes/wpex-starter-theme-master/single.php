@@ -56,7 +56,6 @@
 
 						<div class="brand-button-wrapper">
 							<a
-								class="brand-button" 
 								id="button-webshop" 
 								href="<?php the_field ('webshop_url') ?>" 
 								target="_blank"
@@ -123,7 +122,7 @@
 							</div>
 						</div>
 					<?php endif; ?>
-
+<!-- 
 					<?php if( get_field('produced_in_eu') ): ?>
 							<div class="brand-content-labels">
 								<div class="labels-image" id="label-eu">		
@@ -135,7 +134,7 @@
 							</div>
 						</div>
 					<?php endif; ?>
-
+ -->
 			</article>
 
 		<!-- optional collection images -->

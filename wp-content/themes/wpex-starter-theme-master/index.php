@@ -49,12 +49,13 @@
 
 	<div class="filter">
 		<button class="filter-button-desktop">Filter brands</button>
-		<div class="filter-labels">
-			<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id" post_types="post" id="16"]' ); ?>
-		</div>
 	</div>
 
 </section>
+
+		<div class="filter-labels">
+			<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id" post_types="post" id="16"]' ); ?>
+		</div>
 
 
 <!-- Wrapper around content of index -->
@@ -67,26 +68,33 @@
 
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
+			<div class="brand-tile" onclick="location.href='<?php the_permalink() ?>'">
 
-			<div class="brand-tile">
-
-				<a href="<?php the_permalink() ?>">
 					<!-- Brand thumbnail -->
 					<div class="brand-tile-thumbnail" onclick="location.href='<?php the_permalink() ?>'" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
-					<!-- Brand tag -->
+					</div>
+
+					<!-- Brand title -->
+					<header class="brand-tile-header">
+						<?php the_title( sprintf(
+						'<h2 class="brand-tile-title" data-small-font="%s"><a href="%s">', get_field('smaller_font'), esc_url( get_permalink() ) ),
+						'</a></h2>'
+					); ?>
+					<!-- Brand tag -->					
 						<div class="brand-tile-tag">
 							<?php the_tags( ''); ?>
 						</div>
 
 					<!-- Brand labels -->					
 						<div class="brand-thumbnail-labels-section">
+							<div>
 							<?php
 								$thumbnail_labels = get_field('thumbnail_labels');
 								if( $thumbnail_labels && in_array('green_production_label', $thumbnail_labels) ): ?>
 								
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable.svg">
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable-wit.svg" alt="green production">
 <!-- 										<p>Green Production</p>
  -->									</div>
 								</div>
@@ -96,7 +104,7 @@
 								if( $thumbnail_labels && in_array('fair_labour_label', $thumbnail_labels) ): ?>
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-fair.svg">
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-fair-wit.svg" alt="fair labour">
 <!-- 										<p>Fair labour</p>
  -->									</div>							
 								</div>
@@ -106,33 +114,21 @@
 								if( $thumbnail_labels && in_array('vegan_label', $thumbnail_labels) ): ?>
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">							
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-vegan.svg">
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-vegan-wit.svg" alt="vegan production">
 <!-- 										<p>Vegan production</p>
  -->									</div>							
 								</div> 
 							<?php endif; ?>
-							<?php
-								$thumbnail_labels = get_field('thumbnail_labels');
-								if( $thumbnail_labels && in_array('produced_in_eu_label', $thumbnail_labels) ): ?>
-								<div class="brand-thumbnail-label-wrapper">
-									<div class="brand-thumbnail-label">												
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-eu.svg">
-<!-- 										<p>Produced in EU</p>
- -->									</div>
-								</div>
-							<?php endif; ?>
-						</div>
-					</div>
+							</div>
 
-					<!-- Brand title -->
-					<header class="brand-tile-header">
-						<?php the_title( sprintf(
-						'<h2 class="brand-tile-title" data-small-font="%s"><a href="%s">', get_field('smaller_font'), esc_url( get_permalink() ) ),
-						'</a></h2>'
-					); ?>
+							<a
+								id="learn-more-button" 
+								href="<?php the_permalink() ?>">
+									View brand
+							</a>
+						</div>
 					</header>
-				</a>
-			</div>
+				</div>
 
 		<?php endwhile; ?>
 
