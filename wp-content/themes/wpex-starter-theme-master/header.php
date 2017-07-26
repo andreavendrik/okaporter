@@ -91,10 +91,13 @@
 	var getWindowY = function() { return window.pageYOffset || document.documentElement.scrollTop }
 
 	jQuery(window).scroll(function() {
-		if(getWindowY() <= 785) {
+		if(getWindowY() <= 641) {
 			jQuery(".filter-wrapper").removeClass('filter-wrapper-active');
+			jQuery(".index-cta").removeClass('index-cta-active');
 		} else {
 			jQuery(".filter-wrapper").addClass('filter-wrapper-active');
+			jQuery(".index-cta").addClass('index-cta-active');
+
 		}
 	})
 

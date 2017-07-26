@@ -39,18 +39,43 @@
 	</div>
 </section>
 
-<div class="brands-header">
+<!-- <div class="brands-header">
 	Meet our <br>frank brands
 </div>
-
+ -->
 <!-- Filter brands functionality -->
 
 <section class="filter-wrapper">
 
-	<div class="filter">
-		<button class="filter-button-desktop">Filter brands</button>
+		<div class="filter-bar">
+			<h3>Frank brands</h3>
+			<div class="filter-button-desktop">
+				<p>Filter</p>
+				</div>
+		</div>
 		<div class="filter-labels">
-			<?php echo do_shortcode( '[searchandfilter taxonomies="category" types="checkbox" submit_label="Apply" order_by="id" post_types="post" id="16"]' ); ?>
+			<div class="searchandfilter">
+				<h3>Committed to</h3>
+				<?php
+					$categories = get_categories('exclude=49,4');
+					//print_r($categories);
+				?>
+				<ul>
+					<?php foreach($categories as $category): ?>
+					<li class="cat-item cat-item-<?php echo $category->slug; ?>">
+						<label>
+							<input
+								class="filter-checkbox"
+								type="checkbox"
+								onchange="_handleFilterChange()"
+								value="<?php echo $category->term_id; ?>"
+							>
+							<?php echo $category->name; ?>
+						</label>
+					</li>
+					<?php endforeach; ?>
+				</ul>	
+			</div>
 		</div>
 	</div>
 
@@ -66,27 +91,54 @@
 	<!-- Brands tiles -->
 
 	<?php if ( have_posts() ) : ?>
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php
+			while ( have_posts() ) : the_post();
+			$thumbnail_labels = get_field('thumbnail_labels');
+			
+			$does_green_production = $thumbnail_labels && in_array('green_production_label', $thumbnail_labels);
+			$does_fair_labour = $thumbnail_labels && in_array('fair_labour_label', $thumbnail_labels);
+			$does_vegan = $thumbnail_labels && in_array('vegan_label', $thumbnail_labels);
 
-			<div class="brand-tile">
+			$data = "\"data-15=" . ((bool) $does_green_production) . "\"";
+			$data .= " \"data-16=" . ((bool) $does_fair_labour) . "\"";
+			$data .= " \"data-17=" . ((bool) $does_vegan) . "\"";
+		?>
+
+			<div
+				class="brand-tile"
+				data-4="<?php echo $does_produced_in_eu; ?>"
+				data-15="<?php echo $does_green_production; ?>"
+				data-16="<?php echo $does_fair_labour; ?>"
+				data-17="<?php echo $does_vegan; ?>"
+			>
 
 				<a href="<?php the_permalink() ?>">
 					<!-- Brand thumbnail -->
+						<!-- Brand thumbnail -->
 					<div class="brand-tile-thumbnail" onclick="location.href='<?php the_permalink() ?>'" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
-					<!-- Brand tag -->
+					</div>
+
+					<!-- Brand title -->
+					<header class="brand-tile-header">
+						<?php the_title( sprintf(
+						'<h2 class="brand-tile-title" data-small-font="%s"><a href="%s">', get_field('smaller_font'), esc_url( get_permalink() ) ),
+						'</a></h2>'
+					); ?>
+					<!-- Brand tag -->					
 						<div class="brand-tile-tag">
 							<?php the_tags( ''); ?>
 						</div>
 
 					<!-- Brand labels -->					
 						<div class="brand-thumbnail-labels-section">
+							<div>
 							<?php
 								$thumbnail_labels = get_field('thumbnail_labels');
 								if( $thumbnail_labels && in_array('green_production_label', $thumbnail_labels) ): ?>
 								
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable.svg">
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-green.svg" alt="green production">
 <!-- 										<p>Green Production</p>
  -->									</div>
 								</div>
@@ -96,7 +148,7 @@
 								if( $thumbnail_labels && in_array('fair_labour_label', $thumbnail_labels) ): ?>
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-fair.svg">
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-fair.svg" alt="fair labour">
 <!-- 										<p>Fair labour</p>
  -->									</div>							
 								</div>
@@ -106,33 +158,21 @@
 								if( $thumbnail_labels && in_array('vegan_label', $thumbnail_labels) ): ?>
 								<div class="brand-thumbnail-label-wrapper">
 									<div class="brand-thumbnail-label">							
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-vegan.svg">
+										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-vegan.svg" alt="vegan production">
 <!-- 										<p>Vegan production</p>
  -->									</div>							
 								</div> 
 							<?php endif; ?>
-							<?php
-								$thumbnail_labels = get_field('thumbnail_labels');
-								if( $thumbnail_labels && in_array('produced_in_eu_label', $thumbnail_labels) ): ?>
-								<div class="brand-thumbnail-label-wrapper">
-									<div class="brand-thumbnail-label">												
-										<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icoon-eu.svg">
-<!-- 										<p>Produced in EU</p>
- -->									</div>
-								</div>
-							<?php endif; ?>
-						</div>
-					</div>
+							</div>
 
-					<!-- Brand title -->
-					<header class="brand-tile-header">
-						<?php the_title( sprintf(
-						'<h2 class="brand-tile-title" data-small-font="%s"><a href="%s">', get_field('smaller_font'), esc_url( get_permalink() ) ),
-						'</a></h2>'
-					); ?>
+							<a
+								id="learn-more-button" 
+								href="<?php the_permalink() ?>">
+									View brand
+							</a>
+						</div>
 					</header>
-				</a>
-			</div>
+				</div>
 
 		<?php endwhile; ?>
 
@@ -182,10 +222,28 @@
 <?php get_footer(); ?>
 
 
- <script type="text/javascript">
+<script type="text/javascript">
 		$("#frank-brands-link").click(function() {
 		$('html, body').animate({
 			scrollTop: $("#frank-brands").offset().top - 150
 		},1000);
 		});
+
+		function _handleFilterChange() {
+			var filterCheckboxes = $('.filter-checkbox');
+			var selectedFilters = [];
+			filterCheckboxes.each(function(i, item) {
+				if(item.checked === true) {
+					selectedFilters.push(item.value);
+				}
+			})
+			var dataSelectorValues = selectedFilters.map(function(value) {
+				return '[data-' + value + '="1"]';
+			})
+			var dataSelector = dataSelectorValues.join("");
+			
+			$('.brand-tile').hide();
+			$('.brand-tile' + dataSelector).show();
+			console.info('.brand-tile' + dataSelector);
+		}
 </script>

@@ -9,6 +9,7 @@ middleblue = #B6C6FF
 lightblue = #00E1FF
 blue50 = #00E2FF
 blue25 = #99F3FF
+blue15 = #D5FAFF
 blue10 = #EDFDFF
 pink = #FFB6C9
 lightpink = #FFDCE7
@@ -71,6 +72,18 @@ tagtext(font-size=13px,font-weight=bold,line-height=14px,text-transform=none)
   letter-spacing 0.5px
   font-weight font-weight
 
+button(background-color=blue,border=1px solid blue,color=blue)
+  tagtext()
+  border border
+  background-color background-color
+  border-radius 3px
+  height 40px
+  padding 10px
+  text-align center
+  color color
+  cursor pointer
+  position relative
+  
 resetappearance()
   -moz-appearance none
   -webkit-appearance none
@@ -274,7 +287,6 @@ ol
   svg
     top 5px!important
     opacity 0!important
-    //transform rotate(180deg)    
     polygon
       fill blue!important
   span
@@ -490,13 +502,16 @@ ol
     padding 40px 10px 20px
     
 .index-cta
-  margin 0px auto 0px
+  margin 0px auto 30px
   width 100%
   padding 20px 20px
   background-color green
   text-align center
   bodytext()
 
+.index-cta-active
+  margin-bottom 115px
+  
  @media only screen and (max-width:breakpoint4)
   .index-cta
     text-align center
@@ -782,7 +797,18 @@ ol
 @media only screen and (max-width:breakpoint4)
   .brand-button-wrapper
     display block
+
+#learn-more-button
+  button(transparent,1px solid black)
+  width 100px
+  height 40px
+  color black
+  &:hover
+    background-color blue
+    color white
+    border 1px solid blue
     
+          
 .brand-page-header
   margin 75px 0px 25px
 
@@ -796,10 +822,6 @@ ol
   display flex
   flex-wrap wrap
   justify-content space-between  
-
-// @media only screen and (max-width:breakpoint3)
-//   .brand-content
-//     //display block
 
 .brand-content-labels
   width calc(50% - 10px)
@@ -891,64 +913,10 @@ ol
 
 .cat-item
   display none
-  
+
 .filter-wrapper
-  width 100%
-  margin 0px auto -80px  
-  display block
-  z-index 1
-  background-color white  
-  .filter
-    height 80px
-    max-width 1200px
-    margin-left auto
-    margin-right auto
-    z-index 100
-    position relative
-    align-items center
-    justify-content space-between
-    padding 0px 20px
-    display flex
-  button
-    margin-right 50px
-    tagtext(,,,uppercase)
-    border 0px
-    height 50px
-    color black
-    border-radius 3px
-    background-color transparent
-    position relative
-    pointer-events none
-@media only screen and (max-width:breakpoint1)
-  .filter-wrapper
-    .filter
-      display block
-      text-align right
-      padding 0px
-    button
-      margin 15px 10px 0px 0px
-      tagtext(,,,uppercase)
-      cursor pointer
-      pointer-events auto
-      background-color blue
-      border 0px
-      height 50px
-      width 160px
-      padding 15px 20px
-      text-align left
-      color white
-      border-radius 3px
-      &:after
-        background-repeat no-repeat
-        width 14px
-        height 14px
-        position absolute
-        right 16px
-        top 18px
-        content ""
-        background-size cover 
-        background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-plus-white.svg", "utf8")        
-        transition all 0.5s
+  margin 0px auto 30px
+
 @media only screen and (max-width:breakpoint4)
   .filter-wrapper
     position fixed
@@ -956,194 +924,145 @@ ol
     left 0
     padding 0
     display inline-block
+    padding-bottom 10px
     background-color transparent
     border 0px    
+    margin auto
     button
       display none   
 
 .filter-wrapper-active
   position fixed
-  border-bottom 1px solid grey
-  background-color white
-  top 60px
+  background-color rgba(255,255,255,1)
+  width 100%
+  z-index 1000
+  top 61px
   left 0px
+  padding-bottom 10px
+  box-shadow 0px 0px 3px 1px rgba(0,0,0,0.3)
 @media only screen and (max-width:breakpoint4)
   .filter-wrapper-active
     background-color transparent
     border 0px
-
-.filter-button-desktop-active
+  
+.filter-bar
+  max-width 1200px
+  display flex
+  margin auto
+  justify-content space-between 
+  align-items center
+  padding 15px 10px 10px
+  h3
+    text-align center
+    bodytext(,,bold)
+    
+.filter-button-desktop
+  tagtext(16px,bold)
+  text-align left
+  content ''
+  cursor pointer
+  position relative
+  padding-right 40px
+  margin-right 10px
   &:after
-    transform rotate(45deg)          
+    background-repeat no-repeat
+    width 24px
+    height 24px
+    position absolute
+    top -3px
+    right 0px
+    content ""
+    background-size cover 
+    background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-filter-black.svg", "utf8")        
+    transition all 0.5s
+  &:hover
+    color blue
+    &:after
+      background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-filter-blue.svg", "utf8")        
+    
+.filter-button-desktop-active
+  background-color white!important
+  border 0!important
+  color blue!important
+  &:after
+    background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-filter-blue.svg", "utf8")!important        
 
 .filter-labels
   box-sizing border-box
-  display block
+  display none
+  background-color blue10
   tagtext(,bold,,capitalize) 
+  padding 20px 20px 20px
   z-index 1000
+  margin-bottom -10px
   ul
     display flex
-    align-items center
+    align-items baseline
+    justify-content flex-start
     flex-wrap wrap
-    li
-      ul
-        li
-          &:nth-of-type(1)
-            input[type=checkbox]
-              background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-eu-wit.svg", "utf8")
-          &:nth-of-type(2)
-            input[type=checkbox]
-              background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-sustainable-wit.svg", "utf8")              
-          &:nth-of-type(3)
-            input[type=checkbox]
-              background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-fair-wit.svg", "utf8")              
-          &:nth-of-type(4)
-            input[type=checkbox]
-              background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icoon-vegan-wit.svg", "utf8")              
-          &:nth-of-type(5)
-            display none
-  input
-    tagtext(,bold,,capitalize)  
-    height 45px
-    border 0px
-    color blue
-    text-align center     
-    cursor pointer 
   input[type=checkbox]
-    width 25px
-    height 25px
-    margin-right 10px
-    resetappearance()
-    //background-color rgba(0,0,0,0.2)
-    position relative
-    border-radius 2px
-    background-repeat no-repeat
-    //opacity 0.5
-    outline none
+    width 80px
+    height 80px
     background-color transparent
+    border 1px solid rgba(0,0,0,1)
+    background-size 70%
+    background-repeat no-repeat    
+    border-radius 50px
+    margin 10px 0px 20px 0px 
+    text-align center
+    cursor pointer 
+    background-position center center
+    &:hover
+      border 1px solid blue!important     
+    resetappearance()
+    position relative
+    outline none
     &:after
       position absolute
-      top 3px
-      left 3px
-      right 3px
-      bottom 3px
       content ''      
       background-image: none;      
-      background-size cover     
-  input[type=submit]
-    justify-content center
-    align-items center 
-    background-color blue
-    height 50px
-    width 125px
-    color white
-    border-radius 3px
-    resetappearance()
+      background-size contain     
   input[type=checkbox]:checked 
-    opacity 1
-    &:after
-      position absolute
-      opacity 1
-      top 3px
-      left 3px
-      right 3px
-      bottom 3px
-      content ''
-      background-repeat no-repeat
-      background-size cover
-      background-position center center         
+    border 1px solid blue
+    background-color white
   label
-    min-width 100px
     display flex
+    width 140px
+    text-align center
+    flex-direction column
     align-items center
-    justify-content space-between
-    border-radius 3px
-    padding 0px 15px
-    height 50px
+    padding 0px 15px 15px
     cursor pointer
-    margin 15px 0px
-    margin-right 10px
-    border 1px solid rgba(0,0,0,0.1)
-    //opacity 0.5
-    transition all 0.5s
     user-select none
-    &:hover
-      background-color blue10
-      border 1px solid blue25!important
-@media only screen and (max-width:breakpoint1)
-  .filter-labels    
-    background-color transparent
-    color blue
-    box-shadow 0px 3px 3px 0px rgba(0,0,0,0.2)
-    display none
-    ul
-      width 100%    
-      background-color white      
-      display inline-block   
-      &:first-of-type   
-        li
-          label
-            padding 30px 20px
-      li
-        display block
-        padding 0px
-        &:last-of-type
-          padding 20px
-        ul
-          li          
-            padding 0px   
-            &:last-of-type
-              padding 0px
-    label
-      margin 0px
-      height 60px      
-      justify-content flex-start
-      background-color white
-      border-bottom 1px solid rgba(0,0,0,0.1)        
-      border-radius 0px
-    input[type=submit]
-      width 100%
-      background-color blue
-      color white
-      height 60px
-      margin-top 0px
-      border 0
-    input[type=checkbox]
-      width 25px
-      height 25px
-      background-color 1px solid blue
-      padding 3px
-      border 0px
-      background-color white
-      &:after
-        top 2px
-        right 2px
-        left 2px
-        bottom 2px
-    input[type=checkbox]:checked
-      background-color green
+    tagtext(16px,bold,21px,normal)
+  h3
+    tagtext(12px,,,uppercase)
+    margin-bottom 30px
 
-.filter-labels-active
-  background-color blue25!important
-  border 1px solid blue25!important
-  opacity 1!important
+.cat-item-fair-labour label input[type=checkbox]
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-fair.svg", "utf8")
 
-@media only screen and (max-width:breakpoint1)
-  .filter-labels-active
-    border-bottom 1px solid rgba(0,0,0,0.1)!important    
+.cat-item-green-production label input[type=checkbox]
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-green.svg", "utf8")
+
+.cat-item-vegan-production label input[type=checkbox]
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-vegan.svg", "utf8")
 
 .searchandfilter
+  max-width 1200px
+  margin auto
+  padding 10px
   li
     padding-right 0px
     
 .content-wrapper
   display flex
   flex-wrap wrap
-  justify-content space-between
+  justify-content flex-start
   margin auto
   max-width 1200px
   padding 10px
-  margin 75px auto 50px
+  margin 25px auto 50px
 
 @media only screen and (max-width:breakpoint4)
   .content-wrapper
@@ -1177,65 +1096,39 @@ ol
   margin-top 100px
   
 .brand-tile
-  width calc(32.5%)
+  width calc(24%)
   position relative
-  margin 0px 0px 20px 0px
+  margin 0px 1% 20px 0px
   transition all 0.3s
   a
     color black
     text-decoration none    
   &:hover
     transform translateY(-3px)   
-    .brand-tile-title
-      background-color blue
-    .brand-tile-thumbnail
-      &:before
-        content ''
-        background-color white
-        position absolute
-        width 100%
-        height 100%
-        opacity 0.6
-        pointer-events none
-      &:after
-        content ''
-        background-color blue10
-        position absolute
-        width 100%
-        height 100%
-        opacity 0.5
-        mix-blend-mode color
-        pointer-events none        
-    .brand-thumbnail-labels-section
-      pointer-events none 
-      img
-        mix-blend-mode normal    
+    cursor pointer
+    .brand-tile-header
+      background-color blue25
 
 @media only screen and (max-width:breakpoint1)
   .brand-tile
+    width 32.5%
+    margin 0px 0.8% 30px 0px    
+
+@media only screen and (max-width:breakpoint2)
+  .brand-tile
     width 49%
-    margin 0px 0px 30px 0px    
+    margin 0px 1% 30px 0px    
 
 @media only screen and (max-width:breakpoint4)
   .brand-tile
     width 100%
-    margin 0px 0px 30px 0px
     &:hover
       transform none
-      .brand-tile-title
-        background-color none
-      .brand-tile-thumbnail
-        &:before
-          content none
-          opacity 1
-        &:after
-          content none
-          opacity 0
 
 .brand-application
   width 100%
   height 100%
-  min-height 480px
+  min-height 400px
   background-color blue
   text-align center
   cursor pointer
@@ -1270,7 +1163,7 @@ ol
 
 .brand-tile-thumbnail
   width 100%
-  height 400px
+  height 250px
   margin 0
   position relative
   overflow hidden
@@ -1284,79 +1177,66 @@ ol
 
 @media only screen and (max-width:breakpoint4)
   .brand-tile-thumbnail
-    height 50vh
-
+    height 200px
 
 .brand-tile-tag
   tagtext(12px,,,uppercase)
-  padding 10px
-  position absolute
-  left calc(50% - 150px)
-  text-align center
-  bottom 0px
+  position relative
+  text-align left
   width 100%
   width 300px
-  height 30px
   pointer-events none
   box-sizing border-box
-  &:after
-    content ''
-    display block
-    margin-top -20px
-    width 100%
-    height 30px
-    background-image: embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash_07.png");
-    background-repeat no-repeat
-    background-position center 
-    background-size contain
+  padding 5px 0px 0px
   a
     color black
     text-decoration none
     cursor auto
+@media only screen and (max-width:breakpoint4)
+  .brand-tile-tag
+    tagtext(11px,,,uppercase)
 
+.brand-tile-header
+  background-color blue15
+  padding 15px
+  
 .brand-tile-title
-  titletext(50px,50px)    
-  padding 16px 18px 25px
-  background-color blue25
+  titletext(40px,40px)    
   white-space nowrap
   text-overflow ellipsis
   overflow hidden
   transition all 0.5s
-  text-align center
-  height 80px 
+  text-align left
   a
     color black
     text-decoration none  
   &[data-small-font="1"]
-    font-size 40px
+    font-size 32px
 
 @media only screen and (max-width:breakpoint4)
   .brand-tile-title
-    titletext(40px,40px)
-    padding 17px 15px 20px
-    height 70px
+    titletext(35px,35px)        
     &[data-small-font="1"]
-      font-size 36px
+      font-size 26px
     
 .brand-thumbnail-labels-section
   display flex
   transition visibility 0s, opacity 1s
-  flex-direction column
-  position absolute
-  top 15px
-  right 15px
+  flex-direction row
+  justify-content space-between
+  position relative
   tagtext(11px,bold,24px,uppercase)
+  padding-top 30px
+  div
+    display flex
   img
     width 40px
     max-height 40px
     margin 0px 0px 10px
     padding 3px
-  hr
-    border-top: 1px solid blue;
-    width 100px
-    position relative
-    top 55px
-    left calc(50% - 50px)
+@media only screen and (max-width:breakpoint4)
+  .brand-thumbnail-labels-section
+    flex-direction column
 
 .brand-thumbnail-label-wrapper
   display flex
@@ -1368,8 +1248,15 @@ ol
       display none
 
 .brand-thumbnail-label
-  display flex  
-  align-items center  
+  background-color white
+  margin-right 10px
+  border-radius 50px
+  height 35px
+  width 35px
+  img
+    width 35px
+    height 35px
+    padding 3px
 
 .label_information_button
   input
@@ -1733,9 +1620,6 @@ ol
 
 @media only screen and (max-width:breakpoint4)
   .website-wrapper-active
-    //margin-left 70vw
-    //transform translateX(70vw)
-    //max-width 100%
     overflow hidden
 
 .mobile-menu-slideout-panel-active
@@ -1851,9 +1735,9 @@ footer
     cursor pointer
     bodytext(16px)
     text-decoration none
-    border-radius 5px
+    border-radius 3px
     transition all 0.3s
-    border 2px solid blue
+    border 1px solid blue
     cursor pointer
     resetappearance()  
   .mc-field
@@ -1916,8 +1800,7 @@ footer
   transition all 0.3s
   border 2px solid blue  
   &:hover
-    background-color white!important
-    transform translateY(-3px)
+    background-color blue15!important
     color blue
 .mce_inline_error
   color red
@@ -1999,7 +1882,7 @@ footer
             
 .blog-post-information
   width 90%
-  height 100%
+  height auto
   margin -120px auto 20px
   z-index 100
   background-color white
@@ -2071,6 +1954,63 @@ footer
 .single-post-header
   position relative
   height 70vh
+  overflow hidden
+  display flex
+  margin-top 60px
+  background-size cover
+  background-position top center  
+  background-repeat no-repeat
+  z-index -1
+  img
+    width 100%
+    height 100%  
+@media only screen and (max-width:breakpoint3)
+  .single-post-header
+    margin-top 0px  
+    
+.single-post-title
+  bodytext(50px,50px,bold)
+  margin-bottom 20px
+  text-align center
+@media only screen and (max-width:breakpoint3)
+  .single-post-title
+    text-align left
+    bodytext(40px,40px,bold)
+      
+.single-post-author
+  tagtext(12px,bold,,uppercase)
+  margin-bottom 30px
+  text-align center
+@media only screen and (max-width:breakpoint3)
+  .single-post-author
+    text-align left
+      
+.single-post-content
+  p
+    margin-top 15px
+    &:first-of-type
+      margin-top 5px
+  h2
+    margin-top 30px
+    margin-bottom -10px
+    bodytext(26px,,bold)
+  h3
+    margin-top 25px
+    margin-bottom -10px
+    bodytext(,,bold)
+    text-transform none
+  img
+    margin-top 20px
+  
+blockquote
+  titletext(27px,32px)
+  margin 25px  
+
+@media only screen and (max-width:breakpoint3)
+  .single-post-content
+    p
+      margin-top 15px
+      height 70vh
   overflow hidden
   display flex
   margin-top 60px
