@@ -690,8 +690,7 @@ ol
     margin-top 40px
 
 .brand-metadata-wrapper
-  &:last-of-type
-    margin-bottom 35px
+  margin-bottom 25px
   padding 0px 20px
   h4
     margin-bottom 10px
@@ -722,7 +721,9 @@ ol
   cursor pointer
   display flex
   justify-content space-between
-  tagtext(19px,normal)
+  tagtext(17px,normal)
+  border-radius 3px
+  margin-bottom 15px
   box-sizing border-box
   text-decoration none
   position relative
@@ -761,14 +762,17 @@ ol
       content ""
       background-size cover 
   &#button-map
-    background-color grey   
-    color black 
+    background-color transparent
+    border 1px solid blue
+    color blue
     &:hover
       transition 0.3s
       background-color blue50
       color black
+      &:after
+        background-image url("../../../wp-content/themes/wpex-starter-theme-master/images/icon-arrow-black.png")
     &:after
-      background-image url("../../../wp-content/themes/wpex-starter-theme-master/images/icon-arrow-black.png")
+      background-image url("../../../wp-content/themes/wpex-starter-theme-master/images/icon-arrow-white.png")
 
 
 @media only screen and (max-width:breakpoint2)
@@ -789,6 +793,8 @@ ol
     
 .brand-button-wrapper
   margin-top 40px
+  width 90%
+  margin auto
 
 @media only screen and (max-width:breakpoint2)
   .brand-button-wrapper
@@ -999,46 +1005,68 @@ ol
     display flex
     align-items baseline
     justify-content flex-start
-    flex-wrap wrap
+    flex-wrap wrap 
   input[type=checkbox]
-    width 80px
-    height 80px
-    background-color transparent
-    border 1px solid rgba(0,0,0,1)
-    background-size 70%
-    background-repeat no-repeat    
-    border-radius 50px
-    margin 10px 0px 20px 0px 
-    text-align center
+    width 30px
+    height 30px
+    margin-right 10px
     cursor pointer 
-    background-position center center
-    &:hover
-      border 1px solid blue!important     
+    text-align center
     resetappearance()
+    //background-color rgba(0,0,0,0.2)
     position relative
+    border-radius 2px
+    background-repeat no-repeat
+    //opacity 0.5
     outline none
+    background-color transparent
     &:after
       position absolute
+      top 0px
+      left 0px
+      right 0px
+      bottom 0px
       content ''      
       background-image: none;      
-      background-size contain     
+      background-size cover     
   input[type=checkbox]:checked 
-    border 1px solid blue
-    background-color white
+    opacity 1
+    &:after
+      position absolute
+      opacity 1
+      top 3px
+      left 3px
+      right 3px
+      bottom 3px
+      content ''
+      background-repeat no-repeat
+      background-size cover
+      background-position center center         
   label
+    min-width 100px
     display flex
-    width 140px
-    text-align center
-    flex-direction column
     align-items center
-    padding 0px 15px 15px
+    justify-content space-between
+    border-radius 3px
+    padding 0px 10px
+    height 40px
     cursor pointer
+    margin-right 10px
+    border 1px solid rgba(0,0,0,1)
+    //opacity 0.5
+    transition all 0.3s
     user-select none
-    tagtext(16px,bold,21px,normal)
+    tagtext(13px,,,normal)
+    &:hover
+      background-color blue25!important
   h3
     tagtext(12px,,,uppercase)
-    margin-bottom 30px
+    margin-bottom 20px
 
+.filter-labels-active
+  background-color blue25!important
+  border 1px solid blue25!important
+  
 .cat-item-fair-labour label input[type=checkbox]
   background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-fair.svg", "utf8")
 
@@ -1143,15 +1171,15 @@ ol
       border 3px solid white
       mix-blend-mode normal
   p
-    padding-top 150px
-    bodytext(24px,,bold)
+    padding-top 120px
+    bodytext(21px,,normal)
     color white
   img
     transition all 0.5s
     margin-top 50px
-    width 40px
-    height 40px
-    border 3px solid white
+    width 30px
+    height 30px
+    border 2px solid white
     padding 18px
     box-sizing content-box
     border-radius 100px
