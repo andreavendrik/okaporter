@@ -57,24 +57,51 @@
 			<div class="searchandfilter">
 				<h3>Committed to</h3>
 				<?php
-					$categories = get_categories('exclude=49,4');
+					$categories = get_categories([
+						'include' => '15, 16, 17'
+					]);
 					//print_r($categories);
 				?>
 				<ul>
 					<?php foreach($categories as $category): ?>
 					<li class="cat-item cat-item-<?php echo $category->slug; ?>">
 						<label>
+							<span></span>
 							<input
 								class="filter-checkbox"
 								type="checkbox"
 								onchange="_handleFilterChange()"
-								value="<?php echo $category->term_id; ?>"
+								value="<?php echo $category->slug; ?>"
 							>
 							<?php echo $category->name; ?>
 						</label>
 					</li>
 					<?php endforeach; ?>
 				</ul>	
+
+				<h3 id="filter-labels-products">Products</h3>
+				<?php
+					$categories = get_categories([
+						'include' => '54'
+					]);
+					//print_r($categories);
+				?>
+				<ul>
+					<?php foreach($categories as $category): ?>
+					<li class="cat-item cat-item-<?php echo $category->slug; ?>">
+						<label>
+							<span></span>
+							<input
+								class="filter-checkbox"
+								type="checkbox"
+								onchange="_handleFilterChange()"
+								value="<?php echo $category->slug; ?>"
+							>
+							<?php echo $category->name; ?>
+						</label>
+					</li>
+					<?php endforeach; ?>
+				</ul>					
 			</div>
 		</div>
 	</div>
@@ -98,18 +125,15 @@
 			$does_green_production = $thumbnail_labels && in_array('green_production_label', $thumbnail_labels);
 			$does_fair_labour = $thumbnail_labels && in_array('fair_labour_label', $thumbnail_labels);
 			$does_vegan = $thumbnail_labels && in_array('vegan_label', $thumbnail_labels);
-
-			$data = "\"data-15=" . ((bool) $does_green_production) . "\"";
-			$data .= " \"data-16=" . ((bool) $does_fair_labour) . "\"";
-			$data .= " \"data-17=" . ((bool) $does_vegan) . "\"";
+			$does_accessories = $thumbnail_labels && in_array('accessories_label', $thumbnail_labels);
 		?>
 
 			<div
 				class="brand-tile"
-				data-4="<?php echo $does_produced_in_eu; ?>"
-				data-15="<?php echo $does_green_production; ?>"
-				data-16="<?php echo $does_fair_labour; ?>"
-				data-17="<?php echo $does_vegan; ?>"
+				data-green-production="<?php echo $does_green_production; ?>"
+				data-fair-labour="<?php echo $does_fair_labour; ?>"
+				data-vegan-production="<?php echo $does_vegan; ?>"
+				data-accessories="<?php echo $does_accessories; ?>"				
 			>
 
 				<a href="<?php the_permalink() ?>">
@@ -198,7 +222,7 @@
 	</div>
 
 </section>
-<section class="index-cta">
+<section class="index-cta" id="index-cta-bottom">
 	<b>Going frank</b> means recognising the impact of fast fashion on people and planet, and resolving to make better choices onwards.<br>
 	Go Frank today! Sign up to our newsletter for new brands, tips and more inspiration.
 
