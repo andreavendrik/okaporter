@@ -247,6 +247,8 @@ ol
     opacity 1
     transition all 0.5s
     transform-origin 50% 50%
+    polygon
+      fill black
   span
     position absolute
     border-radius 3px
@@ -282,7 +284,14 @@ ol
     #filter-button-mobile
       display flex
       visibility visible
-          
+      
+.filter-button-mobile-blue
+  svg
+    polygon
+      fill blue!important
+  span
+    background-color blue!important
+        
 .filter-button-mobile-active
   svg
     top 5px!important
@@ -513,11 +522,10 @@ ol
   background-color green
   text-align center
   bodytext()
-
-.index-cta-active
-  margin-bottom 115px
+  
 #index-cta-bottom
   margin-bottom 20px
+
   
  @media only screen and (max-width:breakpoint4)
   .index-cta
@@ -926,6 +934,9 @@ ol
   top 61px
   left 0px
   box-shadow 0px 2px 4px -2px rgba(0,0,0,0.3)
+
+.filter-wrapper-active-margin
+  margin-bottom 200px
   
 .filter-bar
   max-width 1200px
@@ -938,6 +949,9 @@ ol
     text-align center
     bodytext(,,bold)
 
+.filter-bar-active
+  margin-bottom 100px
+  
 @media only screen and (max-width:breakpoint4)
   .filter-bar
     display none
@@ -989,7 +1003,6 @@ ol
   input[type=checkbox]
     display none     
   label
-    min-width 100px
     display flex
     align-items center
     justify-content space-between
@@ -1055,9 +1068,22 @@ ol
 
 .cat-item-vegan-production label span
   background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-vegan.svg", "utf8")
+  
+.cat-item-womenswear label span
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-female.svg", "utf8")
+
+.cat-item-menswear label span
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-male.svg", "utf8")
+
+.cat-item-shoes label span
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-shoes.svg", "utf8")
+
+.cat-item-bags label span
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-bag.svg", "utf8")
 
 .cat-item-accessories label span
   background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/icon-accessories.svg", "utf8")
+
 
 .searchandfilter
   max-width 1200px

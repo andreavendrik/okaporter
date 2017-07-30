@@ -39,10 +39,6 @@
 	</div>
 </section>
 
-<!-- <div class="brands-header">
-	Meet our <br>frank brands
-</div>
- -->
 <!-- Filter brands functionality -->
 
 <section class="filter-wrapper">
@@ -82,7 +78,7 @@
 				<h3 id="filter-labels-products">Products</h3>
 				<?php
 					$categories = get_categories([
-						'include' => '54'
+						'include' => '77,78,79,80,81'
 					]);
 					//print_r($categories);
 				?>
@@ -111,7 +107,6 @@
 
 <!-- Wrapper around content of index -->
 
-
 <section class="content-wrapper" id="frank-brands">
 
 
@@ -125,7 +120,11 @@
 			$does_green_production = $thumbnail_labels && in_array('green_production_label', $thumbnail_labels);
 			$does_fair_labour = $thumbnail_labels && in_array('fair_labour_label', $thumbnail_labels);
 			$does_vegan = $thumbnail_labels && in_array('vegan_label', $thumbnail_labels);
-			$does_accessories = $thumbnail_labels && in_array('accessories_label', $thumbnail_labels);
+			$does_accessories = $thumbnail_labels && in_category('accessories');
+			$does_menswear = $thumbnail_labels && in_category('menswear');
+			$does_womenswear = $thumbnail_labels && in_category('womenswear');
+			$does_shoes = $thumbnail_labels && in_category('shoes');
+			$does_bags = $thumbnail_labels &&  in_category('bags');
 		?>
 
 			<div
@@ -133,12 +132,15 @@
 				data-green-production="<?php echo $does_green_production; ?>"
 				data-fair-labour="<?php echo $does_fair_labour; ?>"
 				data-vegan-production="<?php echo $does_vegan; ?>"
-				data-accessories="<?php echo $does_accessories; ?>"				
+				data-womenswear="<?php echo $does_womenswear; ?>"		
+				data-menswear="<?php echo $does_menswear; ?>"		
+				data-shoes="<?php echo $does_shoes; ?>"		
+				data-bags="<?php echo $does_bags; ?>"								
+				data-accessories="<?php echo $does_accessories; ?>"	
 			>
 
 				<a href="<?php the_permalink() ?>">
 					<!-- Brand thumbnail -->
-						<!-- Brand thumbnail -->
 					<div class="brand-tile-thumbnail" onclick="location.href='<?php the_permalink() ?>'" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
 					</div>
 

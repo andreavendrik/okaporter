@@ -4,6 +4,8 @@
 	<?php wp_head(); ?>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="mSrQvaYYGoByiWFyFp71K0bQriCJZx-MElnKPHlFBa8" />	
+	<meta name="google-site-verification" content="qBLVU7g9hf2w5xsmFxjgvQNcIwLKJb9Tw3onM_AZHlM" />	
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -63,7 +65,7 @@
 				</div>
 				<div id="filter-button-mobile">
 					<svg height="13" width="30">
-  						<polygon points="1,0 31,0 16,13" style="fill:black;" />
+  						<polygon points="1,0 31,0 16,13"/>
 					</svg>	
 					<span id="filter-line-1"></span>
 					<span id="filter-line-2"></span>
@@ -82,7 +84,6 @@
 	jQuery(document).ready(function(){
 		jQuery('.filter-button-desktop').on('click', function(event) {
 			jQuery('.filter-labels').slideToggle(200,'swing');		
-			jQuery('.filter-button-desktop').toggleClass('filter-button-desktop-active');  	
 		});    
 });
 
@@ -93,10 +94,11 @@
 	jQuery(window).scroll(function() {
 		if(getWindowY() <= 641) {
 			jQuery(".filter-wrapper").removeClass('filter-wrapper-active');
-			jQuery(".index-cta").removeClass('index-cta-active');
-		} else {
+			jQuery(".index-cta").removeClass('filter-bar-active');
+		} 
+		else {
 			jQuery(".filter-wrapper").addClass('filter-wrapper-active');
-			jQuery(".index-cta").addClass('index-cta-active');
+			jQuery(".index-cta").addClass('filter-bar-active');
 
 		}
 	})
@@ -105,7 +107,7 @@
 
 	jQuery(window).scroll(function() {     
 		var scroll = jQuery(window).scrollTop();
-		if (scroll > 60) {
+		if (scroll > 100) {
 			jQuery(".menu-wrapper").addClass("active");
 		}
 		else {
@@ -135,10 +137,15 @@
 
 		jQuery('.filter-labels input').on('change', function(event) {
 			if(this.checked) {
-				jQuery(this).parent().addClass('filter-labels-active');        			
+				jQuery(this).parent().addClass('filter-labels-active');  
+				jQuery('.filter-button-desktop').addClass('filter-button-desktop-active');  
+				jQuery('#filter-button-mobile').addClass('filter-button-mobile-blue');  					
 			}
 			else {
-				jQuery(this).parent().removeClass('filter-labels-active');        			
+				jQuery(this).parent().removeClass('filter-labels-active');       
+				jQuery('.filter-button-desktop').removeClass('filter-button-desktop-active');  	 	
+				jQuery('#filter-button-mobile').removeClass('filter-button-mobile-blue');  					
+
 			}
 		  });
 		});  
