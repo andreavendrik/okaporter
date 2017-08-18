@@ -18,9 +18,9 @@ global $post;
 
 
 			<!-- header image -->
-	<main class="page-wrapper">
+	<main class="page-wrapper wrapper">
 
-		<div class="page-content">
+		<div class="page-content" id="page-content-up">
 
 			<div class="header-tagline">
 				<h2><?php the_title(); ?></h2>

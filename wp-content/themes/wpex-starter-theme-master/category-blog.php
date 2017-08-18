@@ -25,7 +25,7 @@ global $post;
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<div class="blog-post-tile">
+			<div class="blog-post-tile wrapper">
 
 				<a href="<?php the_permalink() ?>">
 					<!-- Brand thumbnail -->
@@ -65,3 +65,6 @@ global $post;
 	</div>
 
 </section>
+
+
+<?php get_footer(); ?>

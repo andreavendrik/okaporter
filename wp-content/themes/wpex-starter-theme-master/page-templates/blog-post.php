@@ -10,7 +10,7 @@ global $post;
 
 <?php get_header(); ?>
 
-<section id="main-single" class="main">
+<section id="main-single" class="main wrapper">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -26,7 +26,7 @@ global $post;
 				</div>
 
 				<div class="single-post-author">
-					<?php the_field( 'reading-time' ); ?> • <?php $author = the_author(); ?>
+					<?php the_field( 'reading-time' ); ?> • <?php the_field( 'author' ); ?> • Image by <?php the_field( 'photographer' ); ?>
 				</div>				
 
 				<div class="single-post-content">

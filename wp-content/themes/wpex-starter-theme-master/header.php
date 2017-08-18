@@ -9,6 +9,7 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
 </head>
 
 
@@ -92,7 +93,7 @@
 	var getWindowY = function() { return window.pageYOffset || document.documentElement.scrollTop }
 
 	jQuery(window).scroll(function() {
-		if(getWindowY() <= 641) {
+		if(getWindowY() <= 712) {
 			jQuery(".filter-wrapper").removeClass('filter-wrapper-active');
 			jQuery(".index-cta").removeClass('filter-bar-active');
 		} 
@@ -161,6 +162,48 @@
 		  });
 		});  
 
+</script>
+
+<!-- hide menu when scrolling down, show when scrolling up -->
+
+<script>
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('header').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if ((st > lastScrollTop && st > navbarHeight) && ( $(".wrapper").css("max-width") >= "700px")) {
+        // Scroll Down
+        $('.menu-wrapper').addClass('menu-wrapper-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('.menu-wrapper').removeClass('menu-wrapper-up');
+        }
+    }
+    
+    lastScrollTop = st;
+}
 </script>
 
 <script>

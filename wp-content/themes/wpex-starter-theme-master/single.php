@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section id="main-single" class="main">
+<section id="main-single" class="main wrapper">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 

@@ -9,7 +9,7 @@ $content = $post->post_content;?>
 
 <?php get_header(); ?>
 
-<section class="page-wrapper" id="shops-page-wrapper">
+<section class="page-wrapper wrapper" id="shops-page-wrapper">
 		<div class="shops-page-about-text">
 			Find shops selling frank brands in your neighborhood.
 		</div>

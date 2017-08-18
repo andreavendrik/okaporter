@@ -4,10 +4,10 @@
 
 <section class="index-header" id="index-header-id">
 
-	<div class="index-header-swash">
+<!-- 	<div class="index-header-swash">
 		<img src="../../../wp-content/themes/wpex-starter-theme-master/images/index-swash-2.png">
 	</div>
-
+ -->
 	<div class="header-tagline" id="index-tagline">
 		<h2>Tired of fast fashion?<br>
 		Go Frank!</h2>
@@ -107,7 +107,7 @@
 
 <!-- Wrapper around content of index -->
 
-<section class="content-wrapper" id="frank-brands">
+<section class="content-wrapper wrapper" id="frank-brands">
 
 
 	<!-- Brands tiles -->

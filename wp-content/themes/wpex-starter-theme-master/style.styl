@@ -132,7 +132,7 @@ ol
   display flex
   width 100%
   list-style-type none
-@media only screen and (max-width:breakpoint4)
+@media only screen and (max-width:breakpoint3)
   .menu
     display block
     
@@ -160,11 +160,11 @@ ol
       height 20px
       width 70px
   
-@media only screen and (max-width:breakpoint4)
+@media only screen and (max-width:breakpoint3)
   .menu-items
     display none
 
-@media only screen and (max-width:breakpoint4)
+@media only screen and (max-width:breakpoint3)
   .menu-item
     margin 0px
     &:hover
@@ -179,6 +179,9 @@ ol
   z-index 99
   transition all 0.5s  
 
+.menu-wrapper-up
+  top -63px!important
+  
 .menu-wrapper-slideout
   margin-left 70vw
   position fixed
@@ -207,13 +210,13 @@ ol
       height 40px
       display none
       margin-top 10px
-@media only screen and (max-width:breakpoint4)
+@media only screen and (max-width:breakpoint3)
   .main-menu
     padding 10px  
 
-@media only screen and (max-width:breakpoint4)
-  .single .menu-wrapper
-    position relative
+// @media only screen and (max-width:breakpoint3)
+//   .menu-wrapper
+//     position relative
 
 .menu-wrapper.active
 &.single .menu-wrapper
@@ -229,9 +232,9 @@ ol
         display block
       &:hover
         color blue
-
+        
 .filter-button-active
-  background-color grey
+  background-color blue10
    
 #filter-button-mobile
   visibility hidden
@@ -278,13 +281,18 @@ ol
     opacity 1
     border-radius 0px!important
 
+@media only screen and (max-width:breakpoint3)
+  #filter-button-mobile
+    display flex
+    visibility hidden
+      
 @media only screen and (max-width:breakpoint4)
   .home
   &.category
     #filter-button-mobile
-      display flex
       visibility visible
       
+
 .filter-button-mobile-blue
   svg
     polygon
@@ -314,6 +322,7 @@ ol
 @media only screen and (max-width:breakpoint4)
   .single 
   &.page-template
+  &.category-blog
     #filter-button-mobile
       display flex
       visibility hidden
@@ -338,7 +347,7 @@ ol
   #menu-line-3
     top 16px
   
-@media only screen and (max-width:breakpoint4)
+@media only screen and (max-width:breakpoint3)
   #menu-toggle-button
     display block
     
@@ -361,12 +370,14 @@ ol
     height 35px
     margin-top 0px
 
-@media only screen and (max-width:breakpoint4)
+@media only screen and (max-width:breakpoint3)
   #menu-logo
     width 80% 
+    display flex
+    justify-content center
 
 .hide-menu-logo
-  display none
+  display none!important
   
 #menu-filter-heading
   display none
@@ -379,7 +390,7 @@ ol
   margin-left 30px
   position relative
   display flex
-@media only screen and (max-width:breakpoint4)
+@media only screen and (max-width:breakpoint3)
   .social-icons-desktop
     display none
   
@@ -436,9 +447,10 @@ ol
   width 100%
   display block
 
-@media only screen and (max-width:breakpoint4)
+@media only screen and (max-width:breakpoint3)
   .index-header
     padding 20px 20px 10px
+    background-image none
     
 .header-tagline
   position relative
@@ -446,45 +458,40 @@ ol
   text-align center
   width 100%  
   margin-top 20px
+  background-position center center
+  background-size contain  
+  background-color transparent    
+  background-repeat no-repeat
   h2
     titletext(65px,65px)
-@media only screen and (max-width:breakpoint4)
+@media only screen and (max-width:breakpoint3)
   .header-tagline
-    padding 0px 20px 0px
-    margin 60px auto 40px
-    height 80px
+    padding 1px 15px
+    margin 60px auto 0px
     background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/swash-09.png");
-    background-position center center
-    background-size contain
-    background-color transparent    
-    background-repeat no-repeat
     h2
       padding-top 20px
+      margin 0px auto 20px
       titletext(45px,45px)
+          
 
 #index-tagline
-  background-image none
+  background-image embedurl("../../../wp-content/themes/wpex-starter-theme-master/images/index-swash-2.png");
+  background-size contain
+  height 200px
+  display flex
+  justify-content center
+  align-items center
 
 @media only screen and (max-width:breakpoint4)
   #index-tagline
-    margin-bottom 0px    
+    margin 60px auto 0px  
     padding 0px
+    background-size contain
+    height auto
     h2
       titletext(33px,35px)
 
-.index-header-swash
-  position absolute
-  img
-    width 380px
-  left calc(50% - 200px)
-  margin-top -25px
-  z-index 1
-@media only screen and (max-width:breakpoint4)
-  .index-header-swash
-    margin-top 55px
-    img
-      width 50%
-    
 .index-header-text
   width 500px
   z-index 10
@@ -552,10 +559,11 @@ ol
   background-size cover
   background-repeat no-repeat  
   background-color blue
-@media only screen and (max-width:breakpoint4)
+@media only screen and (max-width:breakpoint3)
   .page-header
     height 0px
-    padding 40px
+    margin-top 0px
+    padding 0px
     background-color transparent
     
 .brands-header
@@ -642,12 +650,12 @@ ol
     width calc(100% + 35px)
     background-color blue25    
     h1
-      titletext(50px,50px)
+      titletext(45px,45px)
     
 .brand-wrapper
   margin auto
   max-width 1080px
-  padding 40px
+  padding 40px 40px 25px
   position relative
   margin-top -100px
   display block
@@ -678,7 +686,7 @@ ol
   .brand-information
     display block
     padding-top 0px
-    bodytext(17px,26px)
+    bodytext(16px,24px)
     
 .brand-introduction-text
   margin-right 75px
@@ -692,6 +700,10 @@ ol
   tagtext(,normal,,uppercase)
   display flex
   
+@media only screen and (max-width:breakpoint3)
+  .brand-photographer-credits
+    flex-direction column
+
 .brand-metadata
   background-color blue10
   flex 1
@@ -705,11 +717,11 @@ ol
   .brand-metadata
     flex none
     width 100%
-    margin-top 40px
+    margin-top 30px
 
 .brand-metadata-wrapper
   margin-bottom 25px
-  padding 0px 20px
+  padding 0px 15px
   h4
     margin-bottom 10px
 
@@ -724,11 +736,14 @@ ol
     display flex
     flex-direction column
     justify-content space-between
-    bodytext(17px,26px)
+    bodytext(16px,24px)
     h4
       tagtext(11px,,,uppercase)
       margin-bottom 5px
-    
+
+.metaslider
+  margin-top 25px!important
+   
 .brand-button
   width 100%
   height 60px
@@ -742,6 +757,7 @@ ol
   tagtext(17px,normal)
   border-radius 3px
   margin-bottom 15px
+  border 1px solid blue
   box-sizing border-box
   text-decoration none
   position relative
@@ -750,15 +766,21 @@ ol
     margin-left 5px
   a
     text-decoration none
+  &:hover
+    transition 0.3s
   &#button-webshop
     color white    
     &:hover
-      transition 0.3s
       background-color blue50
+      color blue
   &#button-map
     background-color transparent
     border 1px solid blue
     color blue
+    &:hover
+      background-color blue50
+      color blue    
+
 
 @media only screen and (max-width:breakpoint2)
   .brand-button
@@ -786,7 +808,7 @@ ol
     display flex
     justify-content space-between
     width auto
-    margin 20px
+    margin 10px 15px 10px
 
 @media only screen and (max-width:breakpoint4)
   .brand-button-wrapper
@@ -803,13 +825,13 @@ ol
     
           
 .brand-page-header
-  margin 75px 0px 25px
+  margin 75px 0px 0px
 
 @media only screen and (max-width:breakpoint3)
   .brand-page-header
     margin 45px 0px 25px
     h2
-      titletext(45px,50px)
+      titletext(35px,35px)
 
 .brand-content
   display flex
@@ -834,7 +856,7 @@ ol
     width 100%
     margin 0px 0px 25px
     padding 20px
-    bodytext(17px,24px)
+    bodytext(16px,24px)
     &:last-of-type
       margin 0px
 
@@ -871,13 +893,14 @@ ol
 @media only screen and (max-width:breakpoint3)
   .labels-text
     h3
-      bodytext(17px,26px,bold)
+      bodytext(16px,24px,bold)
       margin 25px 0px 5px
       
 .labels-image 
   text-align center
   height 80px
   margin 20px auto 40px
+  width 75%
   img
     width 100%
     height 100%
@@ -912,6 +935,9 @@ ol
   z-index 100
   padding-bottom 10px  
   width 100%
+  background-color rgba(255,255,255,1)
+  top 61px
+  left 0px
 
 @media only screen and (max-width:breakpoint4)
   .filter-wrapper
@@ -929,10 +955,6 @@ ol
 
 .filter-wrapper-active
   position fixed
-  background-color rgba(255,255,255,1)
-  width 100%
-  top 61px
-  left 0px
   box-shadow 0px 2px 4px -2px rgba(0,0,0,0.3)
 
 .filter-wrapper-active-margin
@@ -992,7 +1014,7 @@ ol
   display none
   background-color blue10
   tagtext(,bold,,capitalize) 
-  padding 20px 20px 20px
+  padding 5px 10px 20px
   z-index 1000
   margin-bottom -10px
   ul
@@ -1104,9 +1126,14 @@ ol
   flex-wrap wrap
   justify-content flex-start
   margin auto
+  width 100%
   max-width 1200px
   padding 15px
   margin 25px auto 50px
+
+@media only screen and (max-width:breakpoint3)
+  .content-wrapper
+    max-width breakpoint3
 
 @media only screen and (max-width:breakpoint4)
   .content-wrapper
@@ -1256,13 +1283,13 @@ ol
     color black
     text-decoration none  
   &[data-small-font="1"]
-    font-size 32px
+    font-size 28px
 
 @media only screen and (max-width:breakpoint4)
   .brand-tile-title
     titletext(35px,35px)        
     &[data-small-font="1"]
-      font-size 26px
+      font-size 30px
     
 .brand-thumbnail-labels-section
   display flex
@@ -1379,15 +1406,20 @@ ol
   img
     width 100%
     margin-top 20px
-#page-introduction
+#page-content-up
   margin -80px auto 0px
   
-@media only screen and (max-width:breakpoint4)
+@media only screen and (max-width:breakpoint3)
   .page-content
     padding 20px
     background-color transparent 
     #page-introduction
-      bodytext(21px,29px,bold)     
+      bodytext(21px,29px,bold)   
+    h2
+      titletext(35px,35px)
+      
+  #page-content-up
+    margin 0px auto 
     
 #about-us
   img
@@ -1496,10 +1528,11 @@ ol
 
 @media only screen and (max-width:breakpoint4)
   #brand-application-section
+    padding 15px
     h2
       bodytext(32px,35px,bold)
       margin-bottom 20px
-
+      
 #help-us-section
   border-radius 5px
   margin 25px auto 40px
@@ -1522,6 +1555,7 @@ ol
   #join-go-frank-header
     background-color transparent
     background-image none
+    padding 0px
 
 .join-go-frank-wrapper
   max-width 800px
@@ -1554,13 +1588,11 @@ ol
   pointer-events none
   p
    max-width 1080px 
-   padding 0px 40px 20px
+   padding 0px
    margin auto
 @media only screen and (max-width:breakpoint3)
   .brand-map
     max-height 90vh
-    p
-      padding 10px
     
 .shops-map
   width 100%
@@ -1877,7 +1909,7 @@ footer
         background-color blue  
         color blue10
     .blog-post-title
-      titletext(60px,60px)
+      titletext(50px,50px)
       margin 20px 
     &:after
       content none
@@ -1951,7 +1983,7 @@ footer
   transition all 0.5s
   background-size cover
   background-repeat no-repeat
-  background-position top center
+  background-position center center
   transition background-color 0.5s   
   z-index -1
 @media only screen and (max-width:breakpoint3)
@@ -1962,11 +1994,8 @@ footer
     bodytext(14px,21px)
     
 .blog-post-author
-  tagtext(12px,bold,,uppercase)
-  margin-top 20px
-
-.blog-post-author
   tagtext(11px,bold,,uppercase)
+  margin-top 20px
   
 .blog-wrapper
   display flex
@@ -2000,7 +2029,7 @@ footer
   display flex
   margin-top 60px
   background-size cover
-  background-position top center  
+  background-position center center  
   background-repeat no-repeat
   z-index -1
   img
@@ -2020,7 +2049,7 @@ footer
     bodytext(40px,40px,bold)
       
 .single-post-author
-  tagtext(12px,bold,,uppercase)
+  tagtext(12px,bold,17px,uppercase)
   margin-bottom 30px
   text-align center
 @media only screen and (max-width:breakpoint3)
@@ -2034,7 +2063,6 @@ footer
       margin-top 5px
   h2
     margin-top 30px
-    margin-bottom -10px
     bodytext(26px,,bold)
   h3
     margin-top 25px
@@ -2050,62 +2078,12 @@ blockquote
 
 @media only screen and (max-width:breakpoint3)
   .single-post-content
+    background-size cover
+    background-position center center  
+    background-repeat no-repeat
+    z-index -1
     p
       margin-top 15px
-      height 70vh
-  overflow hidden
-  display flex
-  margin-top 60px
-  background-size cover
-  background-position top center  
-  background-repeat no-repeat
-  z-index -1
-  img
-    width 100%
-    height 100%  
-@media only screen and (max-width:breakpoint3)
-  .single-post-header
-    margin-top 0px  
-    
-.single-post-title
-  bodytext(50px,50px,bold)
-  margin-bottom 20px
-  text-align center
-@media only screen and (max-width:breakpoint3)
-  .single-post-title
-    text-align left
-    bodytext(40px,40px,bold)
-      
-.single-post-author
-  tagtext(12px,bold,,uppercase)
-  margin-bottom 30px
-  text-align center
-@media only screen and (max-width:breakpoint3)
-  .single-post-author
-    text-align left
-      
-.single-post-content
-  p
-    margin-top 15px
-    &:first-of-type
-      margin-top 5px
-  h2
-    margin-top 30px
-    margin-bottom -10px
-    bodytext(26px,,bold)
-  h3
-    margin-top 25px
-    margin-bottom -10px
-    bodytext(,,bold)
-    text-transform none
-  img
-    margin-top 20px
-  
-blockquote
-  titletext(27px,32px)
-  margin 25px  
-
-@media only screen and (max-width:breakpoint3)
-  .single-post-content
-    p
-      margin-top 15px
+    img
+      width 100%
+      height 100%  
