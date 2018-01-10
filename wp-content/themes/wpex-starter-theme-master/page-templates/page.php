@@ -62,14 +62,14 @@ $content = $post->post_content;?>
 		<img src="../../../wp-content/themes/wpex-starter-theme-master/images/brands-header-swash.png">
 	</div>
 
-	<div class="page-content">
+<!-- 	<div class="page-content">
 		<div id="brand-application-section">
 			<h2>Your brand on this website?</h2>
 			<?php the_field ('your_brand_here') ?>
 			<?php wd_form_maker(10); ?>
 		</div>
 	</div>
-
+ -->
 	<div id="faq-section">
 		<div class="page-content">
 			<h2>Questions you might have</h2>

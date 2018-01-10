@@ -50,7 +50,7 @@ global $post;
 						</div>
 
 						<div class="blog-post-author">
-							<?php the_field( 'reading-time' ); ?> • <?php $author = the_author(); ?>
+							<?php the_field( 'reading-time' ); ?> • <?php the_field( 'author' ); ?>
 						</div>
 
 					</div>

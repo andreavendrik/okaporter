@@ -34,8 +34,8 @@
 		<div class="footer-content-section">
 			<h4>Get Frank</h4>
 			<p>
-				Got a sustainable fashion brand or project? We'd love to feature you. Simply fill in the <a href="<?php echo esc_url( home_url( '/about#brand-application-section' ) );?>" rel="about">form here</a>.  Did we mention it's free? 
-			</p>
+				Follow us on <a href="https://www.instagram.com/gofrankfashion" target="_blank">Instagram</a>, <a href="https://www.facebook.com/gofrankme" target="_blank">Facebook</a> or <a href="https://www.twitter.com/gofrankme" target="_blank">Twitter</a> for the latest news!
+			</p>	
 		</div>
 	</div>
 

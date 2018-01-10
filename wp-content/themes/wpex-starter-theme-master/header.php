@@ -26,8 +26,8 @@
 		) ); ?>
 		<div class="social-icons-mobile">
 			<a href="https://www.facebook.com/gofrankme" target="_blank"><div class="social-icon" id="facebook-icon-mobile"></div></a>
-			<a href="https://www.instagram.com/gofrankfashion" target="_blank"><div class="social-icon" id="twitter-icon-mobile"></div></a>
-			<a href="https://www.twitter.com/gofrankme" target="_blank"><div class="social-icon" id="instagram-icon-mobile"></div></a>
+			<a href="https://www.twitter.com/gofrankme" target="_blank"><div class="social-icon" id="twitter-icon-mobile"></div></a>
+			<a href="https://www.instagram.com/gofrankfashion" target="_blank"><div class="social-icon" id="instagram-icon-mobile"></div></a>
 		</div>
 	</section>
 

@@ -204,14 +204,14 @@
 
 		<!-- Tile calling out for other brands -->
 
-		<div class="brand-tile">
+<!-- 		<div class="brand-tile">
 			<a href="<?php echo esc_url( home_url( '/about#brand-application-section' ) );?>">
 				<div class="brand-application">
 					<p>Your brand here?</p>
 					<img src="<?php echo get_bloginfo('siteurl');?>/wp-content/themes/wpex-starter-theme-master/images/icon-plus-black.svg" border=0>
 				</div>
 			</a>
-		</div>
+		</div> -->
 
 	<?php else : ?>
 
